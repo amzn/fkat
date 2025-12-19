@@ -516,7 +516,7 @@ document.write(`
     <span class="k">def</span><span class="w"> </span><span class="nf">_reset_flops_count</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">flop_counts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Global&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tracked&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Untracked&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_batch_flop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_batch_flop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">flop_counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Global&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">get_tracked_operations_count</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
@@ -932,7 +932,7 @@ document.write(`
 
   <p class="copyright">
     
-      © Copyright 2025, SFAI Team.
+      © Copyright 2025, Amazon.com, Inc. or its affiliates. All Rights Reserved..
       <br/>
     
   </p>

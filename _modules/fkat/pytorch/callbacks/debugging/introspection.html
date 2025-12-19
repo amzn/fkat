@@ -800,7 +800,7 @@ document.write(`
             <span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>  <span class="c1"># type: ignore[union-attr]</span>
 
 <div class="viewcode-block" id="Introspection.setup"><a class="viewcode-back" href="../../../../../callbacks/debugging.html#fkat.pytorch.callbacks.debugging.Introspection.setup">[docs]</a>    <span class="nd">@override</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span> <span class="o">=</span> <span class="n">CallbackLogger</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stage</span> <span class="o">=</span> <span class="n">stage</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">env_vars</span><span class="p">:</span>
@@ -927,7 +927,7 @@ document.write(`
 
   <p class="copyright">
     
-      © Copyright 2025, SFAI Team.
+      © Copyright 2025, Amazon.com, Inc. or its affiliates. All Rights Reserved..
       <br/>
     
   </p>

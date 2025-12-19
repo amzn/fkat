@@ -390,17 +390,17 @@ document.write(`
         <span class="k">return</span> <span class="n">batch</span>
 
     <span class="nd">@override</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_and_idx</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a sample from the target :class:`Dataset` at the specified index.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            name_and_idx (Tuple[str, List[Any]]): Sample :class:`Dataset` and index.</span>
+<span class="sd">            idx (Tuple[str, Any]): Sample :class:`Dataset` and index.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Dict[str, Any]: A sample.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">name</span><span class="p">,</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">name_and_idx</span>
-        <span class="n">sample</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">datasets</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="n">idx</span><span class="p">]</span>
+        <span class="n">name</span><span class="p">,</span> <span class="n">idx_</span> <span class="o">=</span> <span class="n">idx</span>
+        <span class="n">sample</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">datasets</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="n">idx_</span><span class="p">]</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">sample</span><span class="p">)</span></div>
 </pre></div>
 
@@ -436,7 +436,7 @@ document.write(`
 
   <p class="copyright">
     
-      © Copyright 2025, SFAI Team.
+      © Copyright 2025, Amazon.com, Inc. or its affiliates. All Rights Reserved..
       <br/>
     
   </p>
