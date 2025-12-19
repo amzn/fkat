@@ -388,7 +388,7 @@ document.write(`
         <span class="k">return</span> <span class="n">group_id</span><span class="p">,</span> <span class="n">rank_in_group</span></div></div>
 
 
-<div class="viewcode-block" id="DpSyncMonitor"><a class="viewcode-back" href="../../../../../callbacks/monitoring.html#fkat.pytorch.callbacks.monitoring.dp.DpSyncMonitor">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">DpSyncMonitor</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">Callback</span><span class="p">):</span>
+<div class="viewcode-block" id="DpSyncMonitor"><a class="viewcode-back" href="../../../../../callbacks/dp.html#fkat.pytorch.callbacks.monitoring.dp.DpSyncMonitor">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">DpSyncMonitor</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">Callback</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Monitors time for each DP group to reach synchronization point.</span>
 <span class="sd">    Measures from batch start to before optimizer step to identify slow/fast groups.</span>
@@ -407,7 +407,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">batch_start_time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span><span class="p">:</span> <span class="n">LightningLogger</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="DpSyncMonitor.setup"><a class="viewcode-back" href="../../../../../callbacks/monitoring.html#fkat.pytorch.callbacks.monitoring.dp.DpSyncMonitor.setup">[docs]</a>    <span class="nd">@override</span>
+<div class="viewcode-block" id="DpSyncMonitor.setup"><a class="viewcode-back" href="../../../../../callbacks/dp.html#fkat.pytorch.callbacks.monitoring.dp.DpSyncMonitor.setup">[docs]</a>    <span class="nd">@override</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span>
@@ -417,7 +417,7 @@ document.write(`
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span> <span class="o">=</span> <span class="n">CallbackLogger</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="DpSyncMonitor.on_train_batch_start"><a class="viewcode-back" href="../../../../../callbacks/monitoring.html#fkat.pytorch.callbacks.monitoring.dp.DpSyncMonitor.on_train_batch_start">[docs]</a>    <span class="nd">@override</span>
+<div class="viewcode-block" id="DpSyncMonitor.on_train_batch_start"><a class="viewcode-back" href="../../../../../callbacks/dp.html#fkat.pytorch.callbacks.monitoring.dp.DpSyncMonitor.on_train_batch_start">[docs]</a>    <span class="nd">@override</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">on_train_batch_start</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span>
@@ -428,7 +428,7 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Start timing when batch processing begins.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">batch_start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="DpSyncMonitor.on_before_optimizer_step"><a class="viewcode-back" href="../../../../../callbacks/monitoring.html#fkat.pytorch.callbacks.monitoring.dp.DpSyncMonitor.on_before_optimizer_step">[docs]</a>    <span class="nd">@override</span>
+<div class="viewcode-block" id="DpSyncMonitor.on_before_optimizer_step"><a class="viewcode-back" href="../../../../../callbacks/dp.html#fkat.pytorch.callbacks.monitoring.dp.DpSyncMonitor.on_before_optimizer_step">[docs]</a>    <span class="nd">@override</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">on_before_optimizer_step</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span>
