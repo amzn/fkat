@@ -1,0 +1,699 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fkat.pytorch.schedule.base &#8212; FKAT 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/fkat/pytorch/schedule/base';</script>
+    <link rel="shortcut icon" href="../../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FKAT 0.1.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../development.html">Development</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../entrypoints.html">Entrypoints</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../actions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">actions</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../actions/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../actions/aws/batch.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">batch</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../actions/aws/ec2.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ec2</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../callbacks.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">callbacks</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../callbacks/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../callbacks/debugging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">debugging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../callbacks/gc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../callbacks/loggers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">loggers</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../callbacks/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../callbacks/monitoring.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">monitoring</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../callbacks/dp.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../callbacks/profiling.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">data</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../data/datasets.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">datasets</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../data/samplers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">samplers</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../data/samplers/strategies.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">strategies</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../data/shm.html">ShmDataLoader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../data/sharded.html">ShardedDataLoader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../schedule.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">schedule</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../schedule/base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../schedule/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../utils/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../utils/aws/imds.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imds</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../utils/boto3.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">boto3</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../utils/config.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">config</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../utils/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../utils/cuda/xid.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xid</span></code></a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../utils/cuda/preflight.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">preflight</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../utils/cuda/preflight/run.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">run</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../utils/cuda/preflight/health_check.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">health_check</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../utils/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../utils/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../utils/pandas.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../utils/pdb.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../utils/pool.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pool</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../utils/profiler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiler</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../utils/pyarrow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyarrow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../utils/rng.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rng</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../utils/shm.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shm</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for fkat.pytorch.schedule.base</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">operator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Sequence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">reduce</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Protocol</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing_extensions</span><span class="w"> </span><span class="kn">import</span> <span class="n">override</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">lightning</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">L</span>
+
+
+<div class="viewcode-block" id="Schedule"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.Schedule">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Schedule</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Protocol defining a generic PyTorch schedule</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Schedule.check"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.Schedule.check">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">step</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">Trainer</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Checks the schedule for the given moment.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            stage (str): current trainer stage. eg. train/test/validate/predict</span>
+<span class="sd">            batch_idx (Optional[int]): current batch_idx</span>
+<span class="sd">            step (Optional[int]): current step</span>
+<span class="sd">            trainer (Optional[Trainer]): lightning trainer of callback</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if schedule passed the check, False otherwise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="o">...</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__and__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">:</span> <span class="s2">&quot;Schedule&quot;</span><span class="p">,</span> <span class="n">second</span><span class="p">:</span> <span class="s2">&quot;Schedule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;CombinedSchedule&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_combine</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">and_</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__or__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">:</span> <span class="s2">&quot;Schedule&quot;</span><span class="p">,</span> <span class="n">second</span><span class="p">:</span> <span class="s2">&quot;Schedule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;CombinedSchedule&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_combine</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">or_</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__invert__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;Schedule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;InvertedSchedule&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">InvertedSchedule</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_combine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">bool</span><span class="p">],</span> <span class="nb">bool</span><span class="p">],</span> <span class="n">first</span><span class="p">:</span> <span class="s2">&quot;Schedule&quot;</span><span class="p">,</span> <span class="n">second</span><span class="p">:</span> <span class="s2">&quot;Schedule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;CombinedSchedule&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">CombinedSchedule</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="InvertedSchedule"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.InvertedSchedule">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">InvertedSchedule</span><span class="p">(</span><span class="n">Schedule</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Schedule</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">other</span> <span class="o">=</span> <span class="n">other</span>
+
+<div class="viewcode-block" id="InvertedSchedule.check"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.InvertedSchedule.check">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">step</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">Trainer</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">other</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">,</span> <span class="n">batch_idx</span><span class="o">=</span><span class="n">batch_idx</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">step</span><span class="p">,</span> <span class="n">trainer</span><span class="o">=</span><span class="n">trainer</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="CombinedSchedule"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.CombinedSchedule">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">CombinedSchedule</span><span class="p">(</span><span class="n">Schedule</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">bool</span><span class="p">],</span> <span class="nb">bool</span><span class="p">],</span> <span class="n">schedules</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Schedule</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fn</span> <span class="o">=</span> <span class="n">fn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">schedules</span> <span class="o">=</span> <span class="n">schedules</span>
+
+<div class="viewcode-block" id="CombinedSchedule.check"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.CombinedSchedule.check">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">step</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">Trainer</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">reduce</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fn</span><span class="p">,</span> <span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">,</span> <span class="n">batch_idx</span><span class="o">=</span><span class="n">batch_idx</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">step</span><span class="p">,</span> <span class="n">trainer</span><span class="o">=</span><span class="n">trainer</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">schedules</span><span class="p">)</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="GlobalRank"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.GlobalRank">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">GlobalRank</span><span class="p">(</span><span class="n">Schedule</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A schedule that only executes on specific global ranks in a distributed training setup.</span>
+
+<span class="sd">    This is useful for operations that should only be performed on certain ranks,</span>
+<span class="sd">    such as logging, checkpointing, or other operations that would be redundant</span>
+<span class="sd">    or conflicting if performed on all ranks.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        ranks (tuple[int, ...]): The global ranks on which this schedule should execute.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">ranks</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize a GlobalRank schedule.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            *ranks: Variable number of integer ranks. The schedule will only execute</span>
+<span class="sd">                   on these global ranks.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ranks</span> <span class="o">=</span> <span class="n">ranks</span>
+
+<div class="viewcode-block" id="GlobalRank.check"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.GlobalRank.check">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">step</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">Trainer</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if the current global rank is in the specified ranks.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            stage: Current trainer stage (ignored by this schedule).</span>
+<span class="sd">            batch_idx: Current batch index (ignored by this schedule).</span>
+<span class="sd">            step: Current step (ignored by this schedule).</span>
+<span class="sd">            trainer: Lightning trainer instance, used to get the global rank.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if the trainer&#39;s global rank is in the specified ranks, False otherwise.</span>
+<span class="sd">                 Always returns False if trainer is None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">trainer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="n">trainer</span><span class="o">.</span><span class="n">global_rank</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ranks</span></div></div>
+
+
+<div class="viewcode-block" id="LocalRank"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.LocalRank">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">LocalRank</span><span class="p">(</span><span class="n">Schedule</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A schedule that only executes on specific local ranks in a distributed training setup.</span>
+
+<span class="sd">    This is useful for node-specific operations that should only be performed on certain</span>
+<span class="sd">    ranks within each node, such as local logging or monitoring.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        ranks (tuple[int, ...]): The local ranks on which this schedule should execute.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">ranks</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize a LocalRank schedule.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            *ranks: Variable number of integer ranks. The schedule will only execute</span>
+<span class="sd">                   on these local ranks.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ranks</span> <span class="o">=</span> <span class="n">ranks</span>
+
+<div class="viewcode-block" id="LocalRank.check"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.LocalRank.check">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">step</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">Trainer</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if the current local rank is in the specified ranks.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            stage: Current trainer stage (ignored by this schedule).</span>
+<span class="sd">            batch_idx: Current batch index (ignored by this schedule).</span>
+<span class="sd">            step: Current step (ignored by this schedule).</span>
+<span class="sd">            trainer: Lightning trainer instance, used to get the local rank.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if the trainer&#39;s local rank is in the specified ranks, False otherwise.</span>
+<span class="sd">                 Always returns False if trainer is None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">trainer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="n">trainer</span><span class="o">.</span><span class="n">local_rank</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ranks</span></div></div>
+
+
+<div class="viewcode-block" id="Never"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.Never">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Never</span><span class="p">(</span><span class="n">Schedule</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A schedule for an event that never happens.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Never.check"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.Never.check">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">step</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">Trainer</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span></div></div>
+
+
+<div class="viewcode-block" id="Always"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.Always">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Always</span><span class="p">(</span><span class="n">Schedule</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A schedule for an event that always happens.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Always.check"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.Always.check">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">step</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">Trainer</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span></div></div>
+
+
+<div class="viewcode-block" id="Fixed"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.Fixed">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Fixed</span><span class="p">(</span><span class="n">Schedule</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A schedule for an event that happens after a warmup period</span>
+<span class="sd">    and lasts for a fixed number of steps.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        warmup_steps (int): Number of initial steps to skip before logging starts.</span>
+<span class="sd">        active_steps (int): Number of steps to log after warmup period.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">warmup_steps</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">active_steps</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_warmup_steps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">warmup_steps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_active_steps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">active_steps</span>
+
+<div class="viewcode-block" id="Fixed.check"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.Fixed.check">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">step</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">Trainer</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">step</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;step must be provided&quot;</span>
+        <span class="k">if</span> <span class="n">step</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_warmup_steps</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">step</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_warmup_steps</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_active_steps</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div></div>
+
+
+<div class="viewcode-block" id="Every"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.Every">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Every</span><span class="p">(</span><span class="n">Schedule</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A schedule for an event that happens every specified number of batches and/or steps.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        n_batches (Optional[int]): A positive number of batches between logging events.</span>
+<span class="sd">            Defaults to 0 - use only n_steps</span>
+<span class="sd">        n_steps (Optional[int]): A positive number of (train) steps between logging events.</span>
+<span class="sd">            Defaults to 0 - use only n_batches</span>
+<span class="sd">        stage (Optional[str]): The stage this schedule applies to (&#39;train&#39;, &#39;validation&#39;, &#39;test&#39;, &#39;predict&#39;).</span>
+<span class="sd">            If None, applies to all stages.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">n_batches</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">n_batches</span> <span class="ow">or</span> <span class="n">n_steps</span><span class="p">,</span> <span class="s2">&quot;either n_batches or n_steps has to be a positive number&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_batches</span> <span class="o">=</span> <span class="n">n_batches</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_steps</span> <span class="o">=</span> <span class="n">n_steps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stage</span> <span class="o">=</span> <span class="n">stage</span>
+
+<div class="viewcode-block" id="Every.check"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.Every.check">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">step</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">Trainer</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="c1"># If stage is specified and doesn&#39;t match, return False</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stage</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">stage</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stage</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">return</span> <span class="p">(</span><span class="n">batch_idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_batches</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">batch_idx</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_batches</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
+            <span class="n">step</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_steps</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">step</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_steps</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Elapsed"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.Elapsed">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Elapsed</span><span class="p">(</span><span class="n">Schedule</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A schedule for an event that happens after the provided time interval has elapsed.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interval</span><span class="p">:</span> <span class="n">dt</span><span class="o">.</span><span class="n">timedelta</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interval</span> <span class="o">=</span> <span class="n">interval</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_triggered</span><span class="p">:</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="Elapsed.check"><a class="viewcode-back" href="../../../../schedule/base.html#fkat.pytorch.schedule.Elapsed.check">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">step</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">Trainer</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_triggered</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">now</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_triggered</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interval</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">last_triggered</span> <span class="o">=</span> <span class="n">now</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, SFAI Team.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

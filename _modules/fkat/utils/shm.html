@@ -1,0 +1,575 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fkat.utils.shm &#8212; FKAT 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/fkat/utils/shm';</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FKAT 0.1.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development.html">Development</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../entrypoints.html">Entrypoints</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../actions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">actions</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../actions/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../actions/aws/batch.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">batch</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../actions/aws/ec2.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ec2</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../callbacks.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">callbacks</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../callbacks/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../callbacks/debugging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">debugging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../callbacks/gc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../callbacks/loggers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">loggers</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../callbacks/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../callbacks/monitoring.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">monitoring</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../callbacks/dp.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../callbacks/profiling.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">data</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../data/datasets.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">datasets</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../data/samplers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">samplers</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/samplers/strategies.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">strategies</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../data/shm.html">ShmDataLoader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../data/sharded.html">ShardedDataLoader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../schedule.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">schedule</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../schedule/base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../schedule/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../utils/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../utils/aws/imds.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imds</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/boto3.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">boto3</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/config.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">config</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../utils/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../utils/cuda/xid.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xid</span></code></a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../utils/cuda/preflight.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">preflight</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../utils/cuda/preflight/run.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">run</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../utils/cuda/preflight/health_check.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">health_check</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/pandas.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/pdb.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/pool.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pool</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/profiler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiler</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/pyarrow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyarrow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/rng.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rng</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/shm.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shm</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for fkat.utils.shm</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="sd">&quot;&quot;&quot;Distributed Shared Memory Utility for Dataloader&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mmap</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uuid</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">SupportsIndex</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Iterator</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.distributed</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dist</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">COMPLETE</span> <span class="o">=</span> <span class="s2">&quot;.complete&quot;</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;save&quot;</span><span class="p">,</span> <span class="s2">&quot;load&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="save"><a class="viewcode-back" href="../../../utils/shm.html#fkat.utils.shm.save">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Serialize obj with out-of-band data to path for zero-copy shared memory usage.</span>
+
+<span class="sd">    If the object to be serialized itself, or the objects it uses for data</span>
+<span class="sd">    storage (such as numpy arrays) implement the the pickle protocol version 5</span>
+<span class="sd">    pickle.PickleBuffer type in __reduce_ex__, then this function can store</span>
+<span class="sd">    these buffers out-of-band as files in `path` so that they subsequently be</span>
+<span class="sd">    re-used for zero-copy sharing accross processes.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        obj (object):</span>
+<span class="sd">            Object to serialize. For example a PyArrow Table, a Pandas Dataframe or</span>
+<span class="sd">            any type that relies on NumPy to store the binary data.</span>
+<span class="sd">        path (pathlib.Path, optional):</span>
+<span class="sd">            Empty folder used to save serialized data. Usually a folder in /dev/shm</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        pathlib.Path where the data was serialized</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">root</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">path</span> <span class="ow">or</span> <span class="n">generate_path</span><span class="p">()</span>
+    <span class="n">root</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">buffer_callback</span><span class="p">(</span><span class="n">buf</span><span class="p">:</span> <span class="n">pickle</span><span class="o">.</span><span class="n">PickleBuffer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">nonlocal</span> <span class="n">idx</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2">.bin&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span>
+        <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">&quot;meta.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">buffer_callback</span><span class="o">=</span><span class="n">buffer_callback</span><span class="p">)</span>
+
+    <span class="c1"># mark as saved</span>
+    <span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="n">COMPLETE</span><span class="p">)</span><span class="o">.</span><span class="n">touch</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">root</span></div>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_path</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+    <span class="n">global_rank</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">get_rank</span><span class="p">()</span> <span class="k">if</span> <span class="n">dist</span><span class="o">.</span><span class="n">is_initialized</span><span class="p">()</span> <span class="k">else</span> <span class="mi">0</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+    <span class="n">path_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/dev/shm/</span><span class="si">{</span><span class="n">global_rank</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path_str</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">path</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">save_iter</span><span class="p">(</span>
+    <span class="n">it</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">max_items</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">should_stop</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[],</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">truncation_threshold</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;save iter </span><span class="si">%r</span><span class="s2"> ... started&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">path</span> <span class="ow">or</span> <span class="n">generate_path</span><span class="p">()</span>
+    <span class="n">next_idx</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">it</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;save iter </span><span class="si">%r</span><span class="s2"> ...&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">max_items</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">cnt</span> <span class="o">:=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">path</span><span class="o">.</span><span class="n">iterdir</span><span class="p">())</span> <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_items</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;save iter ... </span><span class="si">%r</span><span class="s2"> dirs of </span><span class="si">%r</span><span class="s2"> stop? </span><span class="si">%r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">cnt</span><span class="p">,</span> <span class="n">max_items</span><span class="p">,</span> <span class="n">should_stop</span><span class="p">())</span>
+                <span class="k">if</span> <span class="n">should_stop</span><span class="p">():</span>
+                    <span class="k">break</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)</span>  <span class="c1"># busy wait</span>
+        <span class="k">if</span> <span class="n">should_stop</span><span class="p">():</span>
+            <span class="k">break</span>
+        <span class="k">if</span> <span class="n">truncation_threshold</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">==</span> <span class="n">truncation_threshold</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;reached </span><span class="si">{</span><span class="n">truncation_threshold</span><span class="si">=}</span><span class="s2">, stop saving microbatches&quot;</span><span class="p">)</span>
+            <span class="k">break</span>
+        <span class="n">save</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">path</span> <span class="o">/</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+        <span class="n">next_idx</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">save</span><span class="p">(</span><span class="n">POISON_PILL</span><span class="p">,</span> <span class="n">path</span> <span class="o">/</span> <span class="nb">str</span><span class="p">(</span><span class="n">next_idx</span><span class="p">))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;save iter </span><span class="si">%r</span><span class="s2"> ... finished after </span><span class="si">%r</span><span class="s2"> microbatches&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">next_idx</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">path</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Sentinel</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a unique sentinel object that is pickled as a constant.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>  <span class="c1"># pragma: no cover</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__copy__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Sentinel&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span>  <span class="c1"># pragma: no cover</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__deepcopy__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">memo</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Sentinel&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span>  <span class="c1"># pragma: no cover</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__reduce__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__reduce_ex__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">protocol</span><span class="p">:</span> <span class="n">SupportsIndex</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+
+<span class="n">POISON_PILL</span> <span class="o">=</span> <span class="n">Sentinel</span><span class="p">(</span><span class="s2">&quot;POISON_PILL&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="load"><a class="viewcode-back" href="../../../utils/shm.html#fkat.utils.shm.load">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load serialized object with out-of-band data from path based on zero-copy shared memory.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path (pathlib.Path):</span>
+<span class="sd">            Folder used to save serialized data with serialize(). Usually a folder /dev/shm</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Raw deserialized data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">saved</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The object at </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> is corrupted or not saved&quot;</span><span class="p">)</span>
+    <span class="n">buffers</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">pickle</span><span class="o">.</span><span class="n">PickleBuffer</span> <span class="o">|</span> <span class="n">mmap</span><span class="o">.</span><span class="n">mmap</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">num_buffers</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()))</span> <span class="o">-</span> <span class="mi">2</span>  <span class="c1"># exclude meta.pkl and .complete</span>
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_buffers</span><span class="p">):</span>
+        <span class="n">fpath</span> <span class="o">=</span> <span class="n">path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2">.bin&quot;</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span><span class="o">.</span><span class="n">st_size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">buffers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">PickleBuffer</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fpath</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">buffers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mmap</span><span class="o">.</span><span class="n">mmap</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">prot</span><span class="o">=</span><span class="n">mmap</span><span class="o">.</span><span class="n">PROT_READ</span><span class="p">))</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="s2">&quot;meta.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">buffers</span><span class="o">=</span><span class="n">buffers</span><span class="p">)</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;removed </span><span class="si">%r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">buffers</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">pickle</span><span class="o">.</span><span class="n">PickleBuffer</span><span class="p">):</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">obj</span></div>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">saved</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="n">COMPLETE</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_iter</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">next_timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="mi">60</span><span class="p">,</span> <span class="n">wait_callback</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">wait_time_threshold</span> <span class="o">=</span> <span class="n">start_time</span> <span class="o">+</span> <span class="n">next_timeout</span>
+        <span class="n">chunk_path</span> <span class="o">=</span> <span class="n">path</span> <span class="o">/</span> <span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">saved</span><span class="p">(</span><span class="n">chunk_path</span><span class="p">):</span>
+            <span class="n">wait_callback</span><span class="p">()</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;waiting for data in </span><span class="si">%r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">chunk_path</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">wait_time_threshold</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;timed out waiting for </span><span class="si">%r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">chunk_path</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">TimeoutError</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)</span>  <span class="c1"># busy wait</span>
+        <span class="n">chunk</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">chunk_path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">chunk</span> <span class="ow">is</span> <span class="n">POISON_PILL</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;poison pill!&quot;</span><span class="p">)</span>
+            <span class="k">break</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;fetching microbatch took </span><span class="si">%r</span><span class="s2"> s&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="n">chunk</span>
+        <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, SFAI Team.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

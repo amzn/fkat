@@ -1,0 +1,1109 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fkat.data.sharded &#8212; FKAT 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/fkat/data/sharded';</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FKAT 0.1.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development.html">Development</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../entrypoints.html">Entrypoints</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../actions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">actions</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../actions/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../actions/aws/batch.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">batch</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../actions/aws/ec2.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ec2</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../callbacks.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">callbacks</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../callbacks/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../callbacks/debugging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">debugging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../callbacks/gc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../callbacks/loggers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">loggers</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../callbacks/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../callbacks/monitoring.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">monitoring</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../callbacks/dp.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../callbacks/profiling.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">data</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../data/datasets.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">datasets</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../data/samplers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">samplers</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/samplers/strategies.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">strategies</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../data/shm.html">ShmDataLoader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../data/sharded.html">ShardedDataLoader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../schedule.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">schedule</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../schedule/base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../schedule/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../utils/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../utils/aws/imds.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imds</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/boto3.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">boto3</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/config.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">config</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../utils/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../utils/cuda/xid.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xid</span></code></a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../utils/cuda/preflight.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">preflight</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../utils/cuda/preflight/run.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">run</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../utils/cuda/preflight/health_check.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">health_check</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/pandas.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/pdb.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/pool.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pool</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/profiler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiler</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/pyarrow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyarrow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/rng.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rng</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/shm.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shm</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for fkat.data.sharded</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">atexit</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">fnmatch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multiprocessing.synchronize</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">concurrent.futures</span><span class="w"> </span><span class="kn">import</span> <span class="n">ThreadPoolExecutor</span><span class="p">,</span> <span class="n">Future</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">signal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">TypeVar</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">deque</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Iterator</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyarrow.fs</span><span class="w"> </span><span class="kn">import</span> <span class="n">FileSelector</span><span class="p">,</span> <span class="n">FileSystem</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lightning.pytorch.core.hooks</span><span class="w"> </span><span class="kn">import</span> <span class="n">CheckpointHooks</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lightning.pytorch.profilers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Profiler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lightning.pytorch.utilities</span><span class="w"> </span><span class="kn">import</span> <span class="n">move_data_to_device</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.distributed</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dist</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataLoader</span><span class="p">,</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">Sampler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing_extensions</span><span class="w"> </span><span class="kn">import</span> <span class="n">override</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">PersistStates</span><span class="p">,</span> <span class="n">RestoreStates</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">shm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.utils.pool</span><span class="w"> </span><span class="kn">import</span> <span class="n">ThreadPool</span><span class="p">,</span> <span class="n">NoDaemonPool</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.utils.profiler</span><span class="w"> </span><span class="kn">import</span> <span class="n">profile_until_exit</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">_shutdown</span><span class="p">:</span> <span class="n">Event</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">DEFAULT_SHUTDOWN_TIMEOUT</span> <span class="o">=</span> <span class="mi">60</span>  <span class="c1"># time for shard workers to gracefully shutdown</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="n">seed</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dp_rank</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">shutdown</span><span class="p">:</span> <span class="n">Event</span><span class="p">,</span> <span class="n">profiler</span><span class="p">:</span> <span class="n">Profiler</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># signal handlers are inherited, we used shudown flag to gracefully terminate child processes</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">signal</span><span class="o">.</span><span class="n">SIG_IGN</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">pass</span>  <span class="c1"># won&#39;t work from non-MainThread</span>
+    <span class="c1"># this allows the worker function to access `shutdown` even though it is</span>
+    <span class="c1"># not passed as an argument to the function.</span>
+    <span class="k">global</span> <span class="n">_shutdown</span>
+    <span class="n">_shutdown</span> <span class="o">=</span> <span class="n">shutdown</span>
+    <span class="n">pid</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;shard worker init </span><span class="si">{</span><span class="n">pid</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">profiler</span><span class="p">:</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;ShardedDataLoader[worker_pid=</span><span class="si">{</span><span class="n">pid</span><span class="si">}</span><span class="s2">]&quot;</span>
+        <span class="n">profile_until_exit</span><span class="p">(</span><span class="n">profiler</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">action</span><span class="p">,</span> <span class="n">filename_suffix</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">pid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Set RNG seed ensure TP rank within same DP group load and iterate same data</span>
+    <span class="c1"># in same order with consistent RNG states</span>
+    <span class="n">rng_seed</span> <span class="o">=</span> <span class="n">seed</span> <span class="o">+</span> <span class="n">dp_rank</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rng_seed</span><span class="p">)</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rng_seed</span><span class="p">)</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">rng_seed</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RNG seed is set with </span><span class="si">{</span><span class="n">rng_seed</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;shard worker init </span><span class="si">{</span><span class="n">pid</span><span class="si">}</span><span class="s2"> complete&quot;</span><span class="p">)</span>
+
+
+<span class="n">T_co</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;T_co&quot;</span><span class="p">,</span> <span class="n">covariant</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">Shard</span> <span class="o">=</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ShardSampler</span><span class="p">(</span><span class="n">Iterable</span><span class="p">[</span><span class="n">Shard</span><span class="p">],</span> <span class="n">PersistStates</span><span class="p">,</span> <span class="n">RestoreStates</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shards</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Shard</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">all_rank_indices</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Shard</span><span class="p">]:</span>
+        <span class="c1"># Iterate over shards and yield them one by one</span>
+        <span class="k">yield from</span> <span class="bp">self</span><span class="o">.</span><span class="n">shards</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">state_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Converts the current state to a dictionary saving the sampler states.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Dict[str, Any]: dict object representing the state.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Raise error if torch.distributed is not initialized</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">dist</span><span class="o">.</span><span class="n">is_initialized</span><span class="p">():</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;torch.distributed is not initialized.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Get local rank and world size</span>
+        <span class="n">world_size</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">get_world_size</span><span class="p">()</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+
+        <span class="c1"># Get device</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;cpu&quot;</span> <span class="k">if</span> <span class="n">dist</span><span class="o">.</span><span class="n">get_backend</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;gloo&quot;</span> <span class="k">else</span> <span class="s2">&quot;cuda&quot;</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+
+        <span class="c1"># Create a torch tensor with index defined</span>
+        <span class="n">local_index</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">int</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="c1"># Prepare a list of tensors to hold the indices from all ranks</span>
+        <span class="c1"># i.e. rank 0 to rank 3 would have access to</span>
+        <span class="c1"># [torch.tensor(1), torch.tensor(1), torch.tensor(5), torch.tensor(6)]</span>
+        <span class="n">all_rank_indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">local_index</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">world_size</span><span class="p">)]</span>
+
+        <span class="c1"># Gather the indices from all ranks so all ranks have access to the same list of indices</span>
+        <span class="n">dist</span><span class="o">.</span><span class="n">all_gather</span><span class="p">(</span><span class="n">all_rank_indices</span><span class="p">,</span> <span class="n">local_index</span><span class="p">)</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+
+        <span class="c1"># Return all rank indices</span>
+        <span class="n">sampler_states</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;all_rank_indices&quot;</span><span class="p">:</span> <span class="n">all_rank_indices</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">logger</span><span class="o">.</span><span class="n">isEnabledFor</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DataModule sampler states are </span><span class="si">{</span><span class="n">sampler_states</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">sampler_states</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_state_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Load the sampler state dict with serialized state_dict</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            state_dict (Dict[str, Any]): serialized sampler states</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Raise error if torch.distributed is not initialized</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">dist</span><span class="o">.</span><span class="n">is_initialized</span><span class="p">():</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;torch.distributed is not initialized.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Get the all_rank_indices</span>
+        <span class="n">all_rank_indices</span> <span class="o">=</span> <span class="n">state_dict</span><span class="p">[</span><span class="s2">&quot;all_rank_indices&quot;</span><span class="p">]</span>
+
+        <span class="c1"># Convert list of tensor indices to list of integer indices</span>
+        <span class="c1"># if all_rank_indices = [torch.tensor(1), torch.tensor(1), torch.tensor(5), torch.tensor(6)]</span>
+        <span class="c1"># then self.all_rank_indices = [1, 1, 5, 6]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">all_rank_indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor_index</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="k">for</span> <span class="n">tensor_index</span> <span class="ow">in</span> <span class="n">all_rank_indices</span><span class="p">]</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;All rank indices are </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">all_rank_indices</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Check if the number of ranks in the state_dict matches the current distributed setup.</span>
+        <span class="c1"># This ensures consistency when resuming training, preventing issues from mismatched</span>
+        <span class="c1"># configurations (e.g., different number of nodes or devices).</span>
+        <span class="n">world_size</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">get_world_size</span><span class="p">()</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+        <span class="n">num_saved_ranks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">all_rank_indices</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">num_saved_ranks</span> <span class="o">!=</span> <span class="n">world_size</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Inconsistent distributed training configuration: the loaded state_dict contains &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;checkpoint data for </span><span class="si">{</span><span class="n">num_saved_ranks</span><span class="si">}</span><span class="s2"> ranks, but the current world size is </span><span class="si">{</span><span class="n">world_size</span><span class="si">}</span><span class="s2">. &quot;</span>
+                <span class="s2">&quot;Ensure that you are resuming from a checkpoint with the same distributed setup &quot;</span>
+                <span class="s2">&quot;(number of nodes and devices).&quot;</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Get the local rank and set the corresponding index from saved state_dict</span>
+        <span class="c1"># Each rank loads its corresponding saved index from self.all_rank_indices</span>
+        <span class="n">local_rank</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">get_rank</span><span class="p">()</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_rank_indices</span><span class="p">[</span><span class="n">local_rank</span><span class="p">]</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rank </span><span class="si">{</span><span class="n">local_rank</span><span class="si">}</span><span class="s2"> has </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Set self.reset as False so it doesn&#39;t reset the index</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DataLoaderFactory</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T_co</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Factory class for creating DataLoaders.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dataset_generator (Callable): A function that generates a dataset given a shard.</span>
+<span class="sd">        batch_size (Optional[int]): The batch size.</span>
+<span class="sd">        sampler_generator (Optional[Callable]): An optional function that generates a sampler for the dataset.</span>
+<span class="sd">        batch_sampler_generator (Optional[Callable]): An optional function that generates a batch sampler.</span>
+<span class="sd">        dataloader_generator (Optional[Callable]): An optional function that generates a DataLoader instance.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">dataset_generator</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Shard</span><span class="p">],</span> <span class="n">Dataset</span><span class="p">[</span><span class="n">T_co</span><span class="p">]],</span>
+        <span class="n">sampler_generator</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Dataset</span><span class="p">[</span><span class="n">T_co</span><span class="p">]],</span> <span class="n">Sampler</span><span class="p">[</span><span class="n">T_co</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">batch_sampler_generator</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Sampler</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="n">Dataset</span><span class="p">[</span><span class="n">T_co</span><span class="p">]],</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">dataloader_generator</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">T_co</span><span class="p">]]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">batch_size</span> <span class="ow">or</span> <span class="n">sampler_generator</span> <span class="ow">or</span> <span class="n">batch_sampler_generator</span><span class="p">,</span> <span class="p">(</span>
+            <span class="s2">&quot;either batch_size, sampler_generator or batch_sampler_generation must be provided&quot;</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset_generator</span> <span class="o">=</span> <span class="n">dataset_generator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampler_generator</span> <span class="o">=</span> <span class="n">sampler_generator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_sampler_generator</span> <span class="o">=</span> <span class="n">batch_sampler_generator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataloader_generator</span> <span class="o">=</span> <span class="n">dataloader_generator</span> <span class="ow">or</span> <span class="n">DataLoader</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span> <span class="o">=</span> <span class="n">batch_size</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shard</span><span class="p">:</span> <span class="n">Shard</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">T_co</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generates a DataLoader for the given shard.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            shard (Shard): Represents a subset of the dataset.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Iterable[List[T_co]]: An iterable of batches of data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Generate dataset using dataset_generator</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset_generator</span><span class="p">(</span><span class="n">shard</span><span class="p">)</span>
+
+        <span class="c1"># Generate sampler if sampler_generator is provided</span>
+        <span class="n">sampler</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampler_generator</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampler_generator</span> <span class="k">else</span> <span class="kc">None</span>
+
+        <span class="c1"># Generate batch sampler if batch_sampler_generator is provided</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_sampler_generator</span><span class="p">:</span>
+            <span class="n">batch_sampler</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_sampler_generator</span><span class="p">(</span><span class="n">sampler</span> <span class="k">if</span> <span class="n">sampler</span> <span class="k">else</span> <span class="n">dataset</span><span class="p">)</span>
+            <span class="n">sampler</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># mutually exclusive</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">batch_sampler</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Generate DataLoader instance using dataloader_generator</span>
+        <span class="n">dataloader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataloader_generator</span><span class="p">(</span>  <span class="c1"># type: ignore[call-arg]</span>
+            <span class="n">dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sampler</span><span class="o">=</span><span class="n">sampler</span><span class="p">,</span> <span class="n">batch_sampler</span><span class="o">=</span><span class="n">batch_sampler</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">dataloader</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DataLoaderIterGenerator</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T_co</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates and saves an iterator over DataLoaders.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dataloader_factory (DataLoaderFactory): An instance of DataLoaderFactory responsible for generating DataLoaders.</span>
+<span class="sd">        num_microbatches_prefetch (int, optional): The number of microbatches to prefetch.</span>
+<span class="sd">            Defaults to -1.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">dataloader_factory</span><span class="p">:</span> <span class="n">DataLoaderFactory</span><span class="p">[</span><span class="n">T_co</span><span class="p">],</span>
+        <span class="n">num_microbatch_prefetches</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes the DataLoaderIterGenerator.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            dataloader_factory (DataLoaderFactory): An instance of DataLoaderFactory responsible</span>
+<span class="sd">                for generating DataLoaders.</span>
+<span class="sd">            num_microbatches_prefetch (int, optional): The number of microbatches to prefetch.</span>
+<span class="sd">                Defaults to -1.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataloader_factory</span> <span class="o">=</span> <span class="n">dataloader_factory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_microbatch_prefetches</span> <span class="o">=</span> <span class="n">num_microbatch_prefetches</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shard</span><span class="p">:</span> <span class="n">Shard</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generates and saves an iterator over DataLoaders.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            shard (Shard): A subset of the dataset.</span>
+<span class="sd">            path (Path): The path where the iterator will be saved.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Log debug message indicating the start of the process</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;shard generate ...&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Generate a DataLoader using the provided shard</span>
+        <span class="n">dataloader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataloader_factory</span><span class="p">(</span><span class="n">shard</span><span class="p">)</span>
+
+        <span class="c1"># Create an iterator over the DataLoader</span>
+        <span class="n">dataloader_iter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">dataloader</span><span class="p">)</span>
+
+        <span class="c1"># Access global variable _shutdown</span>
+        <span class="k">global</span> <span class="n">_shutdown</span>
+
+        <span class="c1"># Save the iterator using shm.save_iter</span>
+        <span class="n">shm</span><span class="o">.</span><span class="n">save_iter</span><span class="p">(</span>
+            <span class="n">dataloader_iter</span><span class="p">,</span>
+            <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
+            <span class="n">max_items</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_microbatch_prefetches</span><span class="p">,</span>
+            <span class="n">should_stop</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">_shutdown</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">_shutdown</span><span class="o">.</span><span class="n">is_set</span><span class="p">(),</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Log debug message indicating the completion of the process</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;shard generate complete&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DistributedDataParallelShardSampler</span><span class="p">(</span><span class="n">ShardSampler</span><span class="p">,</span> <span class="n">CheckpointHooks</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Distributed Data Parallel Shard Sampler.</span>
+
+<span class="sd">    This sampler distributes shards evenly among processes in a distributed training setup.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sampler (ShardSampler): An instance of ShardSampler containing shards.</span>
+<span class="sd">        dp_size (int): Total number of processes in the distributed training setup.</span>
+<span class="sd">        dp_rank (int): Rank of the current process among the distributed processes.</span>
+<span class="sd">        state_dict (dict, optional): A dictionary object serialized from a Sampler object. If provided,</span>
+<span class="sd">            the sampler will be reconstructed using the dictionary state object and recovered to the previous state.</span>
+<span class="sd">        drop_last (bool, optional): Whether to drop last shards if number of shards can&#39;t be divided by dp_size.</span>
+<span class="sd">            Recommend to set this as False for evaluation and prediction tasks.</span>
+<span class="sd">            Default to ``True``.</span>
+<span class="sd">        num_uri_merge (int, optional): merge how many uri into a shard,</span>
+<span class="sd">            default to ``0``; if setting ``-1``, then all uri will be merged into a shard.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">sampler</span><span class="p">:</span> <span class="n">ShardSampler</span><span class="p">,</span>
+        <span class="n">dp_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">dp_rank</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">drop_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">num_uri_merge</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="c1"># Convert sampler to list and determine the total number of shards</span>
+        <span class="n">shards</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sampler</span><span class="p">)</span>
+        <span class="n">num_shards</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">shards</span><span class="p">)</span>
+
+        <span class="c1"># Ensure that the number of shards is compatible with dp_size</span>
+        <span class="k">if</span> <span class="n">num_shards</span> <span class="o">&lt;</span> <span class="n">dp_size</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Only datasets with num_shards &gt;= dp_size are supported, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;got num_shards=</span><span class="si">{</span><span class="n">num_shards</span><span class="si">}</span><span class="s2">, dp_size=</span><span class="si">{</span><span class="n">dp_size</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Distribute shards evenly among each DP group</span>
+        <span class="n">dp_shards</span><span class="p">,</span> <span class="n">rem</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">num_shards</span><span class="p">,</span> <span class="n">dp_size</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rem</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">drop_last</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Truncating not even distribution of </span><span class="si">{</span><span class="n">num_shards</span><span class="si">}</span><span class="s2"> shards across dp_size=</span><span class="si">{</span><span class="n">dp_size</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">shards</span> <span class="o">=</span> <span class="n">shards</span><span class="p">[:</span><span class="o">-</span><span class="n">rem</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dp_shards</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">num_shards</span> <span class="o">+</span> <span class="n">dp_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dp_size</span><span class="p">)</span>
+        <span class="n">shards</span> <span class="o">=</span> <span class="n">shards</span><span class="p">[</span><span class="n">dp_rank</span> <span class="o">*</span> <span class="n">dp_shards</span> <span class="p">:</span> <span class="p">(</span><span class="n">dp_rank</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dp_shards</span><span class="p">]</span>  <span class="c1"># offset</span>
+
+        <span class="k">if</span> <span class="n">num_uri_merge</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">merged_shards</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">sub_shards</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">shards</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shards</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                    <span class="n">sub_shards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">shards</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">sub_shards</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">shards</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sub_shards</span><span class="p">)</span> <span class="o">==</span> <span class="n">num_uri_merge</span><span class="p">:</span>
+                    <span class="n">merged_shards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_shards</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+                    <span class="n">sub_shards</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">sub_shards</span><span class="p">:</span>
+                <span class="n">merged_shards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_shards</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">shards</span> <span class="o">=</span> <span class="n">merged_shards</span>  <span class="c1"># type: ignore[assignment]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">shards</span> <span class="o">=</span> <span class="n">shards</span>
+
+        <span class="c1"># Ensure that assigned shards are not empty</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">shards</span>
+
+        <span class="c1"># Initialize vars</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Shard</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns an iterator over the shards.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Iterator[Shard]: Iterator over the shards.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Reset iterator if reset flag is set</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Shard</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the next shard.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Shard: Next shard.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Increment index and return the corresponding shard</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shards</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">shards</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ShuffledShardSampler</span><span class="p">(</span><span class="n">ShardSampler</span><span class="p">,</span> <span class="n">CheckpointHooks</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sampler for shuffling shards.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sampler (ShardSampler): An instance of ShardSampler containing shards.</span>
+<span class="sd">        state_dict (Dict[str, Any], optional): A dictionary object containing the state of the sampler.</span>
+<span class="sd">            Defaults to None.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sampler</span><span class="p">:</span> <span class="n">ShardSampler</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Convert sampler to list and assert non-emptiness</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shards</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sampler</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">shards</span>
+
+        <span class="c1"># Initialize variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+        <span class="c1"># Create indices for shuffling</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shards</span><span class="p">)))</span>
+
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Shard</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns an iterator over the shards.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Iterator[Shard]: Iterator over the shards.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># If reset flag is set, shuffle indices</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indices</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Shard</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the next shard.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Shard: Next shard.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Increment index and return the corresponding shard</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indices</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">shards</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">indices</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">]]</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">FsShardSampler</span><span class="p">(</span><span class="n">ShardSampler</span><span class="p">,</span> <span class="n">CheckpointHooks</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sampler for shuffling shards based on file system paths.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        uri (str): The URI specifying the file system path.</span>
+<span class="sd">        glob (Optional[str], optional): A glob pattern to filter files.</span>
+<span class="sd">            Defaults to None.</span>
+<span class="sd">        recursive (Optional[bool], optional): Whether to recursively search for files.</span>
+<span class="sd">            Defaults to True.</span>
+<span class="sd">        state_dict (Optional[Dict[str, Any]], optional): A dictionary object containing the state of the sampler.</span>
+<span class="sd">            Defaults to None.</span>
+<span class="sd">        num_uri_merge (int, optional): merge how many uri into a shard,</span>
+<span class="sd">            default to ``0``; if setting ``-1``, then all uri will be merged into a shard.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">glob</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">num_uri_merge</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># from_uri is a static method, but pyarrow-stubs says it&#39;s an instance one</span>
+        <span class="c1"># Extract file system and path from URI</span>
+        <span class="n">fs</span><span class="p">:</span> <span class="n">FileSystem</span>
+        <span class="n">path</span><span class="p">:</span> <span class="nb">str</span>
+        <span class="n">fs</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="n">FileSystem</span><span class="o">.</span><span class="n">from_uri</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
+
+        <span class="c1"># Define a selector for files in the specified path</span>
+        <span class="n">selector</span> <span class="o">=</span> <span class="n">FileSelector</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="n">recursive</span><span class="p">)</span>
+
+        <span class="c1"># Initialize shards list</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shards</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># Populate shards list with files matching the glob pattern (if provided)</span>
+        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">fs</span><span class="o">.</span><span class="n">get_file_info</span><span class="p">(</span><span class="n">selector</span><span class="p">):</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">fs</span><span class="o">.</span><span class="n">type_name</span><span class="si">}</span><span class="s2">://</span><span class="si">{</span><span class="n">file</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">glob</span> <span class="ow">or</span> <span class="n">fnmatch</span><span class="o">.</span><span class="n">fnmatch</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">glob</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">shards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">num_uri_merge</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">merged_shards</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">shards</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shards</span><span class="p">)):</span>
+                <span class="n">shards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shards</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">shards</span><span class="p">)</span> <span class="o">==</span> <span class="n">num_uri_merge</span><span class="p">:</span>
+                    <span class="n">merged_shards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">shards</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+                    <span class="n">shards</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">shards</span><span class="p">:</span>
+                <span class="n">merged_shards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">shards</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">shards</span> <span class="o">=</span> <span class="n">merged_shards</span>  <span class="c1"># type: ignore[assignment]</span>
+        <span class="c1"># Ensure that shards list is not empty</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">shards</span>
+
+        <span class="c1"># Initialize reset and index vars</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Shard</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns an iterator over the shards.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Iterator[Shard]: Iterator over the shards.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Reset iterator if reset flag is set</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Shard</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the next shard.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Shard: Next shard.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Increment index and return the corresponding shard</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shards</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">shards</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="ShardedDataLoader"><a class="viewcode-back" href="../../../data/sharded.html#fkat.data.ShardedDataLoader">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">ShardedDataLoader</span><span class="p">(</span><span class="n">Iterable</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">T_co</span><span class="p">]]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A :class:`DataLoader` that processes data in shards, designed for distributed training scenarios.</span>
+
+<span class="sd">    Enables double-buffered micro-batch processing and fetching that overlaps with model</span>
+<span class="sd">    forward/backward passes, minimizing dataloading overhead.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        seed (int): Random seed for reproducibility. Use ${seed} at top level in config.yaml.</span>
+<span class="sd">        shard_sampler (ShardSampler): Sampler for generating shards.</span>
+<span class="sd">        dataloader_factory (DataLoaderFactory[T_co]): Factory for creating DataLoaders.</span>
+<span class="sd">        num_shard_prefetches (int, optional): Number of shards to prefetch.</span>
+<span class="sd">            Defaults to 0.</span>
+<span class="sd">        num_microbatch_prefetches (int, optional): Number of microbatches to prefetch.</span>
+<span class="sd">            Defaults to -1.</span>
+<span class="sd">        dp_rank (int, optional): Rank of the current process.</span>
+<span class="sd">            Defaults to 0.</span>
+<span class="sd">        profiler (Profiler, optional): Profiler for profiling.</span>
+<span class="sd">            Defaults to None.</span>
+<span class="sd">        device (Optional[torch.device]): device to move the microbatches to in the background</span>
+<span class="sd">        multiprocessing (Optional[True]): whether to instantiate DataLoader in a separate process.</span>
+<span class="sd">            Defaults to True to relieve pressure from the training process, use False to debug and profile</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">shard_sampler</span><span class="p">:</span> <span class="n">ShardSampler</span><span class="p">,</span>
+        <span class="n">dataloader_factory</span><span class="p">:</span> <span class="n">DataLoaderFactory</span><span class="p">[</span><span class="n">T_co</span><span class="p">],</span>
+        <span class="n">num_shard_prefetches</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">num_microbatch_prefetches</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">dp_rank</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">profiler</span><span class="p">:</span> <span class="n">Profiler</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">multiprocessing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Initialize</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">microbatches</span><span class="p">:</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">T_co</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cleanup</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shutdown</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Event</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shard_sampler</span> <span class="o">=</span> <span class="n">shard_sampler</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shard_sampler_iter</span><span class="p">:</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Shard</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataloader_factory</span> <span class="o">=</span> <span class="n">dataloader_factory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataloader_iter_generator</span> <span class="o">=</span> <span class="n">DataLoaderIterGenerator</span><span class="p">(</span>
+            <span class="n">dataloader_factory</span><span class="p">,</span>
+            <span class="n">num_microbatch_prefetches</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_jobs</span><span class="p">:</span> <span class="n">deque</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="n">Shard</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="n">mp</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">AsyncResult</span><span class="p">[</span><span class="n">Any</span><span class="p">]]]</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>  <span class="c1"># type: ignore[unresolved-attribute]</span>
+
+        <span class="c1"># Initialize a new ProcessPoolExecutor instance for prefetching shards if necessary</span>
+        <span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGTERM</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">teardown</span><span class="p">)</span>  <span class="c1"># terminate signal</span>
+        <span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">teardown</span><span class="p">)</span>  <span class="c1"># keyboard interrupt</span>
+        <span class="n">atexit</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">teardown</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">writing_pool</span><span class="p">:</span> <span class="n">NoDaemonPool</span> <span class="o">|</span> <span class="n">ThreadPool</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">NoDaemonPool</span><span class="p">(</span>
+                <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_shard_prefetches</span><span class="p">),</span>
+                <span class="n">initializer</span><span class="o">=</span><span class="n">initialize</span><span class="p">,</span>
+                <span class="n">initargs</span><span class="o">=</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="n">dp_rank</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shutdown</span><span class="p">,</span> <span class="n">profiler</span><span class="p">),</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">multiprocessing</span>
+            <span class="k">else</span> <span class="n">ThreadPool</span><span class="p">(</span>
+                <span class="n">max_workers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">thread_name_prefix</span><span class="o">=</span><span class="s2">&quot;ShardedDataWriter&quot;</span><span class="p">,</span>
+                <span class="n">initializer</span><span class="o">=</span><span class="n">initialize</span><span class="p">,</span>
+                <span class="n">initargs</span><span class="o">=</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="n">dp_rank</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shutdown</span><span class="p">,</span> <span class="n">profiler</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_shard_prefetches</span> <span class="o">=</span> <span class="n">num_shard_prefetches</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reading_pool</span> <span class="o">=</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">thread_name_prefix</span><span class="o">=</span><span class="s2">&quot;ShardedDataReader&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next_batch</span><span class="p">:</span> <span class="n">Future</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">T_co</span><span class="p">]]:</span>
+        <span class="c1"># all reading needs to go through the same TPE to avoid contention</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">reading_pool</span><span class="o">.</span><span class="n">_shutdown</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">reading_pool</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cleanup</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shard_sampler_iter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shard_sampler</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">T_co</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_batch</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">load_batch</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_batch</span>
+        <span class="n">batch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_batch</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_batch</span><span class="p">()</span>  <span class="c1"># double-buffering</span>
+        <span class="k">return</span> <span class="n">batch</span>
+
+<div class="viewcode-block" id="ShardedDataLoader.load_batch"><a class="viewcode-back" href="../../../data/sharded.html#fkat.data.ShardedDataLoader.load_batch">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">load_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">reading_pool</span><span class="o">.</span><span class="n">_shutdown</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">next_batch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reading_pool</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">load_batch_sync</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ShardedDataLoader.load_batch_sync"><a class="viewcode-back" href="../../../data/sharded.html#fkat.data.ShardedDataLoader.load_batch_sync">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">load_batch_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">T_co</span><span class="p">]:</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">microbatches</span><span class="p">:</span>
+                <span class="c1"># Fetch the next microbatch if available</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">microbatch</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">microbatches</span><span class="p">)</span>
+                    <span class="c1"># Move to target device in advance</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">:</span>
+                        <span class="n">microbatch</span> <span class="o">=</span> <span class="n">move_data_to_device</span><span class="p">(</span><span class="n">microbatch</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="n">microbatch</span>
+                <span class="c1"># If no microbatches are available, which means all microbatches from current shard are exhausted</span>
+                <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">cleanup</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">microbatches</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_jobs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;load iter scheduling ...&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">prefetch_shards</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_shard_prefetches</span><span class="p">))</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_jobs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">StopIteration</span>
+            <span class="n">shard</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">data_job</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_jobs</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;load iter </span><span class="si">{</span><span class="n">shard</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">prefetch_shards</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_shard_prefetches</span><span class="p">))</span>  <span class="c1"># prefetch next shard in parallel</span>
+
+            <span class="k">def</span><span class="w"> </span><span class="nf">wait_callback</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">data_job</span><span class="o">.</span><span class="n">ready</span><span class="p">():</span>  <span class="c1"># noqa: B023</span>
+                    <span class="c1"># Job is still running</span>
+                    <span class="k">return</span> <span class="kc">None</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Job is finished, raise exception if job failed.</span>
+                    <span class="n">data_job</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>  <span class="c1"># noqa: B023</span>
+                    <span class="c1"># Return whether the call completed without raising an exception.</span>
+                    <span class="k">assert</span> <span class="n">data_job</span><span class="o">.</span><span class="n">successful</span><span class="p">()</span>  <span class="c1"># noqa: B023</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">microbatches</span> <span class="o">=</span> <span class="n">shm</span><span class="o">.</span><span class="n">load_iter</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">wait_callback</span><span class="o">=</span><span class="n">wait_callback</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cleanup</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span></div>
+
+<div class="viewcode-block" id="ShardedDataLoader.state_dict"><a class="viewcode-back" href="../../../data/sharded.html#fkat.data.ShardedDataLoader.state_dict">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">state_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the shard sampler state dict with adjusted shard indices,</span>
+<span class="sd">        accounting for shard prefetches and prefetch backfill in parallel.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">        If num_shard_prefetches is 3 and the original state dict is</span>
+<span class="sd">        {&quot;all_rank_indices&quot;: [torch.tensor(4), torch.tensor(5)]},</span>
+<span class="sd">        it will be updated to {&quot;all_rank_indices&quot;: [torch.tensor(0), torch.tensor(1)]}.</span>
+<span class="sd">        This ensures that each rank resumes training from the correct shard index,</span>
+<span class="sd">        preventing reprocessing of shards that have already been trained on.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Invoke the shard_sampler&#39;s state_dict method when saving the data shard indices for each rank</span>
+        <span class="n">shard_sampler_state_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shard_sampler</span><span class="o">.</span><span class="n">state_dict</span><span class="p">()</span>
+
+        <span class="c1"># Define the minimum prefetched shard backfill</span>
+        <span class="n">min_prefetch_shard_backfill</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="c1"># Adjust each rank&#39;s shard index in place</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">rank_indices</span> <span class="ow">in</span> <span class="n">shard_sampler_state_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">idx_tensor</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rank_indices</span><span class="p">):</span>
+                <span class="n">rank_indices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">idx_tensor</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_shard_prefetches</span> <span class="o">-</span> <span class="n">min_prefetch_shard_backfill</span>
+
+        <span class="k">return</span> <span class="n">shard_sampler_state_dict</span></div>
+
+<div class="viewcode-block" id="ShardedDataLoader.load_state_dict"><a class="viewcode-back" href="../../../data/sharded.html#fkat.data.ShardedDataLoader.load_state_dict">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">load_state_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Loads the state dict into the shard sampler, restoring the data shard indices for each rank.</span>
+
+<span class="sd">        The state dict should look like {&quot;all_rank_indices&quot;:</span>
+<span class="sd">        [torch.tensor(1), torch.tensor(1), torch.tensor(5), torch.tensor(6)]},</span>
+<span class="sd">        where each tensor corresponds to the indices of data shards for specific ranks.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Restore the shard sampler&#39;s state from the given state_dict</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shard_sampler</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">state_dict</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ShardedDataLoader.prefetch_shards"><a class="viewcode-back" href="../../../data/sharded.html#fkat.data.ShardedDataLoader.prefetch_shards">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">prefetch_shards</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+                <span class="n">shard</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shard_sampler_iter</span><span class="p">)</span>
+                <span class="n">path</span> <span class="o">=</span> <span class="n">shm</span><span class="o">.</span><span class="n">generate_path</span><span class="p">()</span>
+                <span class="c1"># append data_job to job pool</span>
+                <span class="n">data_job</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">writing_pool</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataloader_iter_generator</span><span class="p">,</span> <span class="p">(</span><span class="n">shard</span><span class="p">,</span> <span class="n">path</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data_jobs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">shard</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">data_job</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">logger</span><span class="o">.</span><span class="n">isEnabledFor</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">):</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;queued </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_jobs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+            <span class="k">pass</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_cleanup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stop_pool</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">microbatches</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shutdown</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>  <span class="c1"># signal running tasks to stop</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_batch</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># if called on teardown/on_exception/__del__ will wait for the pending work to finish</span>
+                <span class="c1"># if called on __init__ it&#39;s already done</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">next_batch</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">next_batch</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">stop_pool</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">writing_pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>  <span class="c1"># no new tasks can run</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">reading_pool</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_jobs</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;waiting for </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> to stop ...&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cleanup</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">DEFAULT_SHUTDOWN_TIMEOUT</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> stopped ...&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_jobs</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shutdown</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">stop_pool</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">writing_pool</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>  <span class="c1"># make sure atexit is triggered in each subprocess</span>
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleanup</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;removing </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ShardedDataLoader.set_device"><a class="viewcode-back" href="../../../data/sharded.html#fkat.data.ShardedDataLoader.set_device">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">set_device</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span></div>
+
+    <span class="c1"># called when fit/validate/predict/test is complete</span>
+<div class="viewcode-block" id="ShardedDataLoader.teardown"><a class="viewcode-back" href="../../../data/sharded.html#fkat.data.ShardedDataLoader.teardown">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">teardown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;teardown ...&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cleanup</span><span class="p">(</span><span class="n">stop_pool</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;teardown complete&quot;</span><span class="p">)</span></div>
+
+    <span class="c1"># will be used once https://github.com/Lightning-AI/pytorch-lightning/pull/19601 is in effect</span>
+    <span class="c1"># once the below callback is operational we no longer need __del__ override</span>
+<div class="viewcode-block" id="ShardedDataLoader.on_exception"><a class="viewcode-back" href="../../../data/sharded.html#fkat.data.ShardedDataLoader.on_exception">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">on_exception</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exception</span><span class="p">:</span> <span class="ne">BaseException</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teardown</span><span class="p">()</span></div>
+
+    <span class="c1"># called when the iterable link pointing to this object goes out of scope</span>
+    <span class="c1"># e.g. when exception happens</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teardown</span><span class="p">()</span></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, SFAI Team.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

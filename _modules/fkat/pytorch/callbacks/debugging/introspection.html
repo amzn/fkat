@@ -1,0 +1,960 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fkat.pytorch.callbacks.debugging.introspection &#8212; FKAT 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../_static/copybutton.js"></script>
+    <script src="../../../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/fkat/pytorch/callbacks/debugging/introspection';</script>
+    <link rel="shortcut icon" href="../../../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FKAT 0.1.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../development.html">Development</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../entrypoints.html">Entrypoints</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../actions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">actions</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../actions/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../actions/aws/batch.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">batch</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../actions/aws/ec2.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ec2</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../callbacks.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">callbacks</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/debugging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">debugging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/gc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/loggers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">loggers</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../callbacks/monitoring.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">monitoring</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../callbacks/dp.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/profiling.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">data</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../data/datasets.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">datasets</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../data/samplers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">samplers</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../data/samplers/strategies.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">strategies</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../data/shm.html">ShmDataLoader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../data/sharded.html">ShardedDataLoader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../schedule.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">schedule</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../schedule/base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../schedule/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../utils/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../utils/aws/imds.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imds</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/boto3.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">boto3</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/config.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">config</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../utils/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../utils/cuda/xid.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xid</span></code></a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../utils/cuda/preflight.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">preflight</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../utils/cuda/preflight/run.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">run</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../utils/cuda/preflight/health_check.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">health_check</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pandas.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pdb.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pool.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pool</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/profiler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiler</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pyarrow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyarrow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/rng.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rng</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/shm.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shm</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for fkat.pytorch.callbacks.debugging.introspection</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">importlib.metadata</span><span class="w"> </span><span class="kn">import</span> <span class="n">distributions</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Hashable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing_extensions</span><span class="w"> </span><span class="kn">import</span> <span class="n">override</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ntp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">lightning</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">L</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lightning.pytorch.utilities.seed</span><span class="w"> </span><span class="kn">import</span> <span class="n">_collect_rng_states</span>  <span class="c1"># type: ignore[attr-defined]</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">lightning.pytorch.utilities.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">STEP_OUTPUT</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.pytorch.schedule</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Schedule</span><span class="p">,</span>
+    <span class="n">Never</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.pytorch.loggers</span><span class="w"> </span><span class="kn">import</span> <span class="n">LightningLogger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.pytorch.callbacks.loggers</span><span class="w"> </span><span class="kn">import</span> <span class="n">CallbackLogger</span>
+
+<span class="n">logger</span><span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">PATH_PREFIX</span> <span class="o">=</span> <span class="s2">&quot;introspection&quot;</span>
+<span class="n">DTYPES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;float32&quot;</span><span class="p">:</span> <span class="s2">&quot;fp32&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;float64&quot;</span><span class="p">:</span> <span class="s2">&quot;fp64&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;float16&quot;</span><span class="p">:</span> <span class="s2">&quot;fp16&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bfloat16&quot;</span><span class="p">:</span> <span class="s2">&quot;bf16&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;int64&quot;</span><span class="p">:</span> <span class="s2">&quot;i64&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;int32&quot;</span><span class="p">:</span> <span class="s2">&quot;i32&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;int16&quot;</span><span class="p">:</span> <span class="s2">&quot;i16&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;int8&quot;</span><span class="p">:</span> <span class="s2">&quot;i8&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;uint8&quot;</span><span class="p">:</span> <span class="s2">&quot;u8&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bool&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;complex64&quot;</span><span class="p">:</span> <span class="s2">&quot;c64&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;complex128&quot;</span><span class="p">:</span> <span class="s2">&quot;c128&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;qint8&quot;</span><span class="p">:</span> <span class="s2">&quot;qi8&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;quint8&quot;</span><span class="p">:</span> <span class="s2">&quot;qui8&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;qint32&quot;</span><span class="p">:</span> <span class="s2">&quot;qi32&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;float8_e4m3fn&quot;</span><span class="p">:</span> <span class="s2">&quot;fp8_e4m3fn&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;float8_e4m3fnuz&quot;</span><span class="p">:</span> <span class="s2">&quot;fp8_e4m3fnuz&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;float8_e5m2&quot;</span><span class="p">:</span> <span class="s2">&quot;fp8_e5m2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;float8_e5m2fnuz&quot;</span><span class="p">:</span> <span class="s2">&quot;fp8_e5m2fnuz&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;float8_e8m0fnu&quot;</span><span class="p">:</span> <span class="s2">&quot;fp8_e8m0fnu&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_dtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">DTYPES</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">torch</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="o">==</span> <span class="n">dtype</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">v</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_process_tensor_or_ndarray</span><span class="p">(</span>
+    <span class="n">item</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">parent_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Process tensor or ndarray items and calculate checksums.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        item: The tensor or ndarray to process</span>
+<span class="sd">        tensor_stats (set[str]): Tensor stats to collect</span>
+<span class="sd">        path: Current path in the nested structure</span>
+<span class="sd">        parent_dict: Dictionary to store checksums in</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bytes | None: Digest of the checksum</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+        <span class="n">cks</span> <span class="o">=</span> <span class="n">tensor_checksum</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># np.ndarray</span>
+        <span class="n">cks</span> <span class="o">=</span> <span class="n">numpy_checksum</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">parent_dict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">parent_dict</span><span class="p">[</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="n">_format</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">cks</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(),</span> <span class="n">tensor_stats</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cks</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_process_nested</span><span class="p">(</span><span class="n">sub_item</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">nested_cks</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">nested</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">nested_key</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sub_item</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="n">digest</span> <span class="o">=</span> <span class="n">_process_tensor_or_ndarray</span><span class="p">(</span><span class="n">sub_item</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">,</span> <span class="p">(</span><span class="n">nested_key</span> <span class="o">:=</span> <span class="s2">&quot;temp&quot;</span><span class="p">),</span> <span class="n">nested</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sub_item</span><span class="p">,</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">set</span> <span class="o">|</span> <span class="nb">frozenset</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">sub_item</span><span class="p">,</span> <span class="s2">&quot;items&quot;</span><span class="p">):</span>
+        <span class="n">digest</span> <span class="o">=</span> <span class="n">_process_collection</span><span class="p">(</span><span class="n">sub_item</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">,</span> <span class="p">(</span><span class="n">nested_key</span> <span class="o">:=</span> <span class="s2">&quot;temp&quot;</span><span class="p">),</span> <span class="n">nested</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">nested_key</span><span class="p">:</span>
+        <span class="n">processed</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">digest</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">nested_cks</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">digest</span><span class="p">)</span>
+            <span class="n">processed</span> <span class="o">=</span> <span class="n">nested</span><span class="p">[</span><span class="n">nested_key</span><span class="p">]</span>
+        <span class="n">fn</span><span class="p">(</span><span class="n">processed</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fn</span><span class="p">(</span><span class="n">sub_item</span><span class="p">)</span>
+        <span class="n">digest</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sub_item</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+        <span class="n">nested_cks</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">digest</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_ensure_hashable</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hashable</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">Hashable</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">item</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">_ensure_hashable</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">item</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">set</span> <span class="o">|</span> <span class="nb">frozenset</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">_ensure_hashable</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_process_collection</span><span class="p">(</span>
+    <span class="n">item</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+    <span class="n">tensor_stats</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">parent_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Process collection items (list, tuple, dict) and calculate checksums.</span>
+<span class="sd">    Maintains the nested structure of collections while replacing only tensor values with hashes.</span>
+<span class="sd">    Primitive values are kept as is.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        item: The collection to process</span>
+<span class="sd">        tensor_stats (set[str]): Tensor stats to collect</span>
+<span class="sd">        path: Current path in the nested structure</span>
+<span class="sd">        parent_dict: Dictionary to store checksums in</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bytes | None: Digest of the overall checksum</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">nested_cks</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">()</span>
+    <span class="n">result</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot;items&quot;</span><span class="p">):</span>  <span class="c1"># map-like</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">sub_key</span><span class="p">,</span> <span class="n">sub_item</span> <span class="ow">in</span> <span class="n">item</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">nested</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">_process_nested</span><span class="p">(</span><span class="n">sub_key</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">,</span> <span class="n">nested_cks</span><span class="p">,</span> <span class="n">nested</span><span class="o">.</span><span class="n">append</span><span class="p">)</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">_ensure_hashable</span><span class="p">(</span><span class="n">nested</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+            <span class="n">_process_nested</span><span class="p">(</span><span class="n">sub_item</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">,</span> <span class="n">nested_cks</span><span class="p">,</span> <span class="n">partial</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">set</span> <span class="o">|</span> <span class="nb">frozenset</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">sub_item</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+            <span class="n">_process_nested</span><span class="p">(</span><span class="n">sub_item</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">,</span> <span class="n">nested_cks</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">parent_dict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">path</span><span class="p">:</span>
+        <span class="n">parent_dict</span><span class="p">[</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">nested_cks</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">process_item</span><span class="p">(</span>
+    <span class="n">item</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">parent_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Recursively process items in the batch and calculate checksums.</span>
+<span class="sd">    Only tensor values are replaced with hashes, primitive values are kept as is.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        item: The item to process</span>
+<span class="sd">        tensor_stats (set[str]): Tensor stats to collect</span>
+<span class="sd">        path: Current path in the nested structure</span>
+<span class="sd">        parent_dict: Dictionary to store checksums in</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bytes | None: Digest of the checksum if available, None otherwise</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_process_tensor_or_ndarray</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">parent_dict</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">set</span> <span class="o">|</span> <span class="nb">frozenset</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot;items&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_process_collection</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">parent_dict</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">or</span> <span class="n">item</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Converting </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> to string for checksum&quot;</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">parent_dict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">parent_dict</span><span class="p">[</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">tensor_checksum</span><span class="p">(</span><span class="n">tensor</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Tensor checksum hash, returns the same value for tensors with identical contents</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        tensor (torch.Tensor): tensor to generate the checksum</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">        hashlib.md5: checksum hash</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tensor</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="k">if</span> <span class="n">tensor</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">torch</span><span class="o">.</span><span class="n">bfloat16</span> <span class="k">else</span> <span class="n">tensor</span>
+    <span class="k">return</span> <span class="n">numpy_checksum</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">numpy_checksum</span><span class="p">(</span><span class="n">ndarray</span><span class="p">:</span> <span class="n">ntp</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Numpy NDArray checksum, returns the same value for ndarrays with identical contents</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        tensor (torch.Tensor): tensor to generate the checksum</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">        hashlib.md5: checksum hash</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">ndarray</span><span class="o">.</span><span class="n">tobytes</span><span class="p">())</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_params_checksums</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
+    <span class="n">params_checksum</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="n">grads_checksum</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="n">gradients</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+    <span class="n">tensor_stats</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="n">parameters</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">grads_cks</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">()</span>
+    <span class="n">params_cks</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+        <span class="n">parameters</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">params_checksum</span> <span class="ow">and</span> <span class="n">param</span><span class="o">.</span><span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">param_cks</span> <span class="o">=</span> <span class="n">tensor_checksum</span><span class="p">(</span><span class="n">param</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">parameters</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_format</span><span class="p">(</span><span class="n">param</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">param_cks</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(),</span> <span class="n">tensor_stats</span><span class="p">)</span>
+            <span class="n">params_cks</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">param_cks</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
+        <span class="n">grad_cks</span><span class="p">,</span> <span class="nb">repr</span> <span class="o">=</span> <span class="n">gradients</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">grads_cks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">grad_cks</span>
+            <span class="n">parameters</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s2">&quot;grad&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">repr</span>
+            <span class="n">grads_cks</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">grad_cks</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">params_checksum</span><span class="p">:</span>
+        <span class="n">_add_digest</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="s2">&quot;__all_data__&quot;</span><span class="p">,</span> <span class="n">params_cks</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">grads_checksum</span><span class="p">:</span>
+        <span class="n">_add_digest</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="s2">&quot;__all_grads__&quot;</span><span class="p">,</span> <span class="n">grads_cks</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">parameters</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_format</span><span class="p">(</span><span class="n">tensor</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="nb">hash</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>  <span class="c1"># noqa: C901</span>
+    <span class="k">if</span> <span class="n">tensor</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
+    <span class="n">chunks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="s2">&quot;shape&quot;</span> <span class="ow">in</span> <span class="n">tensor_stats</span><span class="p">:</span>
+        <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;×&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+    <span class="k">if</span> <span class="s2">&quot;dtype&quot;</span> <span class="ow">in</span> <span class="n">tensor_stats</span><span class="p">:</span>
+        <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_get_dtype</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
+    <span class="k">if</span> <span class="s2">&quot;infs&quot;</span> <span class="ow">in</span> <span class="n">tensor_stats</span><span class="p">:</span>
+        <span class="n">num_pos_infs</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">isposinf</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">num_pos_infs</span><span class="si">}</span><span class="s2">∞̟&quot;</span><span class="p">)</span>
+        <span class="n">num_neg_infs</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">isneginf</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">num_neg_infs</span><span class="si">}</span><span class="s2">∞̠&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;nans&quot;</span> <span class="ow">in</span> <span class="n">tensor_stats</span><span class="p">:</span>
+        <span class="n">num_nans</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">isnan</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">num_nans</span><span class="si">}</span><span class="s2">⚠&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;zeros&quot;</span> <span class="ow">in</span> <span class="n">tensor_stats</span><span class="p">:</span>
+        <span class="n">num_zeros</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span> <span class="o">-</span> <span class="n">tensor</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">num_zeros</span><span class="si">}</span><span class="s2">⌀&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;med&quot;</span> <span class="ow">in</span> <span class="n">tensor_stats</span><span class="p">:</span>
+        <span class="n">med</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">med</span><span class="si">}</span><span class="s2">m̃&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;mean&quot;</span> <span class="ow">in</span> <span class="n">tensor_stats</span><span class="p">:</span>
+        <span class="n">mean</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mean</span><span class="si">}</span><span class="s2">μ&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;amean&quot;</span> <span class="ow">in</span> <span class="n">tensor_stats</span><span class="p">:</span>
+        <span class="n">amean</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amean</span><span class="si">}</span><span class="s2">μ⁺&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;std&quot;</span> <span class="ow">in</span> <span class="n">tensor_stats</span><span class="p">:</span>
+        <span class="n">std</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">std</span><span class="si">}</span><span class="s2">σ&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;var&quot;</span> <span class="ow">in</span> <span class="n">tensor_stats</span><span class="p">:</span>
+        <span class="n">var</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">unbiased</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2">σ²&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;uvar&quot;</span> <span class="ow">in</span> <span class="n">tensor_stats</span><span class="p">:</span>
+        <span class="n">uvar</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">unbiased</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">uvar</span><span class="si">}</span><span class="s2">s²&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;skew&quot;</span> <span class="ow">in</span> <span class="n">tensor_stats</span><span class="p">:</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+        <span class="n">std</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="n">skew</span> <span class="o">=</span> <span class="p">((</span><span class="n">t</span> <span class="o">-</span> <span class="n">t</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">std</span><span class="p">)</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">double</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="k">if</span> <span class="n">std</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;?&quot;</span>
+        <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">skew</span><span class="si">}</span><span class="s2">γ₁&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;kurt&quot;</span> <span class="ow">in</span> <span class="n">tensor_stats</span><span class="p">:</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+        <span class="n">std</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="n">kurt</span> <span class="o">=</span> <span class="p">((</span><span class="n">t</span> <span class="o">-</span> <span class="n">t</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">std</span><span class="p">)</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">double</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="k">if</span> <span class="n">std</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;?&quot;</span>
+        <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">kurt</span><span class="si">}</span><span class="s2">γ₂&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;mode&quot;</span> <span class="ow">in</span> <span class="n">tensor_stats</span><span class="p">:</span>
+        <span class="n">vals</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="n">vals</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">Mo&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;min&quot;</span> <span class="ow">in</span> <span class="n">tensor_stats</span><span class="p">:</span>
+        <span class="n">mi</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mi</span><span class="si">}</span><span class="s2">↤&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;max&quot;</span> <span class="ow">in</span> <span class="n">tensor_stats</span><span class="p">:</span>
+        <span class="n">ma</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ma</span><span class="si">}</span><span class="s2">↦&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;hash&quot;</span> <span class="ow">in</span> <span class="n">tensor_stats</span><span class="p">:</span>
+        <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">hash</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;|&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">chunks</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_buffers_checksums</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="n">buffers</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">buffers_cks</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">buffer</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">named_buffers</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">buffer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">buffers_cks</span> <span class="o">=</span> <span class="n">tensor_checksum</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
+            <span class="n">buffers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">_format</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">buffers_cks</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(),</span> <span class="n">tensor_stats</span><span class="p">)</span>
+            <span class="n">buffers_cks</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">buffers_cks</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
+    <span class="n">_add_digest</span><span class="p">(</span><span class="n">buffers</span><span class="p">,</span> <span class="s2">&quot;__all_buffers__&quot;</span><span class="p">,</span> <span class="n">buffers_cks</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">buffers</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_rngs_checksums</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="n">rngs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">rng_states</span> <span class="o">=</span> <span class="n">_collect_rng_states</span><span class="p">(</span><span class="n">include_cuda</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># type: ignore[attr-defined]</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">rng_states</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;torch&quot;</span><span class="p">:</span>
+            <span class="n">cks</span> <span class="o">=</span> <span class="n">tensor_checksum</span><span class="p">(</span><span class="n">state</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;torch.cuda&quot;</span><span class="p">:</span>
+            <span class="n">cks</span> <span class="o">=</span> <span class="n">tensor_checksum</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;numpy&quot;</span><span class="p">:</span>
+            <span class="n">cks</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;algo&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="n">numpy_checksum</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(),</span>
+                <span class="s2">&quot;pos&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+                <span class="s2">&quot;has_gauss&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+                <span class="s2">&quot;cached_gaussian&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+            <span class="p">}</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;python&quot;</span><span class="p">:</span>
+            <span class="n">cks</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="n">numpy_checksum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(),</span>
+                <span class="s2">&quot;gaussian&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+            <span class="p">}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported RNG state &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">state</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">rngs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">cks</span>
+    <span class="k">return</span> <span class="n">rngs</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_checksums</span><span class="p">(</span>
+    <span class="n">trainer</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">Trainer</span><span class="p">,</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
+    <span class="n">gradients</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+    <span class="n">checksums</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">tensor_stats</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checksums for internal model state and training context.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        model (torch.nn.Module): model to generate the parameters checksum</span>
+<span class="sd">        checksums (set[str]): - checksums to collect</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: captured checksums</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cks</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">params_checksum</span> <span class="o">=</span> <span class="s2">&quot;params&quot;</span> <span class="ow">in</span> <span class="n">checksums</span>
+    <span class="n">grads_checksum</span> <span class="o">=</span> <span class="s2">&quot;grads&quot;</span> <span class="ow">in</span> <span class="n">checksums</span>
+    <span class="k">if</span> <span class="n">params_checksum</span> <span class="ow">or</span> <span class="n">grads_checksum</span><span class="p">:</span>
+        <span class="n">cks</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_params_checksums</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">params_checksum</span><span class="p">,</span> <span class="n">grads_checksum</span><span class="p">,</span> <span class="n">gradients</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;buffers&quot;</span> <span class="ow">in</span> <span class="n">checksums</span><span class="p">:</span>
+        <span class="n">cks</span><span class="p">[</span><span class="s2">&quot;buffers&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_buffers_checksums</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;optimizers&quot;</span> <span class="ow">in</span> <span class="n">checksums</span><span class="p">:</span>
+        <span class="n">cks</span><span class="p">[</span><span class="s2">&quot;optimizers&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_optimizers_checksums</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;rngs&quot;</span> <span class="ow">in</span> <span class="n">checksums</span><span class="p">:</span>
+        <span class="n">cks</span><span class="p">[</span><span class="s2">&quot;rngs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_rngs_checksums</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">cks</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_batch_checksums</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate checksums for batch data.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        batch (Any): The batch data to generate checksums for</span>
+<span class="sd">        batch_idx (int): The batch index</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        dict[str, Any]: Dictionary containing checksums for batch elements</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">checksums</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;__batch_idx__&quot;</span><span class="p">:</span> <span class="n">batch_idx</span><span class="p">}</span>
+    <span class="n">_add_digest</span><span class="p">(</span><span class="n">checksums</span><span class="p">,</span> <span class="s2">&quot;__all_batch__&quot;</span><span class="p">,</span> <span class="n">process_item</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">,</span> <span class="s2">&quot;__batch__&quot;</span><span class="p">,</span> <span class="n">checksums</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">checksums</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_add_digest</span><span class="p">(</span><span class="n">cks</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">digest</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">digest</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cks</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">digest</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">digest</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span> <span class="k">else</span> <span class="n">digest</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_optimizers_checksums</span><span class="p">(</span><span class="n">trainer</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">Trainer</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract and compute checksums of optimizer states&quot;&quot;&quot;</span>
+    <span class="n">checksums</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">opt</span> <span class="ow">in</span> <span class="n">trainer</span><span class="o">.</span><span class="n">optimizers</span><span class="p">:</span>
+        <span class="n">opt_cks</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;__type__&quot;</span><span class="p">:</span> <span class="nb">type</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">}</span>
+        <span class="n">_add_digest</span><span class="p">(</span><span class="n">opt_cks</span><span class="p">,</span> <span class="s2">&quot;__all_defaults__&quot;</span><span class="p">,</span> <span class="n">process_item</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">defaults</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">,</span> <span class="s2">&quot;defaults&quot;</span><span class="p">,</span> <span class="n">opt_cks</span><span class="p">))</span>
+        <span class="n">_add_digest</span><span class="p">(</span>
+            <span class="n">opt_cks</span><span class="p">,</span> <span class="s2">&quot;__all_param_groups__&quot;</span><span class="p">,</span> <span class="n">process_item</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">param_groups</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">,</span> <span class="s2">&quot;param_groups&quot;</span><span class="p">,</span> <span class="n">opt_cks</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">_add_digest</span><span class="p">(</span><span class="n">opt_cks</span><span class="p">,</span> <span class="s2">&quot;__all_state__&quot;</span><span class="p">,</span> <span class="n">process_item</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">tensor_stats</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="n">opt_cks</span><span class="p">))</span>
+        <span class="n">checksums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">opt_cks</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">checksums</span>
+
+
+<div class="viewcode-block" id="Introspection"><a class="viewcode-back" href="../../../../../callbacks/debugging.html#fkat.pytorch.callbacks.debugging.Introspection">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Introspection</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">Callback</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">checksums</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">tensor_stats</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">env_vars</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">pip_freeze</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">output_path_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">schedule</span><span class="p">:</span> <span class="n">Schedule</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Introspection PyTorch Lightning callback.</span>
+<span class="sd">        This callback helps capture internal model and training environment states</span>
+<span class="sd">        to help investigate model performance and other training regressions.</span>
+<span class="sd">        It publishes reports that help compare the internal state between different</span>
+<span class="sd">        steps and runs.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            checksums (set[str] | None): Checksums to collect.</span>
+<span class="sd">                Use any combination of the following options:</span>
+<span class="sd">                ``&quot;params&quot;`` - capture checksum for every model parameter,</span>
+<span class="sd">                ``&quot;buffers&quot;`` - capture checksum for every model buffer (auxiliary tensor),</span>
+<span class="sd">                ``&quot;grads&quot;`` - capture checksum for every model parameter&#39;s gradient,</span>
+<span class="sd">                ``&quot;rngs&quot;`` - capture checksum for every Random Number Generator (RNG) state,</span>
+<span class="sd">                ``&quot;optimizers&quot;`` - capture checksum for optimizers state,</span>
+<span class="sd">                ``&quot;batch&quot;`` - capture checksum for batch data (model input).</span>
+<span class="sd">                Defaults to no checksum collection.</span>
+<span class="sd">            tensor_stats (set[str] | None): Tensor details to collect next to checksums,</span>
+<span class="sd">                Use any combination of the following options:</span>
+<span class="sd">                ``&quot;shape&quot;`` - tensor shape,</span>
+<span class="sd">                ``&quot;dtype&quot;`` - tensor dtype,</span>
+<span class="sd">                ``&quot;infs&quot;`` - count the number of positive and negative infinity elements (∞̟ and ∞̠),</span>
+<span class="sd">                ``&quot;nans&quot;`` - count the number of NaN elements (⚠),</span>
+<span class="sd">                ``&quot;zeros&quot;`` - count the number of 0 elements (⌀),</span>
+<span class="sd">                ``&quot;med&quot;`` - median value (m̃),</span>
+<span class="sd">                ``&quot;mean&quot;`` - mean value (μ),</span>
+<span class="sd">                ``&quot;amean&quot;`` - absolute mean value (μ⁺),</span>
+<span class="sd">                ``&quot;std&quot;`` - standard deviation (σ),</span>
+<span class="sd">                ``&quot;var&quot;`` - variance (biased) (σ²),</span>
+<span class="sd">                ``&quot;uvar&quot;`` - unbiased variance (s²),</span>
+<span class="sd">                ``&quot;skew&quot;`` - skewness (γ₁),</span>
+<span class="sd">                ``&quot;kurt&quot;`` - kurtosis (γ₂),</span>
+<span class="sd">                ``&quot;mode&quot;`` - mode (Mo),</span>
+<span class="sd">                ``&quot;min&quot;`` - min value (↤),</span>
+<span class="sd">                ``&quot;max&quot;`` - max value (↦),</span>
+<span class="sd">                ``&quot;hash&quot;`` - tensor content hash,</span>
+<span class="sd">                Defaults to ``{&quot;hash&quot;}``</span>
+<span class="sd">            env_vars (bool): capture environment variables when the training starts,</span>
+<span class="sd">                defaults to ``False``</span>
+<span class="sd">            pip_freeze (bool): capture installed pip packages when the training starts,</span>
+<span class="sd">                defaults to ``False``</span>
+<span class="sd">            output_path_prefix (str | None): output path prefix for generated reports,</span>
+<span class="sd">                use to persist these files locally, defaults to temporary location</span>
+<span class="sd">                that is cleaned as soon as the published by logger.</span>
+<span class="sd">            schedule (Schedule | None): Controls when logging occurs during training.</span>
+<span class="sd">                Defaults to :class:`Never`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">checksums</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">checksums</span> <span class="ow">or</span> <span class="nb">set</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tensor_stats</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">tensor_stats</span> <span class="ow">or</span> <span class="p">{</span><span class="s2">&quot;hash&quot;</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env_vars</span> <span class="o">=</span> <span class="n">env_vars</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pip_freeze</span> <span class="o">=</span> <span class="n">pip_freeze</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_path_prefix</span> <span class="o">=</span> <span class="n">output_path_prefix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">schedule</span> <span class="o">=</span> <span class="n">schedule</span> <span class="ow">or</span> <span class="n">Never</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_should_publish</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span><span class="p">:</span> <span class="n">LightningLogger</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">checksum</span><span class="p">:</span> <span class="n">Any</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grad_hooks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gradients</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hooks_registered</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">td</span><span class="p">:</span>
+            <span class="n">output_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path_prefix</span> <span class="ow">or</span> <span class="n">td</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allow_unicode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>  <span class="c1"># type: ignore[union-attr]</span>
+
+<div class="viewcode-block" id="Introspection.setup"><a class="viewcode-back" href="../../../../../callbacks/debugging.html#fkat.pytorch.callbacks.debugging.Introspection.setup">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span> <span class="o">=</span> <span class="n">CallbackLogger</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stage</span> <span class="o">=</span> <span class="n">stage</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">env_vars</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_publish</span><span class="p">(</span><span class="s2">&quot;env_vars.yaml&quot;</span><span class="p">,</span> <span class="n">PATH_PREFIX</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pip_freeze</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_publish</span><span class="p">(</span>
+                <span class="s2">&quot;pip_freeze.yaml&quot;</span><span class="p">,</span>
+                <span class="n">PATH_PREFIX</span><span class="p">,</span>
+                <span class="p">{</span><span class="n">p</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]:</span> <span class="n">p</span><span class="o">.</span><span class="n">version</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">distributions</span><span class="p">()},</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Introspection.on_train_start"><a class="viewcode-back" href="../../../../../callbacks/debugging.html#fkat.pytorch.callbacks.debugging.Introspection.on_train_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_train_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Register hooks at the start of training to capture all gradients including the first step&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_register_hooks</span><span class="p">(</span><span class="n">pl_module</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Introspection.on_train_end"><a class="viewcode-back" href="../../../../../callbacks/debugging.html#fkat.pytorch.callbacks.debugging.Introspection.on_train_end">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove hooks at the end of training&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_remove_hooks</span><span class="p">()</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_remove_hooks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove all registered hooks&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">hook</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">grad_hooks</span><span class="p">:</span>
+            <span class="n">hook</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grad_hooks</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hooks_registered</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_register_hooks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Register hooks on parameters to capture gradients&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hooks_registered</span> <span class="ow">or</span> <span class="s2">&quot;grads&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">checksums</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">pl_module</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">param</span><span class="o">.</span><span class="n">requires_grad</span><span class="p">:</span>
+
+                <span class="k">def</span><span class="w"> </span><span class="nf">hook</span><span class="p">(</span><span class="n">param_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">grad</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">grad</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">g</span> <span class="o">=</span> <span class="n">grad</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+                        <span class="n">grad_cks</span> <span class="o">=</span> <span class="n">tensor_checksum</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">gradients</span><span class="p">[</span><span class="n">param_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">grad_cks</span><span class="p">,</span> <span class="n">_format</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">grad_cks</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">tensor_stats</span><span class="p">))</span>
+                    <span class="k">return</span> <span class="n">grad</span>
+
+                <span class="n">hook</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">register_hook</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">hook</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">grad_hooks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hook</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hooks_registered</span> <span class="o">=</span> <span class="kc">True</span>
+
+<div class="viewcode-block" id="Introspection.on_train_batch_start"><a class="viewcode-back" href="../../../../../callbacks/debugging.html#fkat.pytorch.callbacks.debugging.Introspection.on_train_batch_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_train_batch_start</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">schedule</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="n">batch_idx</span><span class="o">=</span><span class="n">batch_idx</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">global_step</span><span class="p">,</span> <span class="n">trainer</span><span class="o">=</span><span class="n">trainer</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">checksum</span> <span class="o">=</span> <span class="p">{}</span></div>
+
+<div class="viewcode-block" id="Introspection.on_train_batch_end"><a class="viewcode-back" href="../../../../../callbacks/debugging.html#fkat.pytorch.callbacks.debugging.Introspection.on_train_batch_end">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_train_batch_end</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span>
+        <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span>
+        <span class="n">outputs</span><span class="p">:</span> <span class="s2">&quot;STEP_OUTPUT&quot;</span><span class="p">,</span>
+        <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+        <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gradients</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">checksum</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="s2">&quot;batch&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">checksums</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">checksum</span><span class="p">[</span><span class="s2">&quot;batch&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_batch_checksums</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tensor_stats</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_publish</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;rank</span><span class="si">{</span><span class="n">trainer</span><span class="o">.</span><span class="n">global_rank</span><span class="si">}</span><span class="s2">.yaml&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">PATH_PREFIX</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">stage</span><span class="si">}</span><span class="s2">/step=</span><span class="si">{</span><span class="n">trainer</span><span class="o">.</span><span class="n">global_step</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">checksum</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">checksum</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Introspection.on_before_optimizer_step"><a class="viewcode-back" href="../../../../../callbacks/debugging.html#fkat.pytorch.callbacks.debugging.Introspection.on_before_optimizer_step">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_before_optimizer_step</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span>
+        <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span>
+        <span class="n">optimizer</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Optimizer</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">checksum</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">checksum</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="n">get_checksums</span><span class="p">(</span>
+                <span class="n">trainer</span><span class="p">,</span>
+                <span class="n">pl_module</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">gradients</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">checksums</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tensor_stats</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, SFAI Team.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

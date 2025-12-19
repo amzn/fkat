@@ -1,0 +1,561 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fkat.pytorch.callbacks.monitoring.shutdown &#8212; FKAT 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../_static/copybutton.js"></script>
+    <script src="../../../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/fkat/pytorch/callbacks/monitoring/shutdown';</script>
+    <link rel="shortcut icon" href="../../../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FKAT 0.1.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../development.html">Development</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../entrypoints.html">Entrypoints</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../actions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">actions</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../actions/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../actions/aws/batch.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">batch</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../actions/aws/ec2.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ec2</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../callbacks.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">callbacks</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/debugging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">debugging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/gc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/loggers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">loggers</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../callbacks/monitoring.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">monitoring</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../callbacks/dp.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/profiling.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">data</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../data/datasets.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">datasets</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../data/samplers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">samplers</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../data/samplers/strategies.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">strategies</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../data/shm.html">ShmDataLoader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../data/sharded.html">ShardedDataLoader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../schedule.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">schedule</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../schedule/base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../schedule/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../utils/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../utils/aws/imds.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imds</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/boto3.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">boto3</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/config.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">config</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../utils/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../utils/cuda/xid.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xid</span></code></a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../utils/cuda/preflight.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">preflight</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../utils/cuda/preflight/run.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">run</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../utils/cuda/preflight/health_check.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">health_check</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pandas.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pdb.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pool.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pool</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/profiler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiler</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pyarrow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyarrow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/rng.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rng</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/shm.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shm</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for fkat.pytorch.callbacks.monitoring.shutdown</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">signal</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">multiprocessing</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing_extensions</span><span class="w"> </span><span class="kn">import</span> <span class="n">override</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">lightning</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">L</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lightning.pytorch.callbacks.lr_finder</span><span class="w"> </span><span class="kn">import</span> <span class="n">LearningRateFinder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lightning.pytorch.callbacks.batch_size_finder</span><span class="w"> </span><span class="kn">import</span> <span class="n">BatchSizeFinder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lightning.pytorch.utilities</span><span class="w"> </span><span class="kn">import</span> <span class="n">rank_zero_only</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.pytorch.schedule</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Schedule</span><span class="p">,</span>
+    <span class="n">Elapsed</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.pytorch.loggers</span><span class="w"> </span><span class="kn">import</span> <span class="n">LightningLogger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.pytorch.callbacks.loggers</span><span class="w"> </span><span class="kn">import</span> <span class="n">CallbackLogger</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">start_shutdown_detection_process</span><span class="p">(</span>
+    <span class="n">logger</span><span class="p">:</span> <span class="n">LightningLogger</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">shutdown_tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a process for monitoring trainer errors by periodically detecting</span>
+<span class="sd">    the ``shutdown`` tag. Terminate the application if the tag is detected.</span>
+<span class="sd">    The process is spawn on local rank 0 to minimize the overhead.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">process</span><span class="p">:</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">logger</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">trainer</span><span class="o">.</span><span class="n">local_rank</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Starting a shutdown detection process...&quot;</span><span class="p">)</span>
+        <span class="n">process</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span>
+            <span class="n">target</span><span class="o">=</span><span class="n">detect_shutdown_from_logger</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">logger</span><span class="p">,</span> <span class="n">shutdown_tag</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">(),</span> <span class="mi">60</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">process</span><span class="o">.</span><span class="n">daemon</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">process</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">process</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">detect_shutdown_from_logger</span><span class="p">(</span>
+    <span class="n">logger</span><span class="p">:</span> <span class="n">LightningLogger</span><span class="p">,</span>
+    <span class="n">shutdown_tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">pid</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">detection_interval_secs</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Detect ``shutdown_tag`` tag periodically. If the tag is found, sends a SIGABRT to the</span>
+<span class="sd">    process with the provided pid to shutdown the training process.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sleep_duration</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;SHUTDOWN_DETECTION_INTERVAL&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">detection_interval_secs</span><span class="p">)))</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shutdown detection frequency is </span><span class="si">{</span><span class="n">sleep_duration</span><span class="si">}</span><span class="s2"> secs&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">random_delay</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sleep_duration</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">random_delay</span><span class="p">)</span>
+            <span class="n">tags</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">tags</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">shutdown_tag</span> <span class="ow">in</span> <span class="n">tags</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="n">shutdown_tag</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">tags</span><span class="p">[</span><span class="n">shutdown_tag</span><span class="p">]</span><span class="si">}</span><span class="s2"> tag. Shutting down process </span><span class="si">{</span><span class="n">pid</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">kill</span><span class="p">(</span><span class="n">pid</span><span class="p">,</span> <span class="n">signal</span><span class="o">.</span><span class="n">SIGABRT</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">sleep_duration</span> <span class="o">-</span> <span class="n">random_delay</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Got error when querying mlflow SHUTDOWN tag: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="GracefulShutdown"><a class="viewcode-back" href="../../../../../callbacks/monitoring.html#fkat.pytorch.callbacks.monitoring.GracefulShutdown">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">GracefulShutdown</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">Callback</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">schedule</span><span class="p">:</span> <span class="n">Schedule</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">shutdown_tag</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;shutdown&quot;</span><span class="p">,</span>
+        <span class="n">shutdown_info_tag</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;shutdown_info&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shutdown_tag</span> <span class="o">=</span> <span class="n">shutdown_tag</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shutdown_info_tag</span> <span class="o">=</span> <span class="n">shutdown_info_tag</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">schedule</span> <span class="o">=</span> <span class="n">schedule</span> <span class="ow">or</span> <span class="n">Elapsed</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span><span class="p">:</span> <span class="n">LightningLogger</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_process</span><span class="p">:</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="GracefulShutdown.setup"><a class="viewcode-back" href="../../../../../callbacks/monitoring.html#fkat.pytorch.callbacks.monitoring.GracefulShutdown.setup">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span> <span class="o">=</span> <span class="n">CallbackLogger</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_process</span> <span class="o">=</span> <span class="n">start_shutdown_detection_process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shutdown_tag</span><span class="p">,</span> <span class="n">trainer</span><span class="p">)</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_maybe_stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">trainer</span><span class="o">.</span><span class="n">should_stop</span>
+            <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span>
+            <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">schedule</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">,</span> <span class="n">batch_idx</span><span class="o">=</span><span class="n">batch_idx</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">global_step</span><span class="p">,</span> <span class="n">trainer</span><span class="o">=</span><span class="n">trainer</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="k">return</span>
+        <span class="n">tags</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span><span class="o">.</span><span class="n">tags</span><span class="p">()</span>
+        <span class="n">shutdown_tag</span> <span class="o">=</span> <span class="n">tags</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shutdown_tag</span><span class="p">)</span>
+        <span class="n">trainer</span><span class="o">.</span><span class="n">should_stop</span> <span class="o">=</span> <span class="n">shutdown_tag</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">should_stop</span><span class="p">:</span>
+            <span class="n">info_tag</span> <span class="o">=</span> <span class="n">tags</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shutdown_info_tag</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">info_tag</span><span class="p">:</span>
+                <span class="n">info</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">literal_eval</span><span class="p">(</span><span class="n">info_tag</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">strategy</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">&quot;Strategy&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shutdown signal received. Using shutdown strategy </span><span class="si">{</span><span class="n">strategy</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span><span class="o">.</span><span class="n">log_tag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shutdown_tag</span><span class="p">,</span> <span class="s2">&quot;SHUTTING_DOWN&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_update_shutdown_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">status</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;update shutdown status </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2"> indicate job finished.&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span><span class="o">.</span><span class="n">log_tag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shutdown_tag</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+
+<div class="viewcode-block" id="GracefulShutdown.on_train_batch_start"><a class="viewcode-back" href="../../../../../callbacks/monitoring.html#fkat.pytorch.callbacks.monitoring.GracefulShutdown.on_train_batch_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="nd">@rank_zero_only</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_train_batch_start</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maybe_stop</span><span class="p">(</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GracefulShutdown.on_test_batch_start"><a class="viewcode-back" href="../../../../../callbacks/monitoring.html#fkat.pytorch.callbacks.monitoring.GracefulShutdown.on_test_batch_start">[docs]</a>    <span class="nd">@rank_zero_only</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_test_batch_start</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dataloader_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maybe_stop</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GracefulShutdown.on_validation_batch_start"><a class="viewcode-back" href="../../../../../callbacks/monitoring.html#fkat.pytorch.callbacks.monitoring.GracefulShutdown.on_validation_batch_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="nd">@rank_zero_only</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_validation_batch_start</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dataloader_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maybe_stop</span><span class="p">(</span><span class="s2">&quot;validation&quot;</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GracefulShutdown.on_predict_batch_start"><a class="viewcode-back" href="../../../../../callbacks/monitoring.html#fkat.pytorch.callbacks.monitoring.GracefulShutdown.on_predict_batch_start">[docs]</a>    <span class="nd">@rank_zero_only</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_predict_batch_start</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dataloader_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maybe_stop</span><span class="p">(</span><span class="s2">&quot;predict&quot;</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GracefulShutdown.teardown"><a class="viewcode-back" href="../../../../../callbacks/monitoring.html#fkat.pytorch.callbacks.monitoring.GracefulShutdown.teardown">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">teardown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">global_rank</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tuning</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;update job status before job finished&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_update_shutdown_status</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="s2">&quot;JOB_FINISHED&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_terminate_monitor</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="GracefulShutdown.on_exception"><a class="viewcode-back" href="../../../../../callbacks/monitoring.html#fkat.pytorch.callbacks.monitoring.GracefulShutdown.on_exception">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_exception</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">exception</span><span class="p">:</span> <span class="ne">BaseException</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_terminate_monitor</span><span class="p">()</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_terminate_monitor</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Terminates the separate process used for monitoring trainer errors if it is alive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process</span><span class="o">.</span><span class="n">is_alive</span><span class="p">():</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Terminating error monitor...&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_process</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tuning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="n">num_tuning_cbs</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span>
+            <span class="nb">isinstance</span><span class="p">(</span>
+                <span class="n">cb</span><span class="p">,</span>
+                <span class="n">LearningRateFinder</span> <span class="o">|</span> <span class="n">BatchSizeFinder</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">cb</span> <span class="ow">in</span> <span class="n">trainer</span><span class="o">.</span><span class="n">callbacks</span>  <span class="c1"># type: ignore[attr-defined]</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">num_tuning_cbs</span> <span class="o">&gt;</span> <span class="mi">0</span></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, SFAI Team.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

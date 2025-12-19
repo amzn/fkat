@@ -1,0 +1,965 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fkat.pytorch.callbacks.profiling.flops &#8212; FKAT 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../_static/copybutton.js"></script>
+    <script src="../../../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/fkat/pytorch/callbacks/profiling/flops';</script>
+    <link rel="shortcut icon" href="../../../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FKAT 0.1.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../development.html">Development</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../entrypoints.html">Entrypoints</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../actions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">actions</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../actions/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../actions/aws/batch.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">batch</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../actions/aws/ec2.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ec2</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../callbacks.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">callbacks</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/debugging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">debugging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/gc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/loggers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">loggers</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../callbacks/monitoring.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">monitoring</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../callbacks/dp.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/profiling.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">data</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../data/datasets.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">datasets</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../data/samplers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">samplers</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../data/samplers/strategies.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">strategies</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../data/shm.html">ShmDataLoader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../data/sharded.html">ShardedDataLoader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../schedule.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">schedule</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../schedule/base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../schedule/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../utils/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../utils/aws/imds.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imds</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/boto3.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">boto3</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/config.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">config</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../utils/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../utils/cuda/xid.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xid</span></code></a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../utils/cuda/preflight.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">preflight</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../utils/cuda/preflight/run.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">run</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../utils/cuda/preflight/health_check.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">health_check</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pandas.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pdb.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pool.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pool</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/profiler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiler</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pyarrow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyarrow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/rng.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rng</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/shm.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shm</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for fkat.pytorch.callbacks.profiling.flops</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils._python_dispatch</span><span class="w"> </span><span class="kn">import</span> <span class="n">TorchDispatchMode</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.flop_counter</span><span class="w"> </span><span class="kn">import</span> <span class="n">flop_registry</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">pformat</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Protocol</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">cast</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing_extensions</span><span class="w"> </span><span class="kn">import</span> <span class="n">override</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">lightning</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">L</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">lightning.pytorch.utilities.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">STEP_OUTPUT</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.utils.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">rank0_logger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.pytorch.loggers</span><span class="w"> </span><span class="kn">import</span> <span class="n">LightningLogger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.pytorch.callbacks.loggers</span><span class="w"> </span><span class="kn">import</span> <span class="n">CallbackLogger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.pytorch.schedule</span><span class="w"> </span><span class="kn">import</span> <span class="n">Schedule</span><span class="p">,</span> <span class="n">Every</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">rank0_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">FlopRecipe</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;FlopRecipe provides an estimation of Floating Point Operation (Flop) during a training batch.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_batch_flop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> <span class="o">...</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">GPTModel</span><span class="p">(</span><span class="n">FlopRecipe</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;``GPTModel`` FLOP recipe provides an estimation of Floating Point Operation (Flop)</span>
+<span class="sd">    during a training batch for MegatronGPTModels.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_calculate_flop</span><span class="p">(</span>
+        <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">seq_length</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">num_layers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">kv_channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">num_attention_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">num_query_groups</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">hidden_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">ffn_hidden_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">group_query_attention</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+        <span class="n">swiglu</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+        <span class="n">padded_vocab_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">num_moe_layers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">moe_ffn_hidden_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">num_experts</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">moe_router_topk</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">consider_activation_recompute</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">kv_channels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">kv_channels</span> <span class="o">=</span> <span class="n">hidden_size</span> <span class="o">//</span> <span class="n">num_attention_heads</span>
+
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;batch_size&quot;</span><span class="p">:</span> <span class="n">batch_size</span><span class="p">,</span>
+            <span class="s2">&quot;seq_length&quot;</span><span class="p">:</span> <span class="n">seq_length</span><span class="p">,</span>
+            <span class="s2">&quot;num_layers&quot;</span><span class="p">:</span> <span class="n">num_layers</span><span class="p">,</span>
+            <span class="s2">&quot;kv_channels&quot;</span><span class="p">:</span> <span class="n">kv_channels</span><span class="p">,</span>
+            <span class="s2">&quot;num_attention_heads&quot;</span><span class="p">:</span> <span class="n">num_attention_heads</span><span class="p">,</span>
+            <span class="s2">&quot;num_query_groups&quot;</span><span class="p">:</span> <span class="n">num_query_groups</span><span class="p">,</span>
+            <span class="s2">&quot;hidden_size&quot;</span><span class="p">:</span> <span class="n">hidden_size</span><span class="p">,</span>
+            <span class="s2">&quot;ffn_hidden_size&quot;</span><span class="p">:</span> <span class="n">ffn_hidden_size</span><span class="p">,</span>
+            <span class="s2">&quot;group_query_attention&quot;</span><span class="p">:</span> <span class="n">group_query_attention</span><span class="p">,</span>
+            <span class="s2">&quot;swiglu&quot;</span><span class="p">:</span> <span class="n">swiglu</span><span class="p">,</span>
+            <span class="s2">&quot;padded_vocab_size&quot;</span><span class="p">:</span> <span class="n">padded_vocab_size</span><span class="p">,</span>
+            <span class="s2">&quot;num_moe_layers&quot;</span><span class="p">:</span> <span class="n">num_moe_layers</span><span class="p">,</span>
+            <span class="s2">&quot;moe_ffn_hidden_size&quot;</span><span class="p">:</span> <span class="n">moe_ffn_hidden_size</span><span class="p">,</span>
+            <span class="s2">&quot;num_experts&quot;</span><span class="p">:</span> <span class="n">num_experts</span><span class="p">,</span>
+            <span class="s2">&quot;moe_router_topk&quot;</span><span class="p">:</span> <span class="n">moe_router_topk</span><span class="p">,</span>
+            <span class="s2">&quot;consider_activation_recompute&quot;</span><span class="p">:</span> <span class="n">consider_activation_recompute</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Called _calculate_flop with parameters:</span><span class="se">\n</span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">pformat</span><span class="p">(</span><span class="n">params</span><span class="p">))</span>
+
+        <span class="c1"># Attention projection size.</span>
+        <span class="n">query_projection_size</span> <span class="o">=</span> <span class="n">kv_channels</span> <span class="o">*</span> <span class="n">num_attention_heads</span>
+        <span class="n">query_projection_to_hidden_size_ratio</span> <span class="o">=</span> <span class="n">query_projection_size</span> <span class="o">/</span> <span class="n">hidden_size</span>
+        <span class="c1"># Group Query Attention.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">group_query_attention</span><span class="p">:</span>
+            <span class="n">num_query_groups</span> <span class="o">=</span> <span class="n">num_attention_heads</span>
+        <span class="c1"># MoE.</span>
+        <span class="n">num_experts_routed_to</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">num_experts</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">moe_router_topk</span>
+        <span class="n">gated_linear_multiplier</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">swiglu</span> <span class="k">else</span> <span class="mi">1</span>
+
+        <span class="c1"># The 12x term below comes from the following factors; for more details, see</span>
+        <span class="c1"># &quot;APPENDIX: FLOATING-POINT OPERATIONS&quot; in https://arxiv.org/abs/2104.04473.</span>
+        <span class="c1"># - 3x: Each GEMM in the model needs to be performed 3 times (forward pass,</span>
+        <span class="c1">#       backward wgrad [weight gradient], backward dgrad [data gradient]).</span>
+        <span class="c1">#       When the HFU is considered, additional forward pass needs to be factored in.</span>
+        <span class="c1"># - 2x: GEMMs of a particular size are stacked twice in the standard Transformer model</span>
+        <span class="c1">#       architectures implemented in this codebase (e.g., h-&gt;ffn_h GEMM and ffn_h-&gt;h GEMM</span>
+        <span class="c1">#       in MLP layer).</span>
+        <span class="c1"># - 2x: A GEMM of a m*n tensor with a n*k tensor requires 2mnk floating-point operations.</span>
+        <span class="n">compute_factor</span> <span class="o">=</span> <span class="mi">4</span> <span class="k">if</span> <span class="n">consider_activation_recompute</span> <span class="k">else</span> <span class="mi">3</span>
+        <span class="n">expansion_factor</span> <span class="o">=</span> <span class="n">compute_factor</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span>
+        <span class="n">moe_ratio</span> <span class="o">=</span> <span class="n">num_moe_layers</span> <span class="o">/</span> <span class="n">num_layers</span>
+        <span class="n">dense_ratio</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">moe_ratio</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span>
+            <span class="n">expansion_factor</span>
+            <span class="o">*</span> <span class="n">batch_size</span>
+            <span class="o">*</span> <span class="n">seq_length</span>
+            <span class="o">*</span> <span class="n">num_layers</span>
+            <span class="o">*</span> <span class="n">hidden_size</span>
+            <span class="o">*</span> <span class="n">hidden_size</span>
+            <span class="o">*</span> <span class="p">(</span>
+                <span class="c1"># Attention.</span>
+                <span class="p">(</span>
+                    <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">num_query_groups</span> <span class="o">/</span> <span class="n">num_attention_heads</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">seq_length</span> <span class="o">/</span> <span class="n">hidden_size</span><span class="p">))</span>
+                    <span class="o">*</span> <span class="n">query_projection_to_hidden_size_ratio</span>
+                <span class="p">)</span>
+                <span class="c1"># MLP.</span>
+                <span class="c1"># Interleave</span>
+                <span class="o">+</span> <span class="n">dense_ratio</span> <span class="o">*</span> <span class="p">((</span><span class="n">ffn_hidden_size</span> <span class="o">/</span> <span class="n">hidden_size</span><span class="p">)</span> <span class="o">*</span> <span class="n">gated_linear_multiplier</span><span class="p">)</span>
+                <span class="o">+</span> <span class="n">moe_ratio</span> <span class="o">*</span> <span class="p">((</span><span class="n">moe_ffn_hidden_size</span> <span class="o">/</span> <span class="n">hidden_size</span><span class="p">)</span> <span class="o">*</span> <span class="n">num_experts_routed_to</span> <span class="o">*</span> <span class="n">gated_linear_multiplier</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="o">+</span>
+            <span class="c1"># Logits</span>
+            <span class="mi">6</span> <span class="o">*</span> <span class="n">batch_size</span> <span class="o">*</span> <span class="n">seq_length</span> <span class="o">*</span> <span class="n">hidden_size</span> <span class="o">*</span> <span class="n">padded_vocab_size</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_batch_flop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Resolves Floating Pointer Operations (Flop) for the given batch size for GPT models.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">pl_module</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pl_module</span><span class="o">.</span><span class="n">cfg</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">pl_module</span><span class="o">.</span><span class="n">cfg</span><span class="p">)</span>
+
+            <span class="c1"># reject calculating Flop per batch if key is missing from module config</span>
+            <span class="n">_mandatory_config_keys</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="s2">&quot;global_batch_size&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;encoder_seq_length&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;num_layers&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;hidden_size&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;num_attention_heads&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ffn_hidden_size&quot;</span><span class="p">,</span>
+            <span class="p">]</span>
+
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">_mandatory_config_keys</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Key </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> not presented in module config </span><span class="si">{</span><span class="n">config</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">GPTModel</span><span class="o">.</span><span class="n">_calculate_flop</span><span class="p">(</span>
+                <span class="n">batch_size</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;global_batch_size&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                <span class="n">seq_length</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoder_seq_length&quot;</span><span class="p">,</span> <span class="mi">1024</span><span class="p">),</span>
+                <span class="n">num_layers</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_layers&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span>
+                <span class="n">kv_channels</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                    <span class="s2">&quot;kv_channels&quot;</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;hidden_size&quot;</span><span class="p">,</span> <span class="mi">4096</span><span class="p">)</span> <span class="o">//</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_attention_heads&quot;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+                <span class="p">),</span>
+                <span class="n">num_attention_heads</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_attention_heads&quot;</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
+                <span class="n">num_query_groups</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_query_groups&quot;</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_attention_heads&quot;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)),</span>
+                <span class="c1"># Default to num_attention_heads</span>
+                <span class="n">hidden_size</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;hidden_size&quot;</span><span class="p">,</span> <span class="mi">4096</span><span class="p">),</span>
+                <span class="n">ffn_hidden_size</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ffn_hidden_size&quot;</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;hidden_size&quot;</span><span class="p">,</span> <span class="mi">4096</span><span class="p">)),</span>
+                <span class="c1"># Typical FFN expansion</span>
+                <span class="n">group_query_attention</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;group_query_attention&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+                <span class="n">swiglu</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;swiglu&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+                <span class="n">padded_vocab_size</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;padded_vocab_size&quot;</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;vocab_size&quot;</span><span class="p">,</span> <span class="mi">50257</span><span class="p">)),</span>
+                <span class="n">num_moe_layers</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_moe_layers&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="n">moe_ffn_hidden_size</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;moe_ffn_hidden_size&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="n">num_experts</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_experts&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="n">moe_router_topk</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;moe_router_topk&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                <span class="n">consider_activation_recompute</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;consider_activation_recompute&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+            <span class="p">)</span>
+
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="si">}</span><span class="s2"> does not support calculating flop for </span><span class="si">{</span><span class="n">pl_module</span><span class="o">.</span><span class="vm">__class__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Trace</span><span class="p">(</span><span class="n">TorchDispatchMode</span><span class="p">,</span> <span class="n">FlopRecipe</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;``Trace`` FLOP recipe is a lightweight counter mode that only counts global flops</span>
+<span class="sd">    without using ModuleTracker to track module hierarchy.</span>
+
+<span class="sd">    Example usage</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        with TraceFlopRecipe() as flop_counter:</span>
+<span class="sd">            mod.sum().backward()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">flop_registry</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="o">**</span><span class="n">flop_registry</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reset_flops_count</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_reset_flops_count</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flop_counts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Global&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Tracked&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Untracked&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_batch_flop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">flop_counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Global&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_tracked_operations_count</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">flop_counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Tracked&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_untracked_operations_count</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">flop_counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Untracked&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_count_flops</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func_packet</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">out</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[()],</span> <span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">func_packet</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">flop_registry</span><span class="p">:</span>
+            <span class="n">flop_count_func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">flop_registry</span><span class="p">[</span><span class="n">func_packet</span><span class="p">]</span>
+            <span class="n">flop_count</span> <span class="o">=</span> <span class="n">flop_count_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">out_val</span><span class="o">=</span><span class="n">out</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flop_counts</span><span class="p">[</span><span class="s2">&quot;Global&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">flop_count</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flop_counts</span><span class="p">[</span><span class="s2">&quot;Tracked&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flop_counts</span><span class="p">[</span><span class="s2">&quot;Untracked&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">out</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__torch_dispatch__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">types</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[()]</span> <span class="o">=</span> <span class="p">(),</span> <span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span> <span class="k">if</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="p">{}</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_count_flops</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="n">_overloadpacket</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TorchDispatchMode</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reset_flops_count</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__enter__</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[()]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__exit__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Accelerator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">fp32</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">fp16</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">bf16</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">int8</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">int4</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fp32</span> <span class="o">=</span> <span class="n">fp32</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fp16</span> <span class="o">=</span> <span class="n">fp16</span> <span class="ow">or</span> <span class="n">fp32</span> <span class="o">*</span> <span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bf16</span> <span class="o">=</span> <span class="n">bf16</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp16</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">int8</span> <span class="o">=</span> <span class="n">int8</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp16</span> <span class="o">*</span> <span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">int4</span> <span class="o">=</span> <span class="n">int4</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">int8</span> <span class="o">*</span> <span class="mi">2</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">flops</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">dtype</span> <span class="o">==</span> <span class="n">torch</span><span class="o">.</span><span class="n">float32</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp32</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp32</span>
+        <span class="k">if</span> <span class="n">dtype</span> <span class="o">==</span> <span class="n">torch</span><span class="o">.</span><span class="n">float16</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp16</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp16</span>
+        <span class="k">if</span> <span class="n">dtype</span> <span class="o">==</span> <span class="n">torch</span><span class="o">.</span><span class="n">bfloat16</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">bf16</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">bf16</span>
+        <span class="k">if</span> <span class="n">dtype</span> <span class="o">==</span> <span class="n">torch</span><span class="o">.</span><span class="n">int8</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">int8</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">int8</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No </span><span class="si">{</span><span class="n">dtype</span><span class="si">}</span><span class="s2"> flops details for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="n">TFLOPS</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">12</span>
+
+<span class="n">V100</span> <span class="o">=</span> <span class="n">Accelerator</span><span class="p">(</span><span class="s2">&quot;V100&quot;</span><span class="p">,</span> <span class="n">fp32</span><span class="o">=</span><span class="mi">130</span> <span class="o">*</span> <span class="n">TFLOPS</span><span class="p">)</span>
+<span class="n">H100</span> <span class="o">=</span> <span class="n">Accelerator</span><span class="p">(</span><span class="s2">&quot;H100&quot;</span><span class="p">,</span> <span class="n">fp32</span><span class="o">=</span><span class="mi">989</span> <span class="o">*</span> <span class="n">TFLOPS</span><span class="p">)</span>
+<span class="n">H200</span> <span class="o">=</span> <span class="n">Accelerator</span><span class="p">(</span><span class="s2">&quot;H200&quot;</span><span class="p">,</span> <span class="n">fp32</span><span class="o">=</span><span class="mi">989</span> <span class="o">*</span> <span class="n">TFLOPS</span><span class="p">)</span>
+<span class="n">A100</span> <span class="o">=</span> <span class="n">Accelerator</span><span class="p">(</span><span class="s2">&quot;A100&quot;</span><span class="p">,</span> <span class="n">fp32</span><span class="o">=</span><span class="mi">312</span> <span class="o">*</span> <span class="n">TFLOPS</span><span class="p">)</span>
+<span class="n">A10G</span> <span class="o">=</span> <span class="n">Accelerator</span><span class="p">(</span><span class="s2">&quot;A10G&quot;</span><span class="p">,</span> <span class="n">fp32</span><span class="o">=</span><span class="mi">35</span> <span class="o">*</span> <span class="n">TFLOPS</span><span class="p">)</span>
+<span class="n">A10</span> <span class="o">=</span> <span class="n">Accelerator</span><span class="p">(</span><span class="s2">&quot;A10&quot;</span><span class="p">,</span> <span class="n">fp32</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mf">31.2</span> <span class="o">*</span> <span class="n">TFLOPS</span><span class="p">))</span>
+<span class="n">L40S</span> <span class="o">=</span> <span class="n">Accelerator</span><span class="p">(</span><span class="s2">&quot;L40S&quot;</span><span class="p">,</span> <span class="n">fp32</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mf">91.6</span> <span class="o">*</span> <span class="n">TFLOPS</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_flops</span><span class="p">(</span><span class="n">dtype</span><span class="p">:</span> <span class="s2">&quot;torch.dtype&quot;</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="s2">&quot;torch.device&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">gpu_name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&quot;cuda&quot;</span><span class="p">:</span>
+        <span class="n">gpu_name</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_name</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;V100&quot;</span> <span class="ow">in</span> <span class="n">gpu_name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">V100</span><span class="o">.</span><span class="n">flops</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s2">&quot;H100&quot;</span> <span class="ow">in</span> <span class="n">gpu_name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">H100</span><span class="o">.</span><span class="n">flops</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s2">&quot;H200&quot;</span> <span class="ow">in</span> <span class="n">gpu_name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">H200</span><span class="o">.</span><span class="n">flops</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s2">&quot;A100&quot;</span> <span class="ow">in</span> <span class="n">gpu_name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">A100</span><span class="o">.</span><span class="n">flops</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s2">&quot;A10G&quot;</span> <span class="ow">in</span> <span class="n">gpu_name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">A10G</span><span class="o">.</span><span class="n">flops</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s2">&quot;A10&quot;</span> <span class="ow">in</span> <span class="n">gpu_name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">A10</span><span class="o">.</span><span class="n">flops</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s2">&quot;L40S&quot;</span> <span class="ow">in</span> <span class="n">gpu_name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">L40S</span><span class="o">.</span><span class="n">flops</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No flops details for </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s2"> with name </span><span class="si">{</span><span class="n">gpu_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">dtype</span><span class="p">(</span><span class="n">trainer</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">Trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;torch.dtype&quot;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">precision</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;32&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">float32</span>
+    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">precision</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;16&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">float16</span>
+    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">precision</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;bf16&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">bfloat16</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Can&#39;t infer dtype for </span><span class="si">{</span><span class="n">trainer</span><span class="o">.</span><span class="n">precision</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Flops"><a class="viewcode-back" href="../../../../../callbacks/profiling.html#fkat.pytorch.callbacks.profiling.Flops">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Flops</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">Callback</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A PyTorch Lightning callback that measures and logs floating-point operations (FLOPs) and</span>
+<span class="sd">    Model FLOP Utilization (MFU) during training, validation, testing, and prediction.</span>
+
+<span class="sd">    This callback helps to monitor the computational efficiency of models by measuring:</span>
+<span class="sd">    - Total machine FLOPs available</span>
+<span class="sd">    - Per-batch FLOPs used by the model</span>
+<span class="sd">    - Model FLOP Utilization (MFU), i.e., how efficiently the model uses the available compute</span>
+<span class="sd">    - Batch throughput (batches per second)</span>
+
+<span class="sd">    It supports two methods for estimating FLOPs:</span>
+<span class="sd">    1. Tracing-based estimation via a `Trace` context manager.</span>
+<span class="sd">    2. Formula-based estimation using a predefined GPTModel FLOP calculator.</span>
+
+<span class="sd">    Metrics are logged periodically (or once) to the experiment logger (e.g., MLflow) and include:</span>
+
+<span class="sd">    * `mfu`: Model FLOP Utilization (traced)</span>
+<span class="sd">    * `actual_batches_per_sec`: Measured throughput</span>
+<span class="sd">    * `max_batches_per_sec`: Theoretical max throughput</span>
+<span class="sd">    * `batch_flops`: FLOPs used in the current batch</span>
+<span class="sd">    * `batch_flops_from_formula`: FLOPs estimated via formula (if available)</span>
+<span class="sd">    * `mfu_from_formula`: MFU based on formula-based estimation</span>
+<span class="sd">    * `tracked_operations`: Number of FLOPs tracked during tracing</span>
+<span class="sd">    * `untracked_operations`: Number of operations not accounted for by the tracer</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        schedule (Optional[Schedule]): Controls when logging occurs during training. Defaults to Every 5 batch.</span>
+<span class="sd">            - FLOPs are always calculated at least once at the beginning.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; trainer = L.Trainer(callbacks=[Flops(log_every_n_batches=10)])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">schedule</span><span class="p">:</span> <span class="n">Schedule</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Measures the total floating-point operations per second and MFU.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            schedule (Optional[Schedule]): Controls when logging occurs during training. Defaults to Every 5 batch.</span>
+<span class="sd">                - FLOPs are always calculated at least once at the beginning.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">schedule</span> <span class="o">=</span> <span class="n">schedule</span> <span class="ow">or</span> <span class="n">Every</span><span class="p">(</span><span class="n">n_batches</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trace_flops_recipe</span><span class="p">:</span> <span class="n">Trace</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gpt_flops_recipe</span> <span class="o">=</span> <span class="n">GPTModel</span><span class="p">()</span>  <span class="c1"># @TODO(hanfange) - make it more configurable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">total_flops</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_idx</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mfu_from_formula</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_flops_from_formula</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_flops</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mfu</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">operations_tracked</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">operations_untracked</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_first_batch</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_timer_active</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span><span class="p">:</span> <span class="n">LightningLogger</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="Flops.setup"><a class="viewcode-back" href="../../../../../callbacks/profiling.html#fkat.pytorch.callbacks.profiling.Flops.setup">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Called when fit, validate, test, predict, or tune begins.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span> <span class="o">=</span> <span class="n">CallbackLogger</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">total_flops</span> <span class="o">=</span> <span class="n">get_flops</span><span class="p">(</span><span class="n">dtype</span><span class="p">(</span><span class="n">trainer</span><span class="p">),</span> <span class="n">pl_module</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="o">*</span> <span class="n">trainer</span><span class="o">.</span><span class="n">num_nodes</span> <span class="o">*</span> <span class="n">trainer</span><span class="o">.</span><span class="n">num_devices</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_flops</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">pl_module</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">operations_tracked</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">pl_module</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">operations_untracked</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">pl_module</span><span class="o">.</span><span class="n">device</span><span class="p">)</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_should_recalulate_batch_flops</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        _should_recalulate_batch_flops decides whether to recalculate the value of self.batch_flops.</span>
+<span class="sd">        Recalcuting batch_flops needs to enter flops counter mode and might cause potential vRAM leakage.</span>
+
+<span class="sd">        Only calculate batch flops for the first batch.</span>
+
+<span class="sd">        Returns: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_first_batch</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_should_report_batch_throughput_and_mfu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        _should_report_batch_throughput_and_mfu decides whether to publish batch throughput and mfu metrics to MLFlow</span>
+
+<span class="sd">        Only report every n batches.</span>
+
+<span class="sd">        Returns: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">schedule</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="n">batch_idx</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_idx</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">global_step</span><span class="p">,</span> <span class="n">trainer</span><span class="o">=</span><span class="n">trainer</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_idx</span> <span class="o">=</span> <span class="n">batch_idx</span>
+        <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">sanity_checking</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_should_recalulate_batch_flops</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>  <span class="c1"># calculate number of flops</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">trace_flops_recipe</span> <span class="o">=</span> <span class="n">Trace</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">trace_flops_recipe</span><span class="o">.</span><span class="fm">__enter__</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_should_report_batch_throughput_and_mfu</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>  <span class="c1"># report MFU every n batches</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_timer_active</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">sanity_checking</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_should_recalulate_batch_flops</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>  <span class="c1"># only calculate number of flops once as it is a constant</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">trace_flops_recipe</span><span class="o">.</span><span class="fm">__exit__</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># type: ignore[union-attr]</span>
+            <span class="n">flop</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trace_flops_recipe</span><span class="o">.</span><span class="n">get_batch_flop</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">batch_flops</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="n">flop</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">operations_tracked</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trace_flops_recipe</span><span class="o">.</span><span class="n">get_tracked_operations_count</span><span class="p">())</span>  <span class="c1"># type: ignore</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">operations_untracked</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trace_flops_recipe</span><span class="o">.</span><span class="n">get_untracked_operations_count</span><span class="p">())</span>  <span class="c1"># type: ignore</span>
+            <span class="n">trainer</span><span class="o">.</span><span class="n">strategy</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_flops</span><span class="p">,</span> <span class="n">reduce_op</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">)</span>
+            <span class="n">trainer</span><span class="o">.</span><span class="n">strategy</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">operations_tracked</span><span class="p">,</span> <span class="n">reduce_op</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">)</span>
+            <span class="n">trainer</span><span class="o">.</span><span class="n">strategy</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">operations_untracked</span><span class="p">,</span> <span class="n">reduce_op</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">)</span>
+
+        <span class="c1"># main node emits metrics for every n batches</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">trainer</span><span class="o">.</span><span class="n">global_rank</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_should_report_batch_throughput_and_mfu</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timer_active</span>
+        <span class="p">):</span>  <span class="c1"># report MFU every n batches</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_timer_active</span> <span class="o">=</span> <span class="kc">False</span>
+
+            <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+            <span class="n">actual_batches_per_sec</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">now</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+
+            <span class="n">max_batches_per_sec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">total_flops</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_flops</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+            <span class="n">mfu</span> <span class="o">=</span> <span class="n">actual_batches_per_sec</span> <span class="o">/</span> <span class="n">max_batches_per_sec</span>
+
+            <span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;mfu&quot;</span><span class="p">:</span> <span class="n">mfu</span><span class="p">,</span>
+                <span class="s2">&quot;actual_batches_per_sec&quot;</span><span class="p">:</span> <span class="n">actual_batches_per_sec</span><span class="p">,</span>
+                <span class="s2">&quot;max_batches_per_sec&quot;</span><span class="p">:</span> <span class="n">max_batches_per_sec</span><span class="p">,</span>
+                <span class="s2">&quot;batch_flops&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_flops</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+                <span class="s2">&quot;total_flops&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">total_flops</span><span class="p">,</span>
+                <span class="s2">&quot;batch_flops_tracked_operations&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">operations_tracked</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+                <span class="s2">&quot;batch_flops_untracked_operations&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">operations_untracked</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+            <span class="p">}</span>
+
+            <span class="c1"># attempt to calculate batch flop using formula-based approach, rank-zero only</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">batch_flops_from_formula</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gpt_flops_recipe</span><span class="o">.</span><span class="n">get_batch_flop</span><span class="p">(</span><span class="n">pl_module</span><span class="p">)</span>
+                <span class="n">max_batches_per_sec_from_formula</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">total_flops</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_flops_from_formula</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mfu_from_formula</span> <span class="o">=</span> <span class="n">actual_batches_per_sec</span> <span class="o">/</span> <span class="n">max_batches_per_sec_from_formula</span>
+
+                <span class="c1"># emit mfu calculated from formula, if applicable</span>
+                <span class="n">metrics</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;mfu_from_formula&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mfu_from_formula</span><span class="p">,</span>
+                        <span class="s2">&quot;batch_flops_from_formula&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_flops_from_formula</span><span class="p">,</span>
+                    <span class="p">}</span>
+                <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not calculate FLOP using formula: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cb_logger</span><span class="o">.</span><span class="n">log_batch</span><span class="p">(</span><span class="n">metrics</span><span class="o">=</span><span class="n">metrics</span><span class="p">,</span> <span class="n">timestamp</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">),</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">global_step</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_first_batch</span> <span class="o">=</span> <span class="kc">False</span>
+
+<div class="viewcode-block" id="Flops.on_train_batch_start"><a class="viewcode-back" href="../../../../../callbacks/profiling.html#fkat.pytorch.callbacks.profiling.Flops.on_train_batch_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_train_batch_start</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Called at the beginning of each training batch.</span>
+
+<span class="sd">        This method initiates FLOP tracing and throughput timing for the current batch,</span>
+<span class="sd">        depending on the logging frequency.</span>
+
+<span class="sd">        If conditions are met, it:</span>
+<span class="sd">        - Begins FLOP tracing using a `Trace` context manager.</span>
+<span class="sd">        - Records the start time to later compute batch throughput.</span>
+
+<span class="sd">        Tracing and logging are skipped during sanity checks.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            trainer (Trainer): The PyTorch Lightning trainer instance.</span>
+<span class="sd">            pl_module (LightningModule): The model being trained.</span>
+<span class="sd">            batch (Any): The current batch of data.</span>
+<span class="sd">            batch_idx (int): Index of the current batch.</span>
+<span class="sd">            *args: Additional positional arguments.</span>
+<span class="sd">            **kwargs: Additional keyword arguments.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Flops.on_train_batch_end"><a class="viewcode-back" href="../../../../../callbacks/profiling.html#fkat.pytorch.callbacks.profiling.Flops.on_train_batch_end">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_train_batch_end</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span>
+        <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span>
+        <span class="n">outputs</span><span class="p">:</span> <span class="s2">&quot;STEP_OUTPUT&quot;</span><span class="p">,</span>
+        <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+        <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Called at the end of each training batch.</span>
+
+<span class="sd">        This method finalizes FLOP tracing and logs performance metrics if applicable.</span>
+
+<span class="sd">        If conditions are met, it:</span>
+<span class="sd">        - Ends FLOP tracing and calculates batch-level FLOPs.</span>
+<span class="sd">        - Aggregates tracked and untracked operations across devices.</span>
+<span class="sd">        - Computes Model FLOP Utilization (MFU) based on actual vs. theoretical throughput.</span>
+<span class="sd">        - Optionally estimates FLOPs using a formula-based approach (`GPTModel`).</span>
+<span class="sd">        - Logs performance metrics (e.g., MFU, throughput, FLOPs) to the experiment logger.</span>
+
+<span class="sd">        Logging is only performed on the global rank 0 process and is skipped during sanity checks.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            trainer (Trainer): The PyTorch Lightning trainer instance.</span>
+<span class="sd">            pl_module (LightningModule): The model being trained.</span>
+<span class="sd">            outputs (STEP_OUTPUT): The outputs from the training step.</span>
+<span class="sd">            batch (Any): The current batch of data.</span>
+<span class="sd">            *args: Additional positional arguments.</span>
+<span class="sd">            **kwargs: Additional keyword arguments.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stop</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Flops.on_validation_batch_start"><a class="viewcode-back" href="../../../../../callbacks/profiling.html#fkat.pytorch.callbacks.profiling.Flops.on_validation_batch_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_validation_batch_start</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dataloader_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Called when the validation batch begins.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Flops.on_validation_batch_end"><a class="viewcode-back" href="../../../../../callbacks/profiling.html#fkat.pytorch.callbacks.profiling.Flops.on_validation_batch_end">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_validation_batch_end</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span>
+        <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span>
+        <span class="n">outputs</span><span class="p">:</span> <span class="s2">&quot;STEP_OUTPUT&quot;</span><span class="p">,</span>
+        <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+        <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">dataloader_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Called when the validation batch begins.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stop</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Flops.on_predict_batch_start"><a class="viewcode-back" href="../../../../../callbacks/profiling.html#fkat.pytorch.callbacks.profiling.Flops.on_predict_batch_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_predict_batch_start</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dataloader_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Called when the predict batch begins.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Flops.on_predict_batch_end"><a class="viewcode-back" href="../../../../../callbacks/profiling.html#fkat.pytorch.callbacks.profiling.Flops.on_predict_batch_end">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_predict_batch_end</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span>
+        <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span>
+        <span class="n">outputs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+        <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+        <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">dataloader_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Called when the predict batch begins.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stop</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Flops.on_test_batch_start"><a class="viewcode-back" href="../../../../../callbacks/profiling.html#fkat.pytorch.callbacks.profiling.Flops.on_test_batch_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_test_batch_start</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dataloader_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Called when the test batch begins.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Flops.on_test_batch_end"><a class="viewcode-back" href="../../../../../callbacks/profiling.html#fkat.pytorch.callbacks.profiling.Flops.on_test_batch_end">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_test_batch_end</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span>
+        <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span>
+        <span class="n">outputs</span><span class="p">:</span> <span class="s2">&quot;STEP_OUTPUT&quot;</span><span class="p">,</span>
+        <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+        <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">dataloader_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Called when the test batch begins.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stop</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, SFAI Team.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

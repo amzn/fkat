@@ -1,0 +1,688 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fkat.utils.cuda.preflight.health_check.helpers &#8212; FKAT 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script src="../../../../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/fkat/utils/cuda/preflight/health_check/helpers';</script>
+    <link rel="shortcut icon" href="../../../../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FKAT 0.1.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../development.html">Development</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../entrypoints.html">Entrypoints</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../../actions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">actions</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../../actions/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../actions/aws/batch.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">batch</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../actions/aws/ec2.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ec2</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../../callbacks.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">callbacks</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../callbacks/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../callbacks/debugging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">debugging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../callbacks/gc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../callbacks/loggers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">loggers</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../callbacks/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../../callbacks/monitoring.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">monitoring</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../callbacks/dp.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../callbacks/profiling.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../../data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">data</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../data/datasets.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">datasets</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../../data/samplers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">samplers</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../data/samplers/strategies.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">strategies</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../data/shm.html">ShmDataLoader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../data/sharded.html">ShardedDataLoader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../../schedule.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">schedule</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../schedule/base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../schedule/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../../utils/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../utils/aws/imds.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imds</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../utils/boto3.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">boto3</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../utils/config.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">config</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../../utils/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../utils/cuda/xid.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xid</span></code></a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../../utils/cuda/preflight.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">preflight</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../../utils/cuda/preflight/run.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">run</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../../utils/cuda/preflight/health_check.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">health_check</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../utils/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../utils/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../utils/pandas.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../utils/pdb.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../utils/pool.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pool</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../utils/profiler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiler</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../utils/pyarrow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyarrow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../utils/rng.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rng</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../utils/shm.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shm</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for fkat.utils.cuda.preflight.health_check.helpers</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timezone</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">mlflow</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">requests.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">RequestException</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.utils.aws.imds</span><span class="w"> </span><span class="kn">import</span> <span class="n">InstanceMetadata</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.utils.cuda.preflight.health_check.constants</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">AWS_BATCH_JOB_ID</span><span class="p">,</span>
+    <span class="n">HEALTH_CHECK_TIMEOUT_SECS</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pynvml</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">NVMLError</span><span class="p">,</span>
+    <span class="n">nvmlDeviceGetHandleByIndex</span><span class="p">,</span>
+    <span class="n">nvmlDeviceGetSerial</span><span class="p">,</span>
+    <span class="n">nvmlDeviceGetUUID</span><span class="p">,</span>
+    <span class="n">nvmlInit</span><span class="p">,</span>
+    <span class="n">nvmlShutdown</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.multiprocessing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.distributed</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dist</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.multiprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Queue</span>
+
+<span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">12345</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="UniqueID"><a class="viewcode-back" href="../../../../../../utils/cuda/preflight/health_check/helpers.html#fkat.utils.cuda.preflight.health_check.helpers.UniqueID">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">UniqueID</span><span class="p">:</span>
+    <span class="n">rank</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">world_size</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">local_rank</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">num_nodes</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">node_rank</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">gpu_per_node</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">gpu_hash_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">master_addr</span><span class="p">:</span> <span class="nb">str</span></div>
+
+
+<div class="viewcode-block" id="InstanceStats"><a class="viewcode-back" href="../../../../../../utils/cuda/preflight/health_check/helpers.html#fkat.utils.cuda.preflight.health_check.helpers.InstanceStats">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">InstanceStats</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance_metadata</span><span class="p">:</span> <span class="n">InstanceMetadata</span><span class="p">,</span> <span class="n">gpu_info</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instance_id</span> <span class="o">=</span> <span class="n">instance_metadata</span><span class="o">.</span><span class="n">instance_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instance_type</span> <span class="o">=</span> <span class="n">instance_metadata</span><span class="o">.</span><span class="n">instance_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instance_ipv4</span> <span class="o">=</span> <span class="n">instance_metadata</span><span class="o">.</span><span class="n">local_ipv4</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instance_hostname</span> <span class="o">=</span> <span class="n">instance_metadata</span><span class="o">.</span><span class="n">hostname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instance_region</span> <span class="o">=</span> <span class="n">instance_metadata</span><span class="o">.</span><span class="n">region</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scan_datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gpu_info</span> <span class="o">=</span> <span class="n">gpu_info</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">healthy</span> <span class="o">=</span> <span class="kc">True</span>
+
+<div class="viewcode-block" id="InstanceStats.upload_mlflow"><a class="viewcode-back" href="../../../../../../utils/cuda/preflight/health_check/helpers.html#fkat.utils.cuda.preflight.health_check.helpers.InstanceStats.upload_mlflow">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">upload_mlflow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance_gpu_hash_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Upload instance stats to mlflow.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            instance_gpu_hash_id (str): hash the sorted instance GPU UUIDs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">&quot;instance_gpu_hash_id&quot;</span><span class="p">,</span> <span class="n">instance_gpu_hash_id</span><span class="p">)</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">&quot;instance_id&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">instance_id</span><span class="p">)</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">&quot;instance_type&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">instance_type</span><span class="p">)</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">&quot;instance_ipv4&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">instance_ipv4</span><span class="p">)</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">&quot;instance_hostname&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">instance_hostname</span><span class="p">)</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+
+        <span class="c1"># mlflow param has 300 limit, seperate the gpu_info to serial_number and uuid</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">&quot;gpu_uuid&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[</span><span class="s2">&quot;uuid&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gpu_info</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">&quot;gpu_serial_number&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[</span><span class="s2">&quot;serial&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gpu_info</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span></div></div>
+
+
+<div class="viewcode-block" id="make_requests"><a class="viewcode-back" href="../../../../../../utils/cuda/preflight/health_check/helpers.html#fkat.utils.cuda.preflight.health_check.helpers.make_requests">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">make_requests</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">token</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Retrieve instance metadata from AWS EC2 Instance Metadata Service (IMDSv2).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        url (str): The URL endpoint of the IMDSv2 metadata service.</span>
+<span class="sd">        token (str): The authentication token required for IMDSv2 requests.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: The retrieved instance metadata as a string.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        requests.exceptions.RequestException: If the request fails due to network</span>
+<span class="sd">        issues, invalid URL, or failed response status.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">instance_info_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;X-aws-ec2-metadata-token&quot;</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span>
+        <span class="n">instance_info_response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+        <span class="n">instance_info</span> <span class="o">=</span> <span class="n">instance_info_response</span><span class="o">.</span><span class="n">text</span>
+
+    <span class="k">except</span> <span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to retrieve instance metadata: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">return</span> <span class="n">instance_info</span></div>
+
+
+<div class="viewcode-block" id="generate_gpu_uuid_hash"><a class="viewcode-back" href="../../../../../../utils/cuda/preflight/health_check/helpers.html#fkat.utils.cuda.preflight.health_check.helpers.generate_gpu_uuid_hash">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">generate_gpu_uuid_hash</span><span class="p">(</span><span class="n">uuid_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Concatenates the UUIDs, computes a SHA-256 hash,</span>
+<span class="sd">    and returns the first 17 hex characters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">combined_uuid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">uuid_list</span><span class="p">))</span>
+    <span class="n">sha_hash</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">combined_uuid</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+    <span class="k">return</span> <span class="s2">&quot;g-&quot;</span> <span class="o">+</span> <span class="n">sha_hash</span><span class="p">[:</span><span class="mi">17</span><span class="p">]</span>  <span class="c1"># Take the first 17 hex characters</span></div>
+
+
+<div class="viewcode-block" id="fetch_gpu_info"><a class="viewcode-back" href="../../../../../../utils/cuda/preflight/health_check/helpers.html#fkat.utils.cuda.preflight.health_check.helpers.fetch_gpu_info">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">fetch_gpu_info</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieve GPU information from the current EC2 instance using NVIDIA Management Library (NVML).</span>
+
+<span class="sd">    This function initializes NVML to gather GPU details available to PyTorch,</span>
+<span class="sd">    including GPU UUIDs and Serial Numbers. Additionally, it generates a hash ID</span>
+<span class="sd">    representing all GPUs&#39; UUIDs for easier identification.</span>
+
+<span class="sd">    The function logs relevant information and gracefully handles errors, shutting</span>
+<span class="sd">    down NVML in all scenarios.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple:</span>
+<span class="sd">            - gpu_info (dict): A dictionary containing GPU information where keys are</span>
+<span class="sd">            PyTorch device indices (int) and values are dictionaries with the following keys:</span>
+<span class="sd">                - &#39;uuid&#39; (str): The UUID of the GPU.</span>
+<span class="sd">                - &#39;serial&#39; (str): The Serial Number of the GPU.</span>
+
+<span class="sd">            - instance_gpu_hash_id (str): A hash string representing the combined UUIDs of all GPUs.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        NVMLError: If there&#39;s an issue retrieving GPU information from NVML.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">gpu_info</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">instance_gpu_hash_id</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">nvmlInit</span><span class="p">()</span>
+
+        <span class="c1"># Get number of GPUs available to PyTorch</span>
+        <span class="n">num_gpus</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">()</span>
+
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total of </span><span class="si">{</span><span class="n">num_gpus</span><span class="si">}</span><span class="s2"> exist in the device&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Iterate over each GPU by its PyTorch index</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_gpus</span><span class="p">):</span>
+            <span class="c1"># Get GPU handle by index</span>
+            <span class="n">handle</span> <span class="o">=</span> <span class="n">nvmlDeviceGetHandleByIndex</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="c1"># Retrieve the UUID of the GPU</span>
+            <span class="n">uuid</span> <span class="o">=</span> <span class="n">nvmlDeviceGetUUID</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+            <span class="n">serial</span> <span class="o">=</span> <span class="n">nvmlDeviceGetSerial</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PyTorch Device Index </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> - GPU UUID: </span><span class="si">{</span><span class="n">uuid</span><span class="si">}</span><span class="s2"> - Serial Number: </span><span class="si">{</span><span class="n">serial</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="n">gpu_info</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;uuid&quot;</span><span class="p">:</span> <span class="n">uuid</span><span class="p">,</span>
+                <span class="s2">&quot;serial&quot;</span><span class="p">:</span> <span class="n">serial</span><span class="p">,</span>
+            <span class="p">}</span>
+
+        <span class="n">instance_gpu_hash_id</span> <span class="o">=</span> <span class="n">generate_gpu_uuid_hash</span><span class="p">([</span><span class="n">gpu</span><span class="p">[</span><span class="s2">&quot;uuid&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">gpu</span> <span class="ow">in</span> <span class="n">gpu_info</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;instance_gpu_hash_id is </span><span class="si">{</span><span class="n">instance_gpu_hash_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="n">NVMLError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;error when fetch informatioin of GPU&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">e</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">nvmlShutdown</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">gpu_info</span><span class="p">,</span> <span class="n">instance_gpu_hash_id</span></div>
+
+
+<div class="viewcode-block" id="generate_random_string"><a class="viewcode-back" href="../../../../../../utils/cuda/preflight/health_check/helpers.html#fkat.utils.cuda.preflight.health_check.helpers.generate_random_string">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">generate_random_string</span><span class="p">(</span><span class="n">length</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate a random string of specified length containing uppercase letters,</span>
+<span class="sd">    lowercase letters, and digits.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        length (int): The desired length of the generated string.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: A randomly generated string of the specified length.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">characters</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span>  <span class="c1"># Uppercase, lowercase letters, and digits</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="generate_test_folder_name"><a class="viewcode-back" href="../../../../../../utils/cuda/preflight/health_check/helpers.html#fkat.utils.cuda.preflight.health_check.helpers.generate_test_folder_name">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">generate_test_folder_name</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate a unique test folder name using the current timestamp and a random string.</span>
+
+<span class="sd">    The folder name is constructed by combining the current date and time (formatted as</span>
+<span class="sd">    &#39;YYYYMMDD_HHMMSS&#39;) with a randomly generated string of 6 characters consisting of</span>
+<span class="sd">    uppercase letters, lowercase letters, and digits.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: A unique test folder name.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; generate_test_folder_name()</span>
+<span class="sd">        &#39;20250324_153045_A3bX7z&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">AWS_BATCH_JOB_ID</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+        <span class="n">test_folder_name</span> <span class="o">=</span> <span class="n">strip_aws_batch_id</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="n">AWS_BATCH_JOB_ID</span><span class="p">,</span> <span class="s2">&quot;local&quot;</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">test_folder_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;local_</span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">-%H-%M-%S&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;current job log will be saved to folder </span><span class="si">{</span><span class="n">test_folder_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">test_folder_name</span></div>
+
+
+<div class="viewcode-block" id="strip_aws_batch_id"><a class="viewcode-back" href="../../../../../../utils/cuda/preflight/health_check/helpers.html#fkat.utils.cuda.preflight.health_check.helpers.strip_aws_batch_id">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">strip_aws_batch_id</span><span class="p">(</span><span class="n">aws_batch_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Strip the AWS Batch ID to remove any additional node information.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        aws_batch_id (str): The original AWS Batch ID, which may include a node index suffix.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: The stripped AWS Batch ID without any node index suffix.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">aws_batch_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="destroy_process_group_if_initialized"><a class="viewcode-back" href="../../../../../../utils/cuda/preflight/health_check/helpers.html#fkat.utils.cuda.preflight.health_check.helpers.destroy_process_group_if_initialized">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">destroy_process_group_if_initialized</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Safely destroys the PyTorch distributed process group if it is initialized.</span>
+
+<span class="sd">    This function checks if the `torch.distributed` process group is both available</span>
+<span class="sd">    and initialized. If so, it calls `destroy_process_group()` and logs success.</span>
+<span class="sd">    Otherwise, it logs a warning. Any exceptions during the process are caught</span>
+<span class="sd">    and logged as errors.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">dist</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="ow">and</span> <span class="n">dist</span><span class="o">.</span><span class="n">is_initialized</span><span class="p">():</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+            <span class="n">dist</span><span class="o">.</span><span class="n">destroy_process_group</span><span class="p">()</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Process group destroyed.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;No process group to destroy.&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Process group can&#39;t be terminated.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="checkfunction_timeout_manager"><a class="viewcode-back" href="../../../../../../utils/cuda/preflight/health_check/helpers.html#fkat.utils.cuda.preflight.health_check.helpers.checkfunction_timeout_manager">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">checkfunction_timeout_manager</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">kwargs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Monitor and enforce a timeout for executing a function within a separate process.</span>
+
+<span class="sd">    This function runs a specified function (`func`) in a separate process with</span>
+<span class="sd">    the provided arguments (`kwargs`). It continuously monitors the execution time</span>
+<span class="sd">    and terminates the process if it exceeds a defined timeout (`HEALTH_CHECK_TIMEOUT_SECS`).</span>
+
+<span class="sd">    The function result is returned via a multiprocessing queue. If the timeout is reached,</span>
+<span class="sd">    a `TimeoutError` is raised.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        func (Callable): The target function to be executed in a separate process.</span>
+<span class="sd">                         It must accept `mlflow_run_id` and `result_queue` as its first</span>
+<span class="sd">                         two arguments, followed by additional `kwargs`.</span>
+<span class="sd">        kwargs (dict): The keyword arguments to be passed to the function being monitored.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Any: The result returned by the `func` via the multiprocessing queue.</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        TimeoutError: If the function exceeds the allowed timeout (`HEALTH_CHECK_TIMEOUT_SECS`).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">active_run</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">active_run</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">active_run</span><span class="p">:</span>
+        <span class="n">mlflow_run_id</span> <span class="o">=</span> <span class="n">active_run</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">run_id</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;mlflow is not activated.&quot;</span><span class="p">)</span>
+
+    <span class="n">result_queue</span><span class="p">:</span> <span class="n">Queue</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span>
+    <span class="n">func_process</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">mlflow_run_id</span><span class="p">,</span> <span class="n">result_queue</span><span class="p">),</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">func_process</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+        <span class="k">while</span> <span class="n">func_process</span><span class="o">.</span><span class="n">is_alive</span><span class="p">():</span>
+            <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+            <span class="k">if</span> <span class="n">elapsed</span> <span class="o">&gt;</span> <span class="n">HEALTH_CHECK_TIMEOUT_SECS</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;[watchdog] func </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> Timeout reached (</span><span class="si">{</span><span class="n">HEALTH_CHECK_TIMEOUT_SECS</span><span class="si">}</span><span class="s2"> seconds). &quot;</span>  <span class="c1"># type: ignore[unresolved-attribute]</span>
+                    <span class="s2">&quot;Terminating processes.&quot;</span>
+                <span class="p">)</span>
+
+                <span class="c1"># Terminate the processes</span>
+                <span class="n">func_process</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+
+                <span class="k">raise</span> <span class="ne">TimeoutError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[watchdog] func </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> exceeded </span><span class="si">{</span><span class="n">HEALTH_CHECK_TIMEOUT_SECS</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>  <span class="c1"># type: ignore[unresolved-attribute]</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># If func finished before timeout, clean up the gpu_log process.</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[watchdog] func </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> completed in time, used </span><span class="si">{</span><span class="n">elapsed</span><span class="si">}</span><span class="s2">s; terminating gpu_log.&quot;</span><span class="p">)</span>  <span class="c1"># type: ignore[unresolved-attribute]</span>
+        <span class="k">return</span> <span class="n">result_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">func_process</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+        <span class="n">func_process</span><span class="o">.</span><span class="n">join</span><span class="p">()</span></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, SFAI Team.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

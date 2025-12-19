@@ -1,0 +1,755 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fkat.data.shm &#8212; FKAT 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/fkat/data/shm';</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FKAT 0.1.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development.html">Development</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../entrypoints.html">Entrypoints</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../actions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">actions</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../actions/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../actions/aws/batch.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">batch</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../actions/aws/ec2.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ec2</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../callbacks.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">callbacks</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../callbacks/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../callbacks/debugging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">debugging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../callbacks/gc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../callbacks/loggers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">loggers</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../callbacks/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../callbacks/monitoring.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">monitoring</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../callbacks/dp.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../callbacks/profiling.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">data</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../data/datasets.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">datasets</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../data/samplers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">samplers</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/samplers/strategies.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">strategies</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../data/shm.html">ShmDataLoader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../data/sharded.html">ShardedDataLoader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../schedule.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">schedule</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../schedule/base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../schedule/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../utils/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../utils/aws/imds.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imds</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/boto3.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">boto3</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/config.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">config</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../utils/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../utils/cuda/xid.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xid</span></code></a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../utils/cuda/preflight.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">preflight</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../utils/cuda/preflight/run.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">run</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../utils/cuda/preflight/health_check.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">health_check</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/pandas.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/pdb.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/pool.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pool</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/profiler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiler</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/pyarrow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyarrow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/rng.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rng</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/shm.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shm</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for fkat.data.shm</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">atexit</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multiprocessing.synchronize</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">concurrent.futures</span><span class="w"> </span><span class="kn">import</span> <span class="n">ThreadPoolExecutor</span><span class="p">,</span> <span class="n">Future</span>
+
+<span class="c1"># mp.pool is not eagerly imported, needs an explicit import</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">signal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">deque</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">TypeVar</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Iterator</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lightning.pytorch.profilers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Profiler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lightning.pytorch.utilities</span><span class="w"> </span><span class="kn">import</span> <span class="n">move_data_to_device</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataLoader</span><span class="p">,</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">Sampler</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">shm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.utils.pool</span><span class="w"> </span><span class="kn">import</span> <span class="n">ThreadPool</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.utils.profiler</span><span class="w"> </span><span class="kn">import</span> <span class="n">profile_until_exit</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">_shutdown</span><span class="p">:</span> <span class="n">Event</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">DEFAULT_SHUTDOWN_TIMEOUT</span> <span class="o">=</span> <span class="mi">60</span>  <span class="c1"># time for workers to gracefully shutdown</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span>
+    <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">dp_rank</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">shutdown</span><span class="p">:</span> <span class="n">Event</span><span class="p">,</span>
+    <span class="n">profiler</span><span class="p">:</span> <span class="n">Profiler</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># signal handlers are inherited, we used shudown flag to gracefully terminate child processes</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">signal</span><span class="o">.</span><span class="n">SIG_IGN</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">pass</span>  <span class="c1"># won&#39;t work from non-MainThread</span>
+    <span class="c1"># this allows the worker function to access `shutdown` even though it is</span>
+    <span class="c1"># not passed as an argument to the function.</span>
+    <span class="k">global</span> <span class="n">_shutdown</span>
+    <span class="n">_shutdown</span> <span class="o">=</span> <span class="n">shutdown</span>
+    <span class="n">pid</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;worker init </span><span class="si">{</span><span class="n">pid</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">profiler</span><span class="p">:</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;ShmDataLoader[worker_pid=</span><span class="si">{</span><span class="n">pid</span><span class="si">}</span><span class="s2">]&quot;</span>
+        <span class="n">profile_until_exit</span><span class="p">(</span><span class="n">profiler</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">action</span><span class="p">,</span> <span class="n">filename_suffix</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">pid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Set RNG seed ensure TP rank within same DP group load and iterate</span>
+    <span class="c1"># the same data in the same order with consistent RNG states</span>
+    <span class="n">rng_seed</span> <span class="o">=</span> <span class="n">seed</span> <span class="o">+</span> <span class="n">dp_rank</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rng_seed</span><span class="p">)</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rng_seed</span><span class="p">)</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">rng_seed</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RNG seed is set with </span><span class="si">{</span><span class="n">rng_seed</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;worker init </span><span class="si">{</span><span class="n">pid</span><span class="si">}</span><span class="s2"> complete&quot;</span><span class="p">)</span>
+
+
+<span class="n">T_co</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;T_co&quot;</span><span class="p">,</span> <span class="n">covariant</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DataLoaderFactory</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T_co</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Factory class for creating DataLoaders.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dataset_generator (Callable): A function that generates a dataset.</span>
+<span class="sd">        sampler_generator (Optional[Callable]): An optional function that generates a sampler for the dataset.</span>
+<span class="sd">        batch_sampler_generator (Optional[Callable]): An optional function that generates a batch sampler.</span>
+<span class="sd">        dataloader_generator (Optional[Callable]): An optional function that generates a DataLoader instance.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">dataset_generator</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[],</span> <span class="n">Dataset</span><span class="p">[</span><span class="n">T_co</span><span class="p">]],</span>
+        <span class="n">sampler_generator</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Dataset</span><span class="p">[</span><span class="n">T_co</span><span class="p">]],</span> <span class="n">Sampler</span><span class="p">[</span><span class="n">T_co</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">batch_sampler_generator</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Sampler</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="n">Dataset</span><span class="p">[</span><span class="n">T_co</span><span class="p">]],</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">dataloader_generator</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">T_co</span><span class="p">]]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Assert that either sampler_generator or batch_sampler_generator is provided</span>
+        <span class="k">assert</span> <span class="n">sampler_generator</span> <span class="ow">or</span> <span class="n">batch_sampler_generator</span><span class="p">,</span> <span class="p">(</span>
+            <span class="s2">&quot;either sampler_generator or batch_sampler_generation must be provided&quot;</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Initialize instance variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset_generator</span> <span class="o">=</span> <span class="n">dataset_generator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampler_generator</span> <span class="o">=</span> <span class="n">sampler_generator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_sampler_generator</span> <span class="o">=</span> <span class="n">batch_sampler_generator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataloader_generator</span> <span class="o">=</span> <span class="n">dataloader_generator</span> <span class="ow">or</span> <span class="n">DataLoader</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">T_co</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generates a DataLoader.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Iterable[List[T_co]]: An iterable of batches of data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Generate dataset using dataset_generator</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset_generator</span><span class="p">()</span>
+
+        <span class="c1"># Generate sampler if sampler_generator is provided</span>
+        <span class="n">sampler</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampler_generator</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampler_generator</span> <span class="k">else</span> <span class="kc">None</span>
+
+        <span class="c1"># Generate batch sampler if batch_sampler_generator is provided</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_sampler_generator</span><span class="p">:</span>
+            <span class="n">batch_sampler</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_sampler_generator</span><span class="p">(</span><span class="n">sampler</span> <span class="k">if</span> <span class="n">sampler</span> <span class="k">else</span> <span class="n">dataset</span><span class="p">)</span>
+            <span class="n">sampler</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># mutually exclusive</span>
+
+        <span class="c1"># Generate DataLoader instance using dataloader_generator</span>
+        <span class="n">dataloader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataloader_generator</span><span class="p">(</span>  <span class="c1"># type: ignore[call-arg]</span>
+            <span class="n">dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sampler</span><span class="o">=</span><span class="n">sampler</span><span class="p">,</span> <span class="n">batch_sampler</span><span class="o">=</span><span class="n">batch_sampler</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">dataloader</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DataLoaderIterGenerator</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T_co</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates and saves an iterator over DataLoaders.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dataloader_factory (DataLoaderFactory): An instance of DataLoaderFactory responsible for generating DataLoaders.</span>
+<span class="sd">        num_microbatches_prefetch (int, optional): The number of microbatches to prefetch. Defaults to -1.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">dataloader_factory</span><span class="p">:</span> <span class="n">DataLoaderFactory</span><span class="p">[</span><span class="n">T_co</span><span class="p">],</span>
+        <span class="n">num_microbatch_prefetches</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes the DataLoaderIterGenerator.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            dataloader_factory (DataLoaderFactory): DataLoaders provider.</span>
+<span class="sd">            num_microbatches_prefetch (int, optional): The number of microbatches to prefetch.</span>
+<span class="sd">                Defaults to -1.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataloader_factory</span> <span class="o">=</span> <span class="n">dataloader_factory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_microbatch_prefetches</span> <span class="o">=</span> <span class="n">num_microbatch_prefetches</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generates and saves an iterator over DataLoaders.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            path (Path): The path where the iterator will be saved.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Log debug message indicating the start of the process</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;generate ...&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Generate a DataLoader</span>
+        <span class="n">dataloader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataloader_factory</span><span class="p">()</span>
+
+        <span class="c1"># Create an iterator over the DataLoader</span>
+        <span class="n">dataloader_iter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">dataloader</span><span class="p">)</span>
+
+        <span class="c1"># Access global variable _shutdown</span>
+        <span class="k">global</span> <span class="n">_shutdown</span>
+
+        <span class="c1"># Save the iterator using shm.save_iter</span>
+        <span class="n">shm</span><span class="o">.</span><span class="n">save_iter</span><span class="p">(</span>
+            <span class="n">dataloader_iter</span><span class="p">,</span>
+            <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
+            <span class="n">max_items</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_microbatch_prefetches</span><span class="p">,</span>
+            <span class="n">should_stop</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">_shutdown</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">_shutdown</span><span class="o">.</span><span class="n">is_set</span><span class="p">(),</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Log debug message indicating the completion of the process</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;generate complete&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Sub-class multiprocessing.Process to make sure it&#39;s not started in daemon mode by the Pool</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NoDaemonProcess</span><span class="p">(</span><span class="n">mp</span><span class="o">.</span><span class="n">Process</span><span class="p">):</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">daemon</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="nd">@daemon</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">daemon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">NoDaemonContext</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">mp</span><span class="o">.</span><span class="n">get_context</span><span class="p">())):</span>  <span class="c1"># type: ignore[misc]</span>
+    <span class="n">Process</span> <span class="o">=</span> <span class="n">NoDaemonProcess</span>
+
+
+<span class="c1"># We sub-class multiprocessing.pool.Pool instead of multiprocessing.Pool</span>
+<span class="c1"># because the latter is only a wrapper function, not a proper class.</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NoDaemonPool</span><span class="p">(</span><span class="n">mp</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">Pool</span><span class="p">):</span>  <span class="c1"># type: ignore[unresolved-attribute]</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;context&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">NoDaemonContext</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ShmDataLoader"><a class="viewcode-back" href="../../../data/shm.html#fkat.data.ShmDataLoader">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">ShmDataLoader</span><span class="p">(</span><span class="n">Iterable</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">T_co</span><span class="p">]]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A :class:`DataLoader` that uses shared memory to efficiently manage and prefetch data batches.</span>
+
+<span class="sd">    Enables double-buffered micro-batch processing and fetching that overlaps with model</span>
+<span class="sd">    forward/backward passes, minimizing dataloading overhead.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        seed (int): Random seed for reproducibility. Use ${seed} at top level in config.yaml.</span>
+<span class="sd">        dataloader_factory (DataLoaderFactory[T_co]): Factory for creating DataLoaders.</span>
+<span class="sd">        num_microbatch_prefetches (int, optional): Number of microbatches to prefetch.</span>
+<span class="sd">            Defaults to -1.</span>
+<span class="sd">        dp_rank (int, optional): Rank of the current process. Defaults to 0.</span>
+<span class="sd">        profiler (Optional[Profiler], optional): Profiler for profiling.</span>
+<span class="sd">            Defaults to None.</span>
+<span class="sd">        device (Optional[torch.device]): device to move the microbatches to in the background</span>
+<span class="sd">        multiprocessing (Optional[True]): whether to instantiate DataLoader in a separate process.</span>
+<span class="sd">            Defaults to True to relieve pressure from the training process, use False to debug and profile</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">dataloader_factory</span><span class="p">:</span> <span class="n">DataLoaderFactory</span><span class="p">[</span><span class="n">T_co</span><span class="p">],</span>
+        <span class="n">num_microbatch_prefetches</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">dp_rank</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">profiler</span><span class="p">:</span> <span class="n">Profiler</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">multiprocessing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">microbatches</span><span class="p">:</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">T_co</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cleanup</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shutdown</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Event</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataloader_factory</span> <span class="o">=</span> <span class="n">dataloader_factory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataloader_iter_generator</span> <span class="o">=</span> <span class="n">DataLoaderIterGenerator</span><span class="p">(</span>
+            <span class="n">dataloader_factory</span><span class="p">,</span>
+            <span class="n">num_microbatch_prefetches</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_jobs</span><span class="p">:</span> <span class="n">deque</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="n">Path</span><span class="p">,</span> <span class="n">mp</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">AsyncResult</span><span class="p">[</span><span class="n">Any</span><span class="p">]]]</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>  <span class="c1"># type: ignore[unresolved-attribute]</span>
+
+        <span class="c1"># Initialize a new ProcessPoolExecutor instance for prefetching if necessary</span>
+        <span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGTERM</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">teardown</span><span class="p">)</span>  <span class="c1"># terminate signal</span>
+        <span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">teardown</span><span class="p">)</span>  <span class="c1"># keyboard interrupt</span>
+        <span class="n">atexit</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">teardown</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">writing_pool</span><span class="p">:</span> <span class="n">NoDaemonPool</span> <span class="o">|</span> <span class="n">ThreadPool</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">NoDaemonPool</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">initializer</span><span class="o">=</span><span class="n">initialize</span><span class="p">,</span> <span class="n">initargs</span><span class="o">=</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="n">dp_rank</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shutdown</span><span class="p">,</span> <span class="n">profiler</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">multiprocessing</span>
+            <span class="k">else</span> <span class="n">ThreadPool</span><span class="p">(</span>
+                <span class="n">max_workers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">thread_name_prefix</span><span class="o">=</span><span class="s2">&quot;ShmDataWriter&quot;</span><span class="p">,</span>
+                <span class="n">initializer</span><span class="o">=</span><span class="n">initialize</span><span class="p">,</span>
+                <span class="n">initargs</span><span class="o">=</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="n">dp_rank</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shutdown</span><span class="p">,</span> <span class="n">profiler</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reading_pool</span> <span class="o">=</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">thread_name_prefix</span><span class="o">=</span><span class="s2">&quot;ShmDataReader&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next_batch</span><span class="p">:</span> <span class="n">Future</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">T_co</span><span class="p">]]:</span>
+        <span class="c1"># all reading needs to go through the same TPE to avoid contention</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">reading_pool</span><span class="o">.</span><span class="n">_shutdown</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">reading_pool</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cleanup</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">T_co</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_batch</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">load_batch</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_batch</span>
+        <span class="n">batch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_batch</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_batch</span><span class="p">()</span>  <span class="c1"># double-buffering</span>
+        <span class="k">return</span> <span class="n">batch</span>
+
+<div class="viewcode-block" id="ShmDataLoader.load_batch"><a class="viewcode-back" href="../../../data/shm.html#fkat.data.ShmDataLoader.load_batch">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">load_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">reading_pool</span><span class="o">.</span><span class="n">_shutdown</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">next_batch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reading_pool</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">load_batch_sync</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ShmDataLoader.load_batch_sync"><a class="viewcode-back" href="../../../data/shm.html#fkat.data.ShmDataLoader.load_batch_sync">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">load_batch_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">T_co</span><span class="p">]:</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">microbatches</span><span class="p">:</span>
+                <span class="c1"># Fetch the next microbatch if available</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">microbatch</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">microbatches</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">:</span>
+                        <span class="n">microbatch</span> <span class="o">=</span> <span class="n">move_data_to_device</span><span class="p">(</span><span class="n">microbatch</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="n">microbatch</span>
+                <span class="c1"># If no microbatches are available, which means all microbatches from current until exhausted</span>
+                <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">cleanup</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">microbatches</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="k">raise</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_jobs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;load iter scheduling ...&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">prefetch</span><span class="p">()</span>
+            <span class="n">path</span><span class="p">,</span> <span class="n">data_job</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_jobs</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;load iter to </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
+
+            <span class="k">def</span><span class="w"> </span><span class="nf">wait_callback</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">data_job</span><span class="o">.</span><span class="n">ready</span><span class="p">():</span>  <span class="c1"># noqa: B023</span>
+                    <span class="c1"># Job is still running</span>
+                    <span class="k">return</span> <span class="kc">None</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Job is finished, raise exception if job failed.</span>
+                    <span class="n">data_job</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>  <span class="c1"># noqa: B023</span>
+                    <span class="c1"># Return whether the call completed without raising an exception.</span>
+                    <span class="k">assert</span> <span class="n">data_job</span><span class="o">.</span><span class="n">successful</span><span class="p">()</span>  <span class="c1"># noqa: B023</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">microbatches</span> <span class="o">=</span> <span class="n">shm</span><span class="o">.</span><span class="n">load_iter</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">wait_callback</span><span class="o">=</span><span class="n">wait_callback</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cleanup</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span></div>
+
+<div class="viewcode-block" id="ShmDataLoader.set_device"><a class="viewcode-back" href="../../../data/shm.html#fkat.data.ShmDataLoader.set_device">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">set_device</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span></div>
+
+<div class="viewcode-block" id="ShmDataLoader.prefetch"><a class="viewcode-back" href="../../../data/shm.html#fkat.data.ShmDataLoader.prefetch">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">prefetch</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">shm</span><span class="o">.</span><span class="n">generate_path</span><span class="p">()</span>
+        <span class="n">data_job</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">writing_pool</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataloader_iter_generator</span><span class="p">,</span> <span class="p">(</span><span class="n">path</span><span class="p">,))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_jobs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">path</span><span class="p">,</span> <span class="n">data_job</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">logger</span><span class="o">.</span><span class="n">isEnabledFor</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;queued </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_jobs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_cleanup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stop_pool</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">microbatches</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_batch</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># if called on teardown/on_exception/__del__ will wait for the pending work to finish</span>
+                <span class="c1"># if called on __init__ it&#39;s already done</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">next_batch</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">next_batch</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shutdown</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>  <span class="c1"># signal running tasks to stop</span>
+        <span class="k">if</span> <span class="n">stop_pool</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">writing_pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>  <span class="c1"># no new tasks can run</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">reading_pool</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">path</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_jobs</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;waiting for </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> to stop ...&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cleanup</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">DEFAULT_SHUTDOWN_TIMEOUT</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> stopped ...&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_jobs</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shutdown</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleanup</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;removing </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># called when fit/validate/predict/test is complete</span>
+<div class="viewcode-block" id="ShmDataLoader.teardown"><a class="viewcode-back" href="../../../data/shm.html#fkat.data.ShmDataLoader.teardown">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">teardown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;teardown ...&quot;</span><span class="p">)</span>
+        <span class="c1"># all reading needs to go through the same TPE to avoid contention</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cleanup</span><span class="p">(</span><span class="n">stop_pool</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;teardown complete&quot;</span><span class="p">)</span></div>
+
+    <span class="c1"># will be used once https://github.com/Lightning-AI/pytorch-lightning/pull/19601 is in effect</span>
+    <span class="c1"># once the below callback is operational we no longer need __del__ override</span>
+<div class="viewcode-block" id="ShmDataLoader.on_exception"><a class="viewcode-back" href="../../../data/shm.html#fkat.data.ShmDataLoader.on_exception">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">on_exception</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exception</span><span class="p">:</span> <span class="ne">BaseException</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teardown</span><span class="p">()</span></div>
+
+    <span class="c1"># called when the iterable link pointing to this object goes out of scope</span>
+    <span class="c1"># e.g. when exception happens</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">teardown</span><span class="p">()</span></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, SFAI Team.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,755 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>helpers &#8212; FKAT 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'utils/cuda/preflight/health_check/helpers';</script>
+    <link rel="shortcut icon" href="../../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="logger" href="logger.html" />
+    <link rel="prev" title="gpu_stress_test" href="gpu_stress_test.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FKAT 0.1.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../development.html">Development</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../entrypoints.html">Entrypoints</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../actions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">actions</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../actions/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../actions/aws/batch.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">batch</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../actions/aws/ec2.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ec2</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../callbacks.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">callbacks</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../callbacks/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../callbacks/debugging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">debugging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../callbacks/gc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../callbacks/loggers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">loggers</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../callbacks/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../callbacks/monitoring.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">monitoring</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../callbacks/dp.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../callbacks/profiling.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">data</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../data/datasets.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">datasets</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../data/samplers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">samplers</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../data/samplers/strategies.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">strategies</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../data/shm.html">ShmDataLoader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../data/sharded.html">ShardedDataLoader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../schedule.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">schedule</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../schedule/base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../schedule/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../aws/imds.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imds</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../boto3.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">boto3</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../config.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">config</span></code></a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../../../cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../xid.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xid</span></code></a></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="../../preflight.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">preflight</span></code></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../run.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">run</span></code></a></li>
+<li class="toctree-l4 current active"><a class="reference internal" href="../health_check.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">health_check</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pandas.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pdb.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pool.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pool</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../profiler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiler</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pyarrow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyarrow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../rng.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rng</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../shm.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shm</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/utils/cuda/preflight/health_check/helpers.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>helpers</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.InstanceStats"><code class="docutils literal notranslate"><span class="pre">InstanceStats</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.InstanceStats.upload_mlflow"><code class="docutils literal notranslate"><span class="pre">InstanceStats.upload_mlflow()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID"><code class="docutils literal notranslate"><span class="pre">UniqueID</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.gpu_hash_id"><code class="docutils literal notranslate"><span class="pre">UniqueID.gpu_hash_id</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.gpu_per_node"><code class="docutils literal notranslate"><span class="pre">UniqueID.gpu_per_node</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.local_rank"><code class="docutils literal notranslate"><span class="pre">UniqueID.local_rank</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.master_addr"><code class="docutils literal notranslate"><span class="pre">UniqueID.master_addr</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.node_rank"><code class="docutils literal notranslate"><span class="pre">UniqueID.node_rank</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.num_nodes"><code class="docutils literal notranslate"><span class="pre">UniqueID.num_nodes</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.rank"><code class="docutils literal notranslate"><span class="pre">UniqueID.rank</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.world_size"><code class="docutils literal notranslate"><span class="pre">UniqueID.world_size</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.checkfunction_timeout_manager"><code class="docutils literal notranslate"><span class="pre">checkfunction_timeout_manager()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.destroy_process_group_if_initialized"><code class="docutils literal notranslate"><span class="pre">destroy_process_group_if_initialized()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.fetch_gpu_info"><code class="docutils literal notranslate"><span class="pre">fetch_gpu_info()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.generate_gpu_uuid_hash"><code class="docutils literal notranslate"><span class="pre">generate_gpu_uuid_hash()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.generate_random_string"><code class="docutils literal notranslate"><span class="pre">generate_random_string()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.generate_test_folder_name"><code class="docutils literal notranslate"><span class="pre">generate_test_folder_name()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.make_requests"><code class="docutils literal notranslate"><span class="pre">make_requests()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.strip_aws_batch_id"><code class="docutils literal notranslate"><span class="pre">strip_aws_batch_id()</span></code></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-fkat.utils.cuda.preflight.health_check.helpers">
+<span id="helpers"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">helpers</span></code><a class="headerlink" href="#module-fkat.utils.cuda.preflight.health_check.helpers" title="Permalink to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="fkat.utils.cuda.preflight.health_check.helpers.InstanceStats">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fkat.utils.cuda.preflight.health_check.helpers.</span></span><span class="sig-name descname"><span class="pre">InstanceStats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance_metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../aws/imds.html#fkat.utils.aws.imds.InstanceMetadata" title="fkat.utils.aws.imds.InstanceMetadata"><span class="pre">InstanceMetadata</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu_info</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/fkat/utils/cuda/preflight/health_check/helpers.html#InstanceStats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.utils.cuda.preflight.health_check.helpers.InstanceStats" title="Permalink to this definition">#</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="fkat.utils.cuda.preflight.health_check.helpers.InstanceStats.upload_mlflow">
+<span class="sig-name descname"><span class="pre">upload_mlflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance_gpu_hash_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/fkat/utils/cuda/preflight/health_check/helpers.html#InstanceStats.upload_mlflow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.utils.cuda.preflight.health_check.helpers.InstanceStats.upload_mlflow" title="Permalink to this definition">#</a></dt>
+<dd><p>Upload instance stats to mlflow.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>instance_gpu_hash_id</strong> (<em>str</em>) – hash the sorted instance GPU UUIDs</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fkat.utils.cuda.preflight.health_check.helpers.UniqueID">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fkat.utils.cuda.preflight.health_check.helpers.</span></span><span class="sig-name descname"><span class="pre">UniqueID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rank</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">world_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_rank</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_nodes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_rank</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu_per_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpu_hash_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">master_addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/fkat/utils/cuda/preflight/health_check/helpers.html#UniqueID"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID" title="Permalink to this definition">#</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="fkat.utils.cuda.preflight.health_check.helpers.UniqueID.gpu_hash_id">
+<span class="sig-name descname"><span class="pre">gpu_hash_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.gpu_hash_id" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fkat.utils.cuda.preflight.health_check.helpers.UniqueID.gpu_per_node">
+<span class="sig-name descname"><span class="pre">gpu_per_node</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.gpu_per_node" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fkat.utils.cuda.preflight.health_check.helpers.UniqueID.local_rank">
+<span class="sig-name descname"><span class="pre">local_rank</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.local_rank" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fkat.utils.cuda.preflight.health_check.helpers.UniqueID.master_addr">
+<span class="sig-name descname"><span class="pre">master_addr</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.master_addr" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fkat.utils.cuda.preflight.health_check.helpers.UniqueID.node_rank">
+<span class="sig-name descname"><span class="pre">node_rank</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.node_rank" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fkat.utils.cuda.preflight.health_check.helpers.UniqueID.num_nodes">
+<span class="sig-name descname"><span class="pre">num_nodes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.num_nodes" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fkat.utils.cuda.preflight.health_check.helpers.UniqueID.rank">
+<span class="sig-name descname"><span class="pre">rank</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.rank" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fkat.utils.cuda.preflight.health_check.helpers.UniqueID.world_size">
+<span class="sig-name descname"><span class="pre">world_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.world_size" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fkat.utils.cuda.preflight.health_check.helpers.checkfunction_timeout_manager">
+<span class="sig-prename descclassname"><span class="pre">fkat.utils.cuda.preflight.health_check.helpers.</span></span><span class="sig-name descname"><span class="pre">checkfunction_timeout_manager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../../../../_modules/fkat/utils/cuda/preflight/health_check/helpers.html#checkfunction_timeout_manager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.utils.cuda.preflight.health_check.helpers.checkfunction_timeout_manager" title="Permalink to this definition">#</a></dt>
+<dd><p>Monitor and enforce a timeout for executing a function within a separate process.</p>
+<p>This function runs a specified function (<cite>func</cite>) in a separate process with
+the provided arguments (<cite>kwargs</cite>). It continuously monitors the execution time
+and terminates the process if it exceeds a defined timeout (<cite>HEALTH_CHECK_TIMEOUT_SECS</cite>).</p>
+<p>The function result is returned via a multiprocessing queue. If the timeout is reached,
+a <cite>TimeoutError</cite> is raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func</strong> (<em>Callable</em>) – The target function to be executed in a separate process.
+It must accept <cite>mlflow_run_id</cite> and <cite>result_queue</cite> as its first
+two arguments, followed by additional <cite>kwargs</cite>.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em>) – The keyword arguments to be passed to the function being monitored.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The result returned by the <cite>func</cite> via the multiprocessing queue.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TimeoutError</strong> – If the function exceeds the allowed timeout (<cite>HEALTH_CHECK_TIMEOUT_SECS</cite>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fkat.utils.cuda.preflight.health_check.helpers.destroy_process_group_if_initialized">
+<span class="sig-prename descclassname"><span class="pre">fkat.utils.cuda.preflight.health_check.helpers.</span></span><span class="sig-name descname"><span class="pre">destroy_process_group_if_initialized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/fkat/utils/cuda/preflight/health_check/helpers.html#destroy_process_group_if_initialized"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.utils.cuda.preflight.health_check.helpers.destroy_process_group_if_initialized" title="Permalink to this definition">#</a></dt>
+<dd><p>Safely destroys the PyTorch distributed process group if it is initialized.</p>
+<p>This function checks if the <cite>torch.distributed</cite> process group is both available
+and initialized. If so, it calls <cite>destroy_process_group()</cite> and logs success.
+Otherwise, it logs a warning. Any exceptions during the process are caught
+and logged as errors.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fkat.utils.cuda.preflight.health_check.helpers.fetch_gpu_info">
+<span class="sig-prename descclassname"><span class="pre">fkat.utils.cuda.preflight.health_check.helpers.</span></span><span class="sig-name descname"><span class="pre">fetch_gpu_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/fkat/utils/cuda/preflight/health_check/helpers.html#fetch_gpu_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.utils.cuda.preflight.health_check.helpers.fetch_gpu_info" title="Permalink to this definition">#</a></dt>
+<dd><p>Retrieve GPU information from the current EC2 instance using NVIDIA Management Library (NVML).</p>
+<p>This function initializes NVML to gather GPU details available to PyTorch,
+including GPU UUIDs and Serial Numbers. Additionally, it generates a hash ID
+representing all GPUs’ UUIDs for easier identification.</p>
+<p>The function logs relevant information and gracefully handles errors, shutting
+down NVML in all scenarios.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>gpu_info (dict): A dictionary containing GPU information where keys are</p></li>
+</ul>
+<dl class="simple">
+<dt>PyTorch device indices (int) and values are dictionaries with the following keys:</dt><dd><ul class="simple">
+<li><p>’uuid’ (str): The UUID of the GPU.</p></li>
+<li><p>’serial’ (str): The Serial Number of the GPU.</p></li>
+</ul>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>instance_gpu_hash_id (str): A hash string representing the combined UUIDs of all GPUs.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>NVMLError</strong> – If there’s an issue retrieving GPU information from NVML.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fkat.utils.cuda.preflight.health_check.helpers.generate_gpu_uuid_hash">
+<span class="sig-prename descclassname"><span class="pre">fkat.utils.cuda.preflight.health_check.helpers.</span></span><span class="sig-name descname"><span class="pre">generate_gpu_uuid_hash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../../../_modules/fkat/utils/cuda/preflight/health_check/helpers.html#generate_gpu_uuid_hash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.utils.cuda.preflight.health_check.helpers.generate_gpu_uuid_hash" title="Permalink to this definition">#</a></dt>
+<dd><p>Concatenates the UUIDs, computes a SHA-256 hash,
+and returns the first 17 hex characters.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fkat.utils.cuda.preflight.health_check.helpers.generate_random_string">
+<span class="sig-prename descclassname"><span class="pre">fkat.utils.cuda.preflight.health_check.helpers.</span></span><span class="sig-name descname"><span class="pre">generate_random_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../../../_modules/fkat/utils/cuda/preflight/health_check/helpers.html#generate_random_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.utils.cuda.preflight.health_check.helpers.generate_random_string" title="Permalink to this definition">#</a></dt>
+<dd><p>Generate a random string of specified length containing uppercase letters,
+lowercase letters, and digits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>length</strong> (<em>int</em>) – The desired length of the generated string.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A randomly generated string of the specified length.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fkat.utils.cuda.preflight.health_check.helpers.generate_test_folder_name">
+<span class="sig-prename descclassname"><span class="pre">fkat.utils.cuda.preflight.health_check.helpers.</span></span><span class="sig-name descname"><span class="pre">generate_test_folder_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../../../_modules/fkat/utils/cuda/preflight/health_check/helpers.html#generate_test_folder_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.utils.cuda.preflight.health_check.helpers.generate_test_folder_name" title="Permalink to this definition">#</a></dt>
+<dd><p>Generate a unique test folder name using the current timestamp and a random string.</p>
+<p>The folder name is constructed by combining the current date and time (formatted as
+‘YYYYMMDD_HHMMSS’) with a randomly generated string of 6 characters consisting of
+uppercase letters, lowercase letters, and digits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A unique test folder name.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">generate_test_folder_name</span><span class="p">()</span>
+<span class="go">&#39;20250324_153045_A3bX7z&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fkat.utils.cuda.preflight.health_check.helpers.make_requests">
+<span class="sig-prename descclassname"><span class="pre">fkat.utils.cuda.preflight.health_check.helpers.</span></span><span class="sig-name descname"><span class="pre">make_requests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../../../_modules/fkat/utils/cuda/preflight/health_check/helpers.html#make_requests"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.utils.cuda.preflight.health_check.helpers.make_requests" title="Permalink to this definition">#</a></dt>
+<dd><p>Retrieve instance metadata from AWS EC2 Instance Metadata Service (IMDSv2).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<em>str</em>) – The URL endpoint of the IMDSv2 metadata service.</p></li>
+<li><p><strong>token</strong> (<em>str</em>) – The authentication token required for IMDSv2 requests.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The retrieved instance metadata as a string.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>requests.exceptions.RequestException</strong> – If the request fails due to network</p></li>
+<li><p><strong>issues</strong><strong>, </strong><strong>invalid URL</strong><strong>, or </strong><strong>failed response status.</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fkat.utils.cuda.preflight.health_check.helpers.strip_aws_batch_id">
+<span class="sig-prename descclassname"><span class="pre">fkat.utils.cuda.preflight.health_check.helpers.</span></span><span class="sig-name descname"><span class="pre">strip_aws_batch_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aws_batch_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../../../_modules/fkat/utils/cuda/preflight/health_check/helpers.html#strip_aws_batch_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.utils.cuda.preflight.health_check.helpers.strip_aws_batch_id" title="Permalink to this definition">#</a></dt>
+<dd><p>Strip the AWS Batch ID to remove any additional node information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aws_batch_id</strong> (<em>str</em>) – The original AWS Batch ID, which may include a node index suffix.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The stripped AWS Batch ID without any node index suffix.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="gpu_stress_test.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gpu_stress_test</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="logger.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logger</span></code></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.InstanceStats"><code class="docutils literal notranslate"><span class="pre">InstanceStats</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.InstanceStats.upload_mlflow"><code class="docutils literal notranslate"><span class="pre">InstanceStats.upload_mlflow()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID"><code class="docutils literal notranslate"><span class="pre">UniqueID</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.gpu_hash_id"><code class="docutils literal notranslate"><span class="pre">UniqueID.gpu_hash_id</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.gpu_per_node"><code class="docutils literal notranslate"><span class="pre">UniqueID.gpu_per_node</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.local_rank"><code class="docutils literal notranslate"><span class="pre">UniqueID.local_rank</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.master_addr"><code class="docutils literal notranslate"><span class="pre">UniqueID.master_addr</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.node_rank"><code class="docutils literal notranslate"><span class="pre">UniqueID.node_rank</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.num_nodes"><code class="docutils literal notranslate"><span class="pre">UniqueID.num_nodes</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.rank"><code class="docutils literal notranslate"><span class="pre">UniqueID.rank</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.UniqueID.world_size"><code class="docutils literal notranslate"><span class="pre">UniqueID.world_size</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.checkfunction_timeout_manager"><code class="docutils literal notranslate"><span class="pre">checkfunction_timeout_manager()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.destroy_process_group_if_initialized"><code class="docutils literal notranslate"><span class="pre">destroy_process_group_if_initialized()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.fetch_gpu_info"><code class="docutils literal notranslate"><span class="pre">fetch_gpu_info()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.generate_gpu_uuid_hash"><code class="docutils literal notranslate"><span class="pre">generate_gpu_uuid_hash()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.generate_random_string"><code class="docutils literal notranslate"><span class="pre">generate_random_string()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.generate_test_folder_name"><code class="docutils literal notranslate"><span class="pre">generate_test_folder_name()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.make_requests"><code class="docutils literal notranslate"><span class="pre">make_requests()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.utils.cuda.preflight.health_check.helpers.strip_aws_batch_id"><code class="docutils literal notranslate"><span class="pre">strip_aws_batch_id()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, SFAI Team.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

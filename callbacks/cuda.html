@@ -1,0 +1,1216 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>cuda &#8212; FKAT 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'callbacks/cuda';</script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="debugging" href="debugging.html" />
+    <link rel="prev" title="callbacks" href="../callbacks.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FKAT 0.1.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Development</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../entrypoints.html">Entrypoints</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../actions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">actions</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../actions/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../actions/aws/batch.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">batch</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../actions/aws/ec2.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ec2</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../callbacks.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">callbacks</span></code></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">debugging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="loggers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">loggers</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="monitoring.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">monitoring</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="dp.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="profiling.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">data</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../data/datasets.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">datasets</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../data/samplers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">samplers</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../data/samplers/strategies.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">strategies</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/shm.html">ShmDataLoader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/sharded.html">ShardedDataLoader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../schedule.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">schedule</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../schedule/base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../schedule/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../utils/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../utils/aws/imds.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imds</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils/boto3.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">boto3</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils/config.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">config</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../utils/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../utils/cuda/xid.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xid</span></code></a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../utils/cuda/preflight.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">preflight</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../utils/cuda/preflight/run.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">run</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../utils/cuda/preflight/health_check.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">health_check</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils/pandas.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils/pdb.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils/pool.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pool</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils/profiler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiler</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils/pyarrow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyarrow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils/rng.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rng</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils/shm.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shm</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/callbacks/cuda.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>cuda</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache"><code class="docutils literal notranslate"><span class="pre">EmptyCache</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache.maybe_empty_cache"><code class="docutils literal notranslate"><span class="pre">EmptyCache.maybe_empty_cache()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_predict_batch_end"><code class="docutils literal notranslate"><span class="pre">EmptyCache.on_predict_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_predict_epoch_end"><code class="docutils literal notranslate"><span class="pre">EmptyCache.on_predict_epoch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_test_batch_end"><code class="docutils literal notranslate"><span class="pre">EmptyCache.on_test_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_test_epoch_end"><code class="docutils literal notranslate"><span class="pre">EmptyCache.on_test_epoch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_train_batch_end"><code class="docutils literal notranslate"><span class="pre">EmptyCache.on_train_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_train_epoch_end"><code class="docutils literal notranslate"><span class="pre">EmptyCache.on_train_epoch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_validation_batch_end"><code class="docutils literal notranslate"><span class="pre">EmptyCache.on_validation_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_validation_epoch_end"><code class="docutils literal notranslate"><span class="pre">EmptyCache.on_validation_epoch_end()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.MemoryObserver"><code class="docutils literal notranslate"><span class="pre">MemoryObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.dump_memory_snapshot"><code class="docutils literal notranslate"><span class="pre">MemoryObserver.dump_memory_snapshot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.maybe_dump_memory_snapshot"><code class="docutils literal notranslate"><span class="pre">MemoryObserver.maybe_dump_memory_snapshot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.on_predict_batch_start"><code class="docutils literal notranslate"><span class="pre">MemoryObserver.on_predict_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.on_test_batch_start"><code class="docutils literal notranslate"><span class="pre">MemoryObserver.on_test_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.on_train_batch_start"><code class="docutils literal notranslate"><span class="pre">MemoryObserver.on_train_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.on_validation_batch_start"><code class="docutils literal notranslate"><span class="pre">MemoryObserver.on_validation_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.setup"><code class="docutils literal notranslate"><span class="pre">MemoryObserver.setup()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nsys"><code class="docutils literal notranslate"><span class="pre">Nsys</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nsys.on_exception"><code class="docutils literal notranslate"><span class="pre">Nsys.on_exception()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nsys.on_predict_batch_end"><code class="docutils literal notranslate"><span class="pre">Nsys.on_predict_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nsys.on_test_batch_end"><code class="docutils literal notranslate"><span class="pre">Nsys.on_test_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nsys.on_train_batch_end"><code class="docutils literal notranslate"><span class="pre">Nsys.on_train_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nsys.on_validation_batch_end"><code class="docutils literal notranslate"><span class="pre">Nsys.on_validation_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nsys.setup"><code class="docutils literal notranslate"><span class="pre">Nsys.setup()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nsys.teardown"><code class="docutils literal notranslate"><span class="pre">Nsys.teardown()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx"><code class="docutils literal notranslate"><span class="pre">Nvtx</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.load_state_dict"><code class="docutils literal notranslate"><span class="pre">Nvtx.load_state_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_after_backward"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_after_backward()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_before_backward"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_before_backward()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_before_optimizer_step"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_before_optimizer_step()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_before_zero_grad"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_before_zero_grad()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_exception"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_exception()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_load_checkpoint"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_load_checkpoint()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_batch_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_predict_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_batch_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_predict_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_predict_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_epoch_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_predict_epoch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_epoch_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_predict_epoch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_predict_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_sanity_check_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_sanity_check_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_sanity_check_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_sanity_check_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_save_checkpoint"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_save_checkpoint()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_test_batch_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_test_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_test_batch_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_test_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_test_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_test_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_test_epoch_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_test_epoch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_test_epoch_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_test_epoch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_test_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_test_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_train_batch_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_train_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_train_batch_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_train_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_train_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_train_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_train_epoch_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_train_epoch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_train_epoch_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_train_epoch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_train_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_train_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_batch_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_validation_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_batch_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_validation_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_validation_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_epoch_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_validation_epoch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_epoch_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_validation_epoch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_validation_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.setup"><code class="docutils literal notranslate"><span class="pre">Nvtx.setup()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.state_dict"><code class="docutils literal notranslate"><span class="pre">Nvtx.state_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.teardown"><code class="docutils literal notranslate"><span class="pre">Nvtx.teardown()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid"><code class="docutils literal notranslate"><span class="pre">Xid</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid.check"><code class="docutils literal notranslate"><span class="pre">Xid.check()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid.monitor"><code class="docutils literal notranslate"><span class="pre">Xid.monitor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid.on_exception"><code class="docutils literal notranslate"><span class="pre">Xid.on_exception()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid.on_predict_batch_start"><code class="docutils literal notranslate"><span class="pre">Xid.on_predict_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid.on_test_batch_start"><code class="docutils literal notranslate"><span class="pre">Xid.on_test_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid.on_train_batch_start"><code class="docutils literal notranslate"><span class="pre">Xid.on_train_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid.on_validation_batch_start"><code class="docutils literal notranslate"><span class="pre">Xid.on_validation_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid.setup"><code class="docutils literal notranslate"><span class="pre">Xid.setup()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid.teardown"><code class="docutils literal notranslate"><span class="pre">Xid.teardown()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-fkat.pytorch.callbacks.cuda">
+<span id="cuda"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code><a class="headerlink" href="#module-fkat.pytorch.callbacks.cuda" title="Permalink to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.EmptyCache">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fkat.pytorch.callbacks.cuda.</span></span><span class="sig-name descname"><span class="pre">EmptyCache</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../schedule/base.html#fkat.pytorch.schedule.base.Schedule" title="fkat.pytorch.schedule.base.Schedule"><span class="pre">Schedule</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/cache.html#EmptyCache"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.EmptyCache" title="Permalink to this definition">#</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.EmptyCache.maybe_empty_cache">
+<span class="sig-name descname"><span class="pre">maybe_empty_cache</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/cache.html#EmptyCache.maybe_empty_cache"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.EmptyCache.maybe_empty_cache" title="Permalink to this definition">#</a></dt>
+<dd><p>Perform empty cache if conditions are met.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trainer</strong> (<em>L.Trainer</em>) – Lightning Trainer</p></li>
+<li><p><strong>stage</strong> (<em>str</em>) – training stage</p></li>
+<li><p><strong>batch_idx</strong> (<em>int</em><em> | </em><em>None</em>) – Current batch index if available</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.EmptyCache.on_predict_batch_end">
+<span class="sig-name descname"><span class="pre">on_predict_batch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/cache.html#EmptyCache.on_predict_batch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_predict_batch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Perform empty cache after prediction batch if needed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.EmptyCache.on_predict_epoch_end">
+<span class="sig-name descname"><span class="pre">on_predict_epoch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/cache.html#EmptyCache.on_predict_epoch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_predict_epoch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Perform empty cache after predict epoch.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.EmptyCache.on_test_batch_end">
+<span class="sig-name descname"><span class="pre">on_test_batch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">L.Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">L.LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">STEP_OUTPUT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/cache.html#EmptyCache.on_test_batch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_test_batch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Perform empty cache after test batch if needed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.EmptyCache.on_test_epoch_end">
+<span class="sig-name descname"><span class="pre">on_test_epoch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/cache.html#EmptyCache.on_test_epoch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_test_epoch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Perform empty cache after test epoch.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.EmptyCache.on_train_batch_end">
+<span class="sig-name descname"><span class="pre">on_train_batch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">L.Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">L.LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">STEP_OUTPUT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/cache.html#EmptyCache.on_train_batch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_train_batch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Perform empty cache after training batch if needed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.EmptyCache.on_train_epoch_end">
+<span class="sig-name descname"><span class="pre">on_train_epoch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/cache.html#EmptyCache.on_train_epoch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_train_epoch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Perform empty cache after training epoch.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.EmptyCache.on_validation_batch_end">
+<span class="sig-name descname"><span class="pre">on_validation_batch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">L.Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">L.LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">STEP_OUTPUT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/cache.html#EmptyCache.on_validation_batch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_validation_batch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Perform empty cache after validation batch if needed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.EmptyCache.on_validation_epoch_end">
+<span class="sig-name descname"><span class="pre">on_validation_epoch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/cache.html#EmptyCache.on_validation_epoch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_validation_epoch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Perform empty cache after validation epoch.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.MemoryObserver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fkat.pytorch.callbacks.cuda.</span></span><span class="sig-name descname"><span class="pre">MemoryObserver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flamegraph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset_memory_history</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snapshot_pickle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor_cycles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../schedule/base.html#fkat.pytorch.schedule.base.Schedule" title="fkat.pytorch.schedule.base.Schedule"><span class="pre">Schedule</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/memory.html#MemoryObserver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.MemoryObserver" title="Permalink to this definition">#</a></dt>
+<dd><p>This callback registers an observer to dump and log the CUDA memory snapshot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>oom</strong> – (bool): whether to dump memory snapshot on Out-of-Memory (OOM) event. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>flamegraph</strong> (<em>bool</em>) – whether to save memory snapshot in flamegraph format. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>reset_memory_history</strong> (<em>bool</em>) – whether to reset memory history after snapshot. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>snapshot_pickle</strong> (<em>bool</em>) – whether to dump memory snapshot in pickle format. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>tensor_cycles</strong> (<em>bool</em>) – whether to detect and dump graphs with cycles containing tensors in the garbage.
+Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><strong>schedule</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="../schedule.html#fkat.pytorch.schedule.Schedule" title="fkat.pytorch.schedule.Schedule"><em>Schedule</em></a><em>]</em>) – Controls when logging occurs besides OOM event. Defaults to <code class="xref py py-class docutils literal notranslate"><span class="pre">Never</span></code></p></li>
+<li><p><strong>**kwargs</strong> (<em>Any</em>) – Arbitrary keyword arguments passed as is to <code class="docutils literal notranslate"><span class="pre">memory._record_memory_history</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.MemoryObserver.dump_memory_snapshot">
+<span class="sig-name descname"><span class="pre">dump_memory_snapshot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rank</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/memory.html#MemoryObserver.dump_memory_snapshot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.dump_memory_snapshot" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.MemoryObserver.maybe_dump_memory_snapshot">
+<span class="sig-name descname"><span class="pre">maybe_dump_memory_snapshot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/memory.html#MemoryObserver.maybe_dump_memory_snapshot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.maybe_dump_memory_snapshot" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.MemoryObserver.on_predict_batch_start">
+<span class="sig-name descname"><span class="pre">on_predict_batch_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/memory.html#MemoryObserver.on_predict_batch_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.on_predict_batch_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the predict batch begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.MemoryObserver.on_test_batch_start">
+<span class="sig-name descname"><span class="pre">on_test_batch_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/memory.html#MemoryObserver.on_test_batch_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.on_test_batch_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the test batch begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.MemoryObserver.on_train_batch_start">
+<span class="sig-name descname"><span class="pre">on_train_batch_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/memory.html#MemoryObserver.on_train_batch_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.on_train_batch_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the train batch begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.MemoryObserver.on_validation_batch_start">
+<span class="sig-name descname"><span class="pre">on_validation_batch_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/memory.html#MemoryObserver.on_validation_batch_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.on_validation_batch_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the validation batch begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.MemoryObserver.setup">
+<span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/memory.html#MemoryObserver.setup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.setup" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when fit, validate, test, predict, or tune begins.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nsys">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fkat.pytorch.callbacks.cuda.</span></span><span class="sig-name descname"><span class="pre">Nsys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../schedule/base.html#fkat.pytorch.schedule.base.Schedule" title="fkat.pytorch.schedule.base.Schedule"><span class="pre">Schedule</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record_shapes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nsys.html#Nsys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nsys" title="Permalink to this definition">#</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nsys.on_exception">
+<span class="sig-name descname"><span class="pre">on_exception</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exception</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BaseException</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nsys.html#Nsys.on_exception"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nsys.on_exception" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when any trainer execution is interrupted by an exception.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nsys.on_predict_batch_end">
+<span class="sig-name descname"><span class="pre">on_predict_batch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nsys.html#Nsys.on_predict_batch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nsys.on_predict_batch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the predict batch ends.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nsys.on_test_batch_end">
+<span class="sig-name descname"><span class="pre">on_test_batch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">L.Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">L.LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">STEP_OUTPUT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nsys.html#Nsys.on_test_batch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nsys.on_test_batch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the test batch ends.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nsys.on_train_batch_end">
+<span class="sig-name descname"><span class="pre">on_train_batch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nsys.html#Nsys.on_train_batch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nsys.on_train_batch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the train batch ends.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The value <code class="docutils literal notranslate"><span class="pre">outputs[&quot;loss&quot;]</span></code> here will be the normalized value w.r.t <code class="docutils literal notranslate"><span class="pre">accumulate_grad_batches</span></code> of the
+loss returned from <code class="docutils literal notranslate"><span class="pre">training_step</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nsys.on_validation_batch_end">
+<span class="sig-name descname"><span class="pre">on_validation_batch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">L.Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">L.LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">STEP_OUTPUT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nsys.html#Nsys.on_validation_batch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nsys.on_validation_batch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the validation batch ends.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nsys.setup">
+<span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nsys.html#Nsys.setup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nsys.setup" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when fit, validate, test, predict, or tune begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nsys.teardown">
+<span class="sig-name descname"><span class="pre">teardown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nsys.html#Nsys.teardown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nsys.teardown" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when fit, validate, test, predict, or tune ends.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fkat.pytorch.callbacks.cuda.</span></span><span class="sig-name descname"><span class="pre">Nvtx</span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx" title="Permalink to this definition">#</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.load_state_dict">
+<span class="sig-name descname"><span class="pre">load_state_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.load_state_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.load_state_dict" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when loading a checkpoint, implement to reload callback state given callback’s <code class="docutils literal notranslate"><span class="pre">state_dict</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state_dict</strong> – the callback state returned by <code class="docutils literal notranslate"><span class="pre">state_dict</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_after_backward">
+<span class="sig-name descname"><span class="pre">on_after_backward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_after_backward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_after_backward" title="Permalink to this definition">#</a></dt>
+<dd><p>Called after <code class="docutils literal notranslate"><span class="pre">loss.backward()</span></code> and before optimizers are stepped.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_before_backward">
+<span class="sig-name descname"><span class="pre">on_before_backward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_before_backward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_before_backward" title="Permalink to this definition">#</a></dt>
+<dd><p>Called before <code class="docutils literal notranslate"><span class="pre">loss.backward()</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_before_optimizer_step">
+<span class="sig-name descname"><span class="pre">on_before_optimizer_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optimizer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_before_optimizer_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_before_optimizer_step" title="Permalink to this definition">#</a></dt>
+<dd><p>Called before <code class="docutils literal notranslate"><span class="pre">optimizer.step()</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_before_zero_grad">
+<span class="sig-name descname"><span class="pre">on_before_zero_grad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optimizer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_before_zero_grad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_before_zero_grad" title="Permalink to this definition">#</a></dt>
+<dd><p>Called before <code class="docutils literal notranslate"><span class="pre">optimizer.zero_grad()</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_exception">
+<span class="sig-name descname"><span class="pre">on_exception</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exception</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BaseException</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_exception"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_exception" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when any trainer execution is interrupted by an exception.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_load_checkpoint">
+<span class="sig-name descname"><span class="pre">on_load_checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkpoint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_load_checkpoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_load_checkpoint" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when loading a model checkpoint, use to reload state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trainer</strong> – the current <code class="xref py py-class docutils literal notranslate"><span class="pre">Trainer</span></code> instance.</p></li>
+<li><p><strong>pl_module</strong> – the current <code class="xref py py-class docutils literal notranslate"><span class="pre">LightningModule</span></code> instance.</p></li>
+<li><p><strong>checkpoint</strong> – the full checkpoint dictionary that got loaded by the Trainer.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_predict_batch_end">
+<span class="sig-name descname"><span class="pre">on_predict_batch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_predict_batch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_batch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the predict batch ends.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_predict_batch_start">
+<span class="sig-name descname"><span class="pre">on_predict_batch_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_predict_batch_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_batch_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the predict batch begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_predict_end">
+<span class="sig-name descname"><span class="pre">on_predict_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_predict_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when predict ends.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_predict_epoch_end">
+<span class="sig-name descname"><span class="pre">on_predict_epoch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_predict_epoch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_epoch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the predict epoch ends.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_predict_epoch_start">
+<span class="sig-name descname"><span class="pre">on_predict_epoch_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_predict_epoch_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_epoch_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the predict epoch begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_predict_start">
+<span class="sig-name descname"><span class="pre">on_predict_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_predict_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the predict begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_sanity_check_end">
+<span class="sig-name descname"><span class="pre">on_sanity_check_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_sanity_check_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_sanity_check_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the validation sanity check ends.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_sanity_check_start">
+<span class="sig-name descname"><span class="pre">on_sanity_check_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_sanity_check_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_sanity_check_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the validation sanity check starts.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_save_checkpoint">
+<span class="sig-name descname"><span class="pre">on_save_checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkpoint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_save_checkpoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_save_checkpoint" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when saving a checkpoint to give you a chance to store anything else you might want to save.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trainer</strong> – the current <code class="xref py py-class docutils literal notranslate"><span class="pre">Trainer</span></code> instance.</p></li>
+<li><p><strong>pl_module</strong> – the current <code class="xref py py-class docutils literal notranslate"><span class="pre">LightningModule</span></code> instance.</p></li>
+<li><p><strong>checkpoint</strong> – the checkpoint dictionary that will be saved.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_test_batch_end">
+<span class="sig-name descname"><span class="pre">on_test_batch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">L.Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">L.LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">STEP_OUTPUT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_test_batch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_test_batch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the test batch ends.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_test_batch_start">
+<span class="sig-name descname"><span class="pre">on_test_batch_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_test_batch_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_test_batch_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the test batch begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_test_end">
+<span class="sig-name descname"><span class="pre">on_test_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_test_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_test_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the test ends.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_test_epoch_end">
+<span class="sig-name descname"><span class="pre">on_test_epoch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_test_epoch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_test_epoch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the test epoch ends.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_test_epoch_start">
+<span class="sig-name descname"><span class="pre">on_test_epoch_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_test_epoch_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_test_epoch_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the test epoch begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_test_start">
+<span class="sig-name descname"><span class="pre">on_test_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_test_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_test_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the test begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_train_batch_end">
+<span class="sig-name descname"><span class="pre">on_train_batch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">L.Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">L.LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">STEP_OUTPUT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_train_batch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_train_batch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the train batch ends.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The value <code class="docutils literal notranslate"><span class="pre">outputs[&quot;loss&quot;]</span></code> here will be the normalized value w.r.t <code class="docutils literal notranslate"><span class="pre">accumulate_grad_batches</span></code> of the
+loss returned from <code class="docutils literal notranslate"><span class="pre">training_step</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_train_batch_start">
+<span class="sig-name descname"><span class="pre">on_train_batch_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_train_batch_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_train_batch_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the train batch begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_train_end">
+<span class="sig-name descname"><span class="pre">on_train_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_train_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_train_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the train ends.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_train_epoch_end">
+<span class="sig-name descname"><span class="pre">on_train_epoch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_train_epoch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_train_epoch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the train epoch ends.</p>
+<p>To access all batch outputs at the end of the epoch, you can cache step outputs as an attribute of the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">lightning.pytorch.core.LightningModule</span></code> and access them in this hook:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyLightningModule</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">LightningModule</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">training_step_outputs</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">training_step</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="o">...</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">training_step_outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">loss</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyCallback</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">Callback</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">):</span>
+        <span class="c1"># do something with all training_step outputs, for example:</span>
+        <span class="n">epoch_mean</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">pl_module</span><span class="o">.</span><span class="n">training_step_outputs</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">pl_module</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;training_epoch_mean&quot;</span><span class="p">,</span> <span class="n">epoch_mean</span><span class="p">)</span>
+        <span class="c1"># free up the memory</span>
+        <span class="n">pl_module</span><span class="o">.</span><span class="n">training_step_outputs</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_train_epoch_start">
+<span class="sig-name descname"><span class="pre">on_train_epoch_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_train_epoch_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_train_epoch_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the train epoch begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_train_start">
+<span class="sig-name descname"><span class="pre">on_train_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_train_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_train_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the train begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_validation_batch_end">
+<span class="sig-name descname"><span class="pre">on_validation_batch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">L.Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">L.LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">STEP_OUTPUT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_validation_batch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_batch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the validation batch ends.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_validation_batch_start">
+<span class="sig-name descname"><span class="pre">on_validation_batch_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_validation_batch_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_batch_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the validation batch begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_validation_end">
+<span class="sig-name descname"><span class="pre">on_validation_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_validation_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the validation loop ends.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_validation_epoch_end">
+<span class="sig-name descname"><span class="pre">on_validation_epoch_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_validation_epoch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_epoch_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the val epoch ends.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_validation_epoch_start">
+<span class="sig-name descname"><span class="pre">on_validation_epoch_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_validation_epoch_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_epoch_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the val epoch begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.on_validation_start">
+<span class="sig-name descname"><span class="pre">on_validation_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.on_validation_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the validation loop begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.setup">
+<span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.setup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.setup" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when fit, validate, test, predict, or tune begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.state_dict">
+<span class="sig-name descname"><span class="pre">state_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.state_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.state_dict" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when saving a checkpoint, implement to generate callback’s <code class="docutils literal notranslate"><span class="pre">state_dict</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A dictionary containing callback state.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Nvtx.teardown">
+<span class="sig-name descname"><span class="pre">teardown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/nvtx.html#Nvtx.teardown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Nvtx.teardown" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when fit, validate, test, predict, or tune ends.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Xid">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fkat.pytorch.callbacks.cuda.</span></span><span class="sig-name descname"><span class="pre">Xid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../actions.html#fkat.pytorch.actions.LightningAction" title="fkat.pytorch.actions.LightningAction"><span class="pre">fkat.pytorch.actions.LightningAction</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../schedule/base.html#fkat.pytorch.schedule.base.Schedule" title="fkat.pytorch.schedule.base.Schedule"><span class="pre">Schedule</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/xid.html#Xid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Xid" title="Permalink to this definition">#</a></dt>
+<dd><p>A callback to monitor and log Xid errors in a separate process during training.</p>
+<p>It utilizes a separate process to monitor these errors, ensuring that the main training process remains unaffected.
+The monitoring process is started at the beginning of training and terminated either
+upon an exception in training or at the end of the training/validation stage.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Xid.check">
+<span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/xid.html#Xid.check"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Xid.check" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Xid.monitor">
+<span class="sig-name descname"><span class="pre">monitor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">multiprocessing.Process</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Xid.monitor" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Xid.on_exception">
+<span class="sig-name descname"><span class="pre">on_exception</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exception</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BaseException</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/xid.html#Xid.on_exception"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Xid.on_exception" title="Permalink to this definition">#</a></dt>
+<dd><p>Callback method to handle exceptions during training.</p>
+<p>If an exception occurs during the training process, this method ensures that the
+Xid error monitoring process is terminated to prevent resource leakage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trainer</strong> (<em>L.Trainer</em>) – The PyTorch Lightning Trainer instance.</p></li>
+<li><p><strong>pl_module</strong> (<em>L.LightningModule</em>) – The PyTorch Lightning module being trained.</p></li>
+<li><p><strong>exception</strong> (<em>BaseException</em>) – The exception that occurred during training.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Xid.on_predict_batch_start">
+<span class="sig-name descname"><span class="pre">on_predict_batch_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/xid.html#Xid.on_predict_batch_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Xid.on_predict_batch_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the predict batch begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Xid.on_test_batch_start">
+<span class="sig-name descname"><span class="pre">on_test_batch_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/xid.html#Xid.on_test_batch_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Xid.on_test_batch_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the test batch begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Xid.on_train_batch_start">
+<span class="sig-name descname"><span class="pre">on_train_batch_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/xid.html#Xid.on_train_batch_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Xid.on_train_batch_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the train batch begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Xid.on_validation_batch_start">
+<span class="sig-name descname"><span class="pre">on_validation_batch_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/xid.html#Xid.on_validation_batch_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Xid.on_validation_batch_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the validation batch begins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Xid.setup">
+<span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/xid.html#Xid.setup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Xid.setup" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes the Xid error monitoring process at the start of the training stage.</p>
+<p>This method is automatically invoked by the PyTorch Lightning framework. It starts
+a separate background process dedicated to monitoring Xid errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trainer</strong> (<em>L.Trainer</em>) – The PyTorch Lightning Trainer instance.</p></li>
+<li><p><strong>module</strong> (<em>L.LightningModule</em>) – The PyTorch Lightning module being trained.</p></li>
+<li><p><strong>stage</strong> (<em>str</em>) – The stage of the training process (e.g., ‘fit’, ‘test’).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.cuda.Xid.teardown">
+<span class="sig-name descname"><span class="pre">teardown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/cuda/xid.html#Xid.teardown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.cuda.Xid.teardown" title="Permalink to this definition">#</a></dt>
+<dd><p>Ensures the Xid error monitoring process is terminated at the end of training.</p>
+<p>This method is automatically called by the PyTorch Lightning framework at the
+end of the training or validation stage to clean up the monitoring process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trainer</strong> (<em>L.Trainer</em>) – The PyTorch Lightning Trainer instance.</p></li>
+<li><p><strong>module</strong> (<em>L.LightningModule</em>) – The PyTorch Lightning module being trained.</p></li>
+<li><p><strong>stage</strong> (<em>str</em>) – The stage of the training process (e.g., ‘fit’, ‘test’).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../callbacks.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">callbacks</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="debugging.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">debugging</span></code></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache"><code class="docutils literal notranslate"><span class="pre">EmptyCache</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache.maybe_empty_cache"><code class="docutils literal notranslate"><span class="pre">EmptyCache.maybe_empty_cache()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_predict_batch_end"><code class="docutils literal notranslate"><span class="pre">EmptyCache.on_predict_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_predict_epoch_end"><code class="docutils literal notranslate"><span class="pre">EmptyCache.on_predict_epoch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_test_batch_end"><code class="docutils literal notranslate"><span class="pre">EmptyCache.on_test_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_test_epoch_end"><code class="docutils literal notranslate"><span class="pre">EmptyCache.on_test_epoch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_train_batch_end"><code class="docutils literal notranslate"><span class="pre">EmptyCache.on_train_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_train_epoch_end"><code class="docutils literal notranslate"><span class="pre">EmptyCache.on_train_epoch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_validation_batch_end"><code class="docutils literal notranslate"><span class="pre">EmptyCache.on_validation_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.EmptyCache.on_validation_epoch_end"><code class="docutils literal notranslate"><span class="pre">EmptyCache.on_validation_epoch_end()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.MemoryObserver"><code class="docutils literal notranslate"><span class="pre">MemoryObserver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.dump_memory_snapshot"><code class="docutils literal notranslate"><span class="pre">MemoryObserver.dump_memory_snapshot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.maybe_dump_memory_snapshot"><code class="docutils literal notranslate"><span class="pre">MemoryObserver.maybe_dump_memory_snapshot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.on_predict_batch_start"><code class="docutils literal notranslate"><span class="pre">MemoryObserver.on_predict_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.on_test_batch_start"><code class="docutils literal notranslate"><span class="pre">MemoryObserver.on_test_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.on_train_batch_start"><code class="docutils literal notranslate"><span class="pre">MemoryObserver.on_train_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.on_validation_batch_start"><code class="docutils literal notranslate"><span class="pre">MemoryObserver.on_validation_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.MemoryObserver.setup"><code class="docutils literal notranslate"><span class="pre">MemoryObserver.setup()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nsys"><code class="docutils literal notranslate"><span class="pre">Nsys</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nsys.on_exception"><code class="docutils literal notranslate"><span class="pre">Nsys.on_exception()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nsys.on_predict_batch_end"><code class="docutils literal notranslate"><span class="pre">Nsys.on_predict_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nsys.on_test_batch_end"><code class="docutils literal notranslate"><span class="pre">Nsys.on_test_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nsys.on_train_batch_end"><code class="docutils literal notranslate"><span class="pre">Nsys.on_train_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nsys.on_validation_batch_end"><code class="docutils literal notranslate"><span class="pre">Nsys.on_validation_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nsys.setup"><code class="docutils literal notranslate"><span class="pre">Nsys.setup()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nsys.teardown"><code class="docutils literal notranslate"><span class="pre">Nsys.teardown()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx"><code class="docutils literal notranslate"><span class="pre">Nvtx</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.load_state_dict"><code class="docutils literal notranslate"><span class="pre">Nvtx.load_state_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_after_backward"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_after_backward()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_before_backward"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_before_backward()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_before_optimizer_step"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_before_optimizer_step()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_before_zero_grad"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_before_zero_grad()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_exception"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_exception()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_load_checkpoint"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_load_checkpoint()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_batch_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_predict_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_batch_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_predict_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_predict_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_epoch_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_predict_epoch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_epoch_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_predict_epoch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_predict_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_sanity_check_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_sanity_check_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_sanity_check_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_sanity_check_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_save_checkpoint"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_save_checkpoint()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_test_batch_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_test_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_test_batch_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_test_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_test_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_test_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_test_epoch_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_test_epoch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_test_epoch_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_test_epoch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_test_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_test_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_train_batch_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_train_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_train_batch_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_train_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_train_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_train_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_train_epoch_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_train_epoch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_train_epoch_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_train_epoch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_train_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_train_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_batch_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_validation_batch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_batch_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_validation_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_validation_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_epoch_end"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_validation_epoch_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_epoch_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_validation_epoch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_start"><code class="docutils literal notranslate"><span class="pre">Nvtx.on_validation_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.setup"><code class="docutils literal notranslate"><span class="pre">Nvtx.setup()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.state_dict"><code class="docutils literal notranslate"><span class="pre">Nvtx.state_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Nvtx.teardown"><code class="docutils literal notranslate"><span class="pre">Nvtx.teardown()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid"><code class="docutils literal notranslate"><span class="pre">Xid</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid.check"><code class="docutils literal notranslate"><span class="pre">Xid.check()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid.monitor"><code class="docutils literal notranslate"><span class="pre">Xid.monitor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid.on_exception"><code class="docutils literal notranslate"><span class="pre">Xid.on_exception()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid.on_predict_batch_start"><code class="docutils literal notranslate"><span class="pre">Xid.on_predict_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid.on_test_batch_start"><code class="docutils literal notranslate"><span class="pre">Xid.on_test_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid.on_train_batch_start"><code class="docutils literal notranslate"><span class="pre">Xid.on_train_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid.on_validation_batch_start"><code class="docutils literal notranslate"><span class="pre">Xid.on_validation_batch_start()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid.setup"><code class="docutils literal notranslate"><span class="pre">Xid.setup()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.cuda.Xid.teardown"><code class="docutils literal notranslate"><span class="pre">Xid.teardown()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, SFAI Team.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,950 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fkat.utils.cuda.preflight.run &#8212; FKAT 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../_static/copybutton.js"></script>
+    <script src="../../../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/fkat/utils/cuda/preflight/run';</script>
+    <link rel="shortcut icon" href="../../../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FKAT 0.1.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../development.html">Development</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../entrypoints.html">Entrypoints</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../actions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">actions</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../actions/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../actions/aws/batch.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">batch</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../actions/aws/ec2.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ec2</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../callbacks.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">callbacks</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/debugging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">debugging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/gc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/loggers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">loggers</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../callbacks/monitoring.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">monitoring</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../callbacks/dp.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/profiling.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">data</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../data/datasets.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">datasets</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../data/samplers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">samplers</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../data/samplers/strategies.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">strategies</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../data/shm.html">ShmDataLoader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../data/sharded.html">ShardedDataLoader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../schedule.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">schedule</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../schedule/base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../schedule/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../utils/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../utils/aws/imds.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imds</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/boto3.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">boto3</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/config.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">config</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../utils/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../utils/cuda/xid.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xid</span></code></a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../utils/cuda/preflight.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">preflight</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../utils/cuda/preflight/run.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">run</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../utils/cuda/preflight/health_check.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">health_check</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pandas.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pdb.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pool.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pool</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/profiler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiler</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pyarrow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyarrow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/rng.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rng</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/shm.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shm</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for fkat.utils.cuda.preflight.run</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mlflow</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.multiprocessing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.utils.cuda.preflight.health_check.gpu_stress_test</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_gpu_stress_test</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.utils.cuda.preflight.health_check.gpu_connection_test</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_gpu_connection_test</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.utils.aws.imds</span><span class="w"> </span><span class="kn">import</span> <span class="n">instance_metadata</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.utils.cuda.preflight.health_check.helpers</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">fetch_gpu_info</span><span class="p">,</span>
+    <span class="n">generate_test_folder_name</span><span class="p">,</span>
+    <span class="n">InstanceStats</span><span class="p">,</span>
+    <span class="n">strip_aws_batch_id</span><span class="p">,</span>
+    <span class="n">checkfunction_timeout_manager</span><span class="p">,</span>
+    <span class="n">UniqueID</span><span class="p">,</span>
+    <span class="n">destroy_process_group_if_initialized</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.utils.cuda.preflight.health_check.logger</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">end_all_mlflow_active_runs</span><span class="p">,</span>
+    <span class="n">initialize_mlflow</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.utils.cuda.preflight.health_check.aws_instance_config</span><span class="w"> </span><span class="kn">import</span> <span class="n">INSTANCE_BENCHMARK_CONFIGS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.utils.cuda.preflight.health_check.ddb_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">HealthStatusDDBClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.utils.cuda.preflight.health_check.constants</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">STRESS_TEST_MAX_RUNTIME_IN_SEC</span><span class="p">,</span>
+    <span class="n">NUM_LOOPS_RANGE</span><span class="p">,</span>
+    <span class="n">SINGLE_NODE_LATENCY_THRESHOLD_FACTOR</span><span class="p">,</span>
+    <span class="n">PAIR_NODES_LATENCY_THRESHOLD_FACTOR</span><span class="p">,</span>
+    <span class="n">AWS_BATCH_JOB_ID</span><span class="p">,</span>
+    <span class="n">PREFLIGHT_MLFLOW_METRIC_PREFIX</span><span class="p">,</span>
+    <span class="n">HEALTH_CHECK_TIMEOUT_SECS</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">PG_TIMEOUT_MIN</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;PG_TIMEOUT_MIN&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">MLFLOW_CHECK_INTERVAL_SECS</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># check mlflow every 5 second</span>
+
+<span class="n">test_folder_name</span> <span class="o">=</span> <span class="n">generate_test_folder_name</span><span class="p">()</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_is_result_within_threshold</span><span class="p">(</span><span class="n">result</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">baseline</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">factor</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Determines if a test result is within an acceptable threshold.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        result (float): The measured test result.</span>
+<span class="sd">        baseline (float): The baseline or expected result value.</span>
+<span class="sd">        factor (float): The multiplicative threshold factor.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: True if the result is within (baseline * factor), False otherwise.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">threshold</span> <span class="o">=</span> <span class="n">baseline</span> <span class="o">*</span> <span class="n">factor</span>
+    <span class="k">return</span> <span class="n">result</span> <span class="o">&lt;=</span> <span class="n">threshold</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_run_single_gpu_stress_test</span><span class="p">(</span>
+    <span class="n">unique_id</span><span class="p">:</span> <span class="n">UniqueID</span><span class="p">,</span>
+    <span class="n">instance_stats</span><span class="p">:</span> <span class="n">InstanceStats</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Executes a single GPU stress test to evaluate basic GPU performance.</span>
+
+<span class="sd">    If the current process is local_rank == 0, it runs the stress test and logs results to MLflow.</span>
+<span class="sd">    Other ranks wait for MLflow to log the result.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        unique_id (UniqueID): Metadata of the current process containing rank and cluster topology.</span>
+<span class="sd">        instance_stats (InstanceStats): System-specific configuration and GPU info.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: True if the test passes all conditions, False otherwise.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">instance_type</span> <span class="o">=</span> <span class="n">instance_stats</span><span class="o">.</span><span class="n">instance_type</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">is_passed</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">if</span> <span class="n">unique_id</span><span class="o">.</span><span class="n">local_rank</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">************** Start run_gpu_stress_test() ***********&quot;</span><span class="p">)</span>
+        <span class="n">hostname</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">()</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">checkfunction_timeout_manager</span><span class="p">(</span>
+                <span class="n">run_gpu_stress_test</span><span class="p">,</span>
+                <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span>
+                    <span class="s2">&quot;gpu_mem&quot;</span><span class="p">:</span> <span class="n">INSTANCE_BENCHMARK_CONFIGS</span><span class="p">[</span><span class="n">instance_type</span><span class="p">]</span><span class="o">.</span><span class="n">gpu_memory_gb</span><span class="p">,</span>
+                    <span class="s2">&quot;max_runtime&quot;</span><span class="p">:</span> <span class="n">STRESS_TEST_MAX_RUNTIME_IN_SEC</span><span class="p">,</span>
+                <span class="p">},</span>
+            <span class="p">)</span>
+            <span class="n">baseline_num_loops_low_limit</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">INSTANCE_BENCHMARK_CONFIGS</span><span class="p">[</span><span class="n">instance_type</span><span class="p">]</span><span class="o">.</span><span class="n">baseline_num_loops</span> <span class="o">-</span> <span class="n">NUM_LOOPS_RANGE</span>
+            <span class="p">)</span>
+            <span class="n">baseline_num_loops_up_limit</span> <span class="o">=</span> <span class="n">INSTANCE_BENCHMARK_CONFIGS</span><span class="p">[</span><span class="n">instance_type</span><span class="p">]</span><span class="o">.</span><span class="n">baseline_num_loops</span> <span class="o">+</span> <span class="n">NUM_LOOPS_RANGE</span>
+            <span class="n">is_within_loops_range</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">baseline_num_loops_low_limit</span> <span class="o">&lt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;num_loop&quot;</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="n">baseline_num_loops_up_limit</span>
+            <span class="p">)</span>
+
+            <span class="n">is_passed</span> <span class="o">=</span> <span class="n">is_within_loops_range</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;all_gpus&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hostname</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">is_passed</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Single GPU stree test meets error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)}</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">empty_cache</span><span class="p">()</span>
+
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">PREFLIGHT_MLFLOW_METRIC_PREFIX</span><span class="si">}</span><span class="s2">/gpu_stress_test/is_test_pass&quot;</span><span class="p">,</span> <span class="n">is_passed</span><span class="p">)</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+
+        <span class="k">if</span> <span class="s2">&quot;error&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Update instance stats to include test result&quot;</span><span class="p">)</span>
+            <span class="n">instance_stats</span><span class="o">.</span><span class="n">gpu_info</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">instance_stats</span><span class="o">.</span><span class="n">gpu_info</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;uuid&quot;</span><span class="p">]):</span> <span class="n">result</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">instance_stats</span><span class="o">.</span><span class="n">gpu_info</span>  <span class="c1"># type: ignore[index]</span>
+            <span class="p">}</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">************** Finish run_gpu_stress_test() ***********&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">max_retries</span> <span class="o">=</span> <span class="n">HEALTH_CHECK_TIMEOUT_SECS</span> <span class="o">//</span> <span class="n">MLFLOW_CHECK_INTERVAL_SECS</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">attempt</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">metric_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">PREFLIGHT_MLFLOW_METRIC_PREFIX</span><span class="si">}</span><span class="s2">/gpu_stress_test/is_test_pass&quot;</span>
+        <span class="k">while</span> <span class="n">attempt</span> <span class="o">&lt;</span> <span class="n">max_retries</span><span class="p">:</span>
+            <span class="n">active_run</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">active_run</span><span class="p">()</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">active_run</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Can&#39;t find mlflow run.&quot;</span><span class="p">)</span>
+
+            <span class="n">run_data</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">get_run</span><span class="p">(</span><span class="n">active_run</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">run_id</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+            <span class="k">if</span> <span class="n">metric_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">run_data</span><span class="o">.</span><span class="n">metrics</span><span class="p">:</span>
+                <span class="n">attempt</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">MLFLOW_CHECK_INTERVAL_SECS</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">break</span>  <span class="c1"># metric was found, exit loop</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;preflight on local_rank check ends&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">is_passed</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_run_single_node_nvlink_test</span><span class="p">(</span>
+    <span class="n">unique_id</span><span class="p">:</span> <span class="n">UniqueID</span><span class="p">,</span>
+    <span class="n">instance_stats</span><span class="p">:</span> <span class="n">InstanceStats</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Runs a single-node NVLink bandwidth test to validate GPU interconnects within a node.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        unique_id (UniqueID): Metadata of the current process containing rank and cluster topology.</span>
+<span class="sd">        instance_stats (InstanceStats): Configuration and GPU data for this node.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: True if the NVLink test latency is within acceptable limits, False otherwise.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">instance_type</span> <span class="o">=</span> <span class="n">instance_stats</span><span class="o">.</span><span class="n">instance_type</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">************** Start nvlink_test() for unique_id </span><span class="si">{</span><span class="n">unique_id</span><span class="si">}</span><span class="s2"> ***********&quot;</span><span class="p">)</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;start single node test, with master_addr </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">unique_id</span><span class="o">.</span><span class="n">master_addr</span><span class="p">)</span><span class="si">}</span><span class="s2">, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;world_size </span><span class="si">{</span><span class="n">unique_id</span><span class="o">.</span><span class="n">gpu_per_node</span><span class="si">}</span><span class="s2">, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;rank </span><span class="si">{</span><span class="n">unique_id</span><span class="o">.</span><span class="n">local_rank</span><span class="si">}</span><span class="s2">, local_rank </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;LOCAL_RANK&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">checkfunction_timeout_manager</span><span class="p">(</span>
+            <span class="n">func</span><span class="o">=</span><span class="n">run_gpu_connection_test</span><span class="p">,</span>
+            <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;dim_items&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">INSTANCE_BENCHMARK_CONFIGS</span><span class="p">[</span><span class="n">instance_type</span><span class="p">]</span><span class="o">.</span><span class="n">config_dim</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">),</span>
+                <span class="s2">&quot;loops&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">INSTANCE_BENCHMARK_CONFIGS</span><span class="p">[</span><span class="n">instance_type</span><span class="p">]</span><span class="o">.</span><span class="n">num_loops_single</span><span class="p">),</span>
+                <span class="s2">&quot;rail&quot;</span><span class="p">:</span> <span class="n">unique_id</span><span class="o">.</span><span class="n">local_rank</span><span class="p">,</span>
+                <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;single&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;master_addr&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">unique_id</span><span class="o">.</span><span class="n">master_addr</span><span class="p">),</span>
+                <span class="s2">&quot;master_port&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;MASTER_PORT&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;world_size&quot;</span><span class="p">:</span> <span class="n">unique_id</span><span class="o">.</span><span class="n">gpu_per_node</span><span class="p">,</span>
+                <span class="s2">&quot;rank&quot;</span><span class="p">:</span> <span class="n">unique_id</span><span class="o">.</span><span class="n">local_rank</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">)</span>
+        <span class="n">is_passed</span> <span class="o">=</span> <span class="n">_is_result_within_threshold</span><span class="p">(</span>
+            <span class="n">result</span><span class="o">=</span><span class="n">results</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">baseline</span><span class="o">=</span><span class="n">INSTANCE_BENCHMARK_CONFIGS</span><span class="p">[</span><span class="n">instance_type</span><span class="p">]</span><span class="o">.</span><span class="n">baseline_single_node_latency</span><span class="p">,</span>
+            <span class="n">factor</span><span class="o">=</span><span class="n">SINGLE_NODE_LATENCY_THRESHOLD_FACTOR</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Single node nvlink test failed with error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">is_passed</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)}</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">destroy_process_group_if_initialized</span><span class="p">()</span>
+
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">PREFLIGHT_MLFLOW_METRIC_PREFIX</span><span class="si">}</span><span class="s2">/single_node_test/is_test_pass_gpu_</span><span class="si">{</span><span class="n">unique_id</span><span class="o">.</span><span class="n">local_rank</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">is_passed</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">************** Finish nvlink_test() for [unique_id, node_rank] is [</span><span class="si">{</span><span class="n">unique_id</span><span class="o">.</span><span class="vm">__dict__</span><span class="si">}</span><span class="s2">], &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;results is [</span><span class="si">{</span><span class="n">results</span><span class="si">}</span><span class="s2">] ***********&quot;</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">is_passed</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_run_multi_nodes_nvlink_test</span><span class="p">(</span>
+    <span class="n">job_level_mlflow_run_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">unique_id</span><span class="p">:</span> <span class="n">UniqueID</span><span class="p">,</span>
+    <span class="n">test_nodes_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">instance_stats</span><span class="p">:</span> <span class="n">InstanceStats</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Performs a multi-node NVLink test across two or more nodes to verify inter-node GPU connectivity.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        job_level_mlflow_run_id (str): MLflow run ID for job-level coordination.</span>
+<span class="sd">        unique_id (UniqueID): Metadata of the current process containing rank and cluster topology.</span>
+<span class="sd">        test_nodes_size (int): Number of nodes involved in each test group (typically 2).</span>
+<span class="sd">        instance_stats (InstanceStats): GPU and instance-level metadata.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: True if latency is within expected bounds, False otherwise.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">instance_type</span> <span class="o">=</span> <span class="n">instance_stats</span><span class="o">.</span><span class="n">instance_type</span>
+    <span class="n">node_pair_rank</span> <span class="o">=</span> <span class="n">unique_id</span><span class="o">.</span><span class="n">rank</span> <span class="o">//</span> <span class="n">test_nodes_size</span>
+    <span class="n">node_pair_loc_rank</span> <span class="o">=</span> <span class="n">unique_id</span><span class="o">.</span><span class="n">rank</span> <span class="o">%</span> <span class="p">(</span><span class="n">test_nodes_size</span> <span class="o">*</span> <span class="n">unique_id</span><span class="o">.</span><span class="n">gpu_per_node</span><span class="p">)</span>
+
+    <span class="n">job_level_mlflow_run_params</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">get_run</span><span class="p">(</span><span class="n">job_level_mlflow_run_id</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">params</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;node_rank is </span><span class="si">{</span><span class="n">unique_id</span><span class="o">.</span><span class="n">node_rank</span><span class="si">}</span><span class="s2"> and node_pair_id is </span><span class="si">{</span><span class="n">node_pair_rank</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">************** Start </span><span class="si">{</span><span class="n">test_nodes_size</span><span class="si">}</span><span class="s2">-node nvlink_test() for node </span><span class="si">{</span><span class="n">unique_id</span><span class="o">.</span><span class="n">node_rank</span><span class="si">}</span><span class="s2"> ***********&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># &quot;MASTER_ADDR&quot; of pg should use &quot;node 0&quot;&#39;s address of this node pair, every 2 nodes would join the same pg.</span>
+    <span class="n">new_master_addr</span> <span class="o">=</span> <span class="n">job_level_mlflow_run_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;instance_addr_node_</span><span class="si">{</span><span class="n">unique_id</span><span class="o">.</span><span class="n">node_rank</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">unique_id</span><span class="o">.</span><span class="n">node_rank</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">checkfunction_timeout_manager</span><span class="p">(</span>
+            <span class="n">func</span><span class="o">=</span><span class="n">run_gpu_connection_test</span><span class="p">,</span>
+            <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;dim_items&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">INSTANCE_BENCHMARK_CONFIGS</span><span class="p">[</span><span class="n">instance_type</span><span class="p">]</span><span class="o">.</span><span class="n">config_dim</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">),</span>
+                <span class="s2">&quot;loops&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">INSTANCE_BENCHMARK_CONFIGS</span><span class="p">[</span><span class="n">instance_type</span><span class="p">]</span><span class="o">.</span><span class="n">num_loops_multi</span><span class="p">),</span>
+                <span class="s2">&quot;rail&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;LOCAL_RANK&quot;</span><span class="p">]),</span>
+                <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;multi&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;master_addr&quot;</span><span class="p">:</span> <span class="n">new_master_addr</span><span class="p">,</span>
+                <span class="s2">&quot;master_port&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;MASTER_PORT&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;world_size&quot;</span><span class="p">:</span> <span class="n">test_nodes_size</span> <span class="o">*</span> <span class="n">unique_id</span><span class="o">.</span><span class="n">gpu_per_node</span><span class="p">,</span>
+                <span class="s2">&quot;rank&quot;</span><span class="p">:</span> <span class="n">node_pair_loc_rank</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">)</span>
+        <span class="n">is_passed</span> <span class="o">=</span> <span class="n">_is_result_within_threshold</span><span class="p">(</span>
+            <span class="n">result</span><span class="o">=</span><span class="n">results</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">baseline</span><span class="o">=</span><span class="n">INSTANCE_BENCHMARK_CONFIGS</span><span class="p">[</span><span class="n">instance_type</span><span class="p">]</span><span class="o">.</span><span class="n">baseline_pair_nodes_latency</span><span class="p">,</span>
+            <span class="n">factor</span><span class="o">=</span><span class="n">PAIR_NODES_LATENCY_THRESHOLD_FACTOR</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Multi node nvlink test failed with error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">is_passed</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)}</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">destroy_process_group_if_initialized</span><span class="p">()</span>
+
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">PREFLIGHT_MLFLOW_METRIC_PREFIX</span><span class="si">}</span><span class="s2">/multi_node_test/is_test_pass_gpu_</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;LOCAL_RANK&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">is_passed</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">************** Finish </span><span class="si">{</span><span class="n">test_nodes_size</span><span class="si">}</span><span class="s2">-node nvlink_test() for [unique_id, node_rank, node_pair_id] is&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;LOCAL_RANK&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">unique_id</span><span class="o">.</span><span class="n">node_rank</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">node_pair_rank</span><span class="si">}</span><span class="s2">], result is [</span><span class="si">{</span><span class="n">results</span><span class="si">}</span><span class="s2">] ***********&quot;</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">is_passed</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_upload_instance_info</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">InstanceStats</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieves instance metadata and GPU hash ID for the current node.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple[InstanceStats, str]: A tuple containing instance statistics and GPU hash ID.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">gpu_info</span><span class="p">,</span> <span class="n">instance_gpu_hash_id</span> <span class="o">=</span> <span class="n">fetch_gpu_info</span><span class="p">()</span>
+    <span class="n">instance_info</span> <span class="o">=</span> <span class="n">instance_metadata</span><span class="p">()</span>
+    <span class="n">instance_stats</span> <span class="o">=</span> <span class="n">InstanceStats</span><span class="p">(</span><span class="n">instance_info</span><span class="p">,</span> <span class="n">gpu_info</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">instance_stats</span><span class="p">,</span> <span class="n">instance_gpu_hash_id</span>
+
+
+<div class="viewcode-block" id="fetch_node_info"><a class="viewcode-back" href="../../../../../utils/cuda/preflight/run.html#fkat.utils.cuda.preflight.run.fetch_node_info">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">fetch_node_info</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">bool</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">UniqueID</span><span class="p">,</span> <span class="n">InstanceStats</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Gathers necessary metadata for preflight health checking.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple: A tuple containing:</span>
+<span class="sd">            - fetch success status (bool or error message),</span>
+<span class="sd">            - UniqueID object,</span>
+<span class="sd">            - InstanceStats object,</span>
+<span class="sd">            - Job-level MLflow run ID.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">instance_stats</span><span class="p">,</span> <span class="n">instance_gpu_hash_id</span> <span class="o">=</span> <span class="n">_get_upload_instance_info</span><span class="p">()</span>
+
+        <span class="n">unique_id</span> <span class="o">=</span> <span class="n">UniqueID</span><span class="p">(</span>
+            <span class="n">rank</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;RANK&quot;</span><span class="p">]),</span>
+            <span class="n">world_size</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;WORLD_SIZE&quot;</span><span class="p">]),</span>
+            <span class="n">local_rank</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;LOCAL_RANK&quot;</span><span class="p">]),</span>
+            <span class="n">master_addr</span><span class="o">=</span><span class="n">socket</span><span class="o">.</span><span class="n">gethostbyname</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">()),</span>
+            <span class="n">num_nodes</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;GROUP_WORLD_SIZE&quot;</span><span class="p">]),</span>
+            <span class="n">gpu_per_node</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;LOCAL_WORLD_SIZE&quot;</span><span class="p">]),</span>
+            <span class="n">gpu_hash_id</span><span class="o">=</span><span class="n">instance_gpu_hash_id</span><span class="p">,</span>
+            <span class="n">node_rank</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;RANK&quot;</span><span class="p">])</span> <span class="o">//</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;LOCAL_WORLD_SIZE&quot;</span><span class="p">]),</span>
+        <span class="p">)</span>
+
+        <span class="n">job_level_mlflow_run_id</span> <span class="o">=</span> <span class="n">initialize_mlflow</span><span class="p">(</span><span class="n">unique_id</span><span class="p">,</span> <span class="n">instance_stats</span><span class="o">=</span><span class="n">instance_stats</span><span class="p">)</span>
+
+        <span class="n">is_passed</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Successfully get all information about the instance.&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">is_passed</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to get all information about the instance. Error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">is_passed</span><span class="p">,</span> <span class="n">unique_id</span><span class="p">,</span> <span class="n">instance_stats</span><span class="p">,</span> <span class="n">job_level_mlflow_run_id</span></div>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_log_result_to_mlflow</span><span class="p">(</span><span class="n">instance_stats</span><span class="p">:</span> <span class="n">InstanceStats</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Logs the final instance health status and artifacts to MLflow.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        instance_stats (InstanceStats): Instance data including the computed health status.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">PREFLIGHT_MLFLOW_METRIC_PREFIX</span><span class="si">}</span><span class="s2">/isinstance_healthy&quot;</span><span class="p">,</span>
+        <span class="n">instance_stats</span><span class="o">.</span><span class="n">healthy</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Enter the job_level_run mlflow_run</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">end_run</span><span class="p">()</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_artifacts</span><span class="p">(</span><span class="n">test_folder_name</span><span class="p">)</span>  <span class="c1"># type: ignore[possibly-unbound-attribute]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_log_result_to_ddb</span><span class="p">(</span><span class="n">all_check_result</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">unique_id</span><span class="p">:</span> <span class="n">UniqueID</span><span class="p">,</span> <span class="n">instance_stats</span><span class="p">:</span> <span class="n">InstanceStats</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Writes the instance&#39;s health status and test results to DynamoDB.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        all_check_result (dict): Dictionary containing the results of each health check.</span>
+<span class="sd">        unique_id (UniqueID): Metadata about the instance within the cluster.</span>
+<span class="sd">        instance_stats (InstanceStats): GPU and instance configuration details.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">ddb_client</span> <span class="o">=</span> <span class="n">HealthStatusDDBClient</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="n">instance_stats</span><span class="o">.</span><span class="n">instance_region</span><span class="p">)</span>
+        <span class="n">ddb_item</span> <span class="o">=</span> <span class="n">ddb_client</span><span class="o">.</span><span class="n">generate_ddb_item</span><span class="p">(</span>
+            <span class="n">instance_gpu_hash_id</span><span class="o">=</span><span class="n">unique_id</span><span class="o">.</span><span class="n">gpu_hash_id</span><span class="p">,</span>
+            <span class="n">instance_health</span><span class="o">=</span><span class="n">instance_stats</span><span class="o">.</span><span class="n">healthy</span><span class="p">,</span>
+            <span class="n">gpu_stats</span><span class="o">=</span><span class="n">instance_stats</span><span class="o">.</span><span class="n">gpu_info</span><span class="p">,</span>
+            <span class="n">batch_job_id</span><span class="o">=</span><span class="n">strip_aws_batch_id</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="n">AWS_BATCH_JOB_ID</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;local&quot;</span><span class="p">)),</span>
+            <span class="n">instance_type</span><span class="o">=</span><span class="n">instance_stats</span><span class="o">.</span><span class="n">instance_type</span><span class="p">,</span>
+            <span class="n">instance_id</span><span class="o">=</span><span class="n">instance_stats</span><span class="o">.</span><span class="n">instance_id</span><span class="p">,</span>
+            <span class="n">test_result</span><span class="o">=</span><span class="n">all_check_result</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Writing </span><span class="si">{</span><span class="n">ddb_item</span><span class="si">}</span><span class="s2"> to ddb&quot;</span><span class="p">)</span>
+        <span class="n">ddb_client</span><span class="o">.</span><span class="n">put_item</span><span class="p">(</span><span class="n">ddb_item</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to write instance health report to DynamoDB. Error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="log_preflight_results"><a class="viewcode-back" href="../../../../../utils/cuda/preflight/run.html#fkat.utils.cuda.preflight.run.log_preflight_results">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">log_preflight_results</span><span class="p">(</span><span class="n">all_check_result</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">unique_id</span><span class="p">:</span> <span class="n">UniqueID</span><span class="p">,</span> <span class="n">instance_stats</span><span class="p">:</span> <span class="n">InstanceStats</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Logs the result of the health check to both MLflow and DynamoDB.</span>
+
+<span class="sd">    This function only runs on local_rank == 0.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        all_check_result (dict): Health check results keyed by test name.</span>
+<span class="sd">        unique_id (UniqueID): Cluster context and rank information.</span>
+<span class="sd">        instance_stats (InstanceStats): Node-level configuration and test results.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Only write instance health report when local rank is 0</span>
+    <span class="k">if</span> <span class="n">unique_id</span><span class="o">.</span><span class="n">local_rank</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Enter the instance_level mlflow_run</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">_log_result_to_mlflow</span><span class="p">(</span><span class="n">instance_stats</span><span class="p">)</span>
+
+            <span class="n">_log_result_to_ddb</span><span class="p">(</span>
+                <span class="n">all_check_result</span><span class="o">=</span><span class="n">all_check_result</span><span class="p">,</span>
+                <span class="n">unique_id</span><span class="o">=</span><span class="n">unique_id</span><span class="p">,</span>
+                <span class="n">instance_stats</span><span class="o">=</span><span class="n">instance_stats</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to write instance health report to mlflow. Error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="preflight_health_check"><a class="viewcode-back" href="../../../../../utils/cuda/preflight/run.html#fkat.utils.cuda.preflight.run.preflight_health_check">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">preflight_health_check</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Performs a preflight diagnostic to validate whether the current instance is suitable for distributed training.</span>
+
+<span class="sd">    Steps performed:</span>
+<span class="sd">    1. Gathers instance metadata, GPU hash ID, and cluster information.</span>
+<span class="sd">    2. Runs a GPU stress test to verify core GPU functionality.</span>
+<span class="sd">    3. Executes a single-node NVLink test to validate intra-node GPU connectivity.</span>
+<span class="sd">    4. Conditionally runs a multi-node NVLink test for inter-node GPU connectivity (if node count is even and &gt;1).</span>
+<span class="sd">    5. Aggregates all test results and determines the node&#39;s overall health.</span>
+<span class="sd">    6. Logs the test results and health status to MLflow and DynamoDB.</span>
+<span class="sd">    7. Cleans up any distributed process groups and MLflow state.</span>
+
+<span class="sd">    Side Effects:</span>
+<span class="sd">        - Updates the instance health status in MLflow and DynamoDB.</span>
+<span class="sd">        - Logs diagnostic outputs and results.</span>
+<span class="sd">        - Delays execution based on rank and test coordination logic.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        This function must be called within a properly initialized distributed environment with expected env vars:</span>
+<span class="sd">        `RANK`, `LOCAL_RANK`, `WORLD_SIZE`, `LOCAL_WORLD_SIZE`, `GROUP_WORLD_SIZE`.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        None directly, but will log and mark the instance as unhealthy if any test fails.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">is_all_check_success</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">all_check_result</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># fetch instance info</span>
+    <span class="p">(</span>
+        <span class="n">all_check_result</span><span class="p">[</span><span class="s2">&quot;fetch_instance_info&quot;</span><span class="p">],</span>
+        <span class="n">unique_id</span><span class="p">,</span>
+        <span class="n">instance_stats</span><span class="p">,</span>
+        <span class="n">job_level_mlflow_run_id</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">=</span> <span class="n">fetch_node_info</span><span class="p">()</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;fetching result is </span><span class="si">{</span><span class="n">is_all_check_success</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Run gpu stress test</span>
+    <span class="n">all_check_result</span><span class="p">[</span><span class="s2">&quot;single_gpu_stress_test&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">all_check_result</span><span class="p">[</span>
+        <span class="s2">&quot;fetch_instance_info&quot;</span>
+    <span class="p">]</span> <span class="ow">and</span> <span class="n">_run_single_gpu_stress_test</span><span class="p">(</span><span class="n">unique_id</span><span class="o">=</span><span class="n">unique_id</span><span class="p">,</span> <span class="n">instance_stats</span><span class="o">=</span><span class="n">instance_stats</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;_run_single_gpu_stress_test result is </span><span class="si">{</span><span class="n">all_check_result</span><span class="p">[</span><span class="s1">&#39;single_gpu_stress_test&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;in local_rank </span><span class="si">{</span><span class="n">unique_id</span><span class="o">.</span><span class="n">local_rank</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Wait until the port is available</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+    <span class="c1"># Run single-node test</span>
+    <span class="n">all_check_result</span><span class="p">[</span><span class="s2">&quot;single_node_nvlink_test&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">all_check_result</span><span class="p">[</span>
+        <span class="s2">&quot;fetch_instance_info&quot;</span>
+    <span class="p">]</span> <span class="ow">and</span> <span class="n">_run_single_node_nvlink_test</span><span class="p">(</span><span class="n">unique_id</span><span class="o">=</span><span class="n">unique_id</span><span class="p">,</span> <span class="n">instance_stats</span><span class="o">=</span><span class="n">instance_stats</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;_run_single_node_nvlink_test result is </span><span class="si">{</span><span class="n">all_check_result</span><span class="p">[</span><span class="s1">&#39;single_node_nvlink_test&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;in local_rank </span><span class="si">{</span><span class="n">unique_id</span><span class="o">.</span><span class="n">local_rank</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Wait until the port is available</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+    <span class="c1"># Run multi-node test</span>
+    <span class="k">if</span> <span class="n">unique_id</span><span class="o">.</span><span class="n">num_nodes</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Due to nnode is 1, skipping multi_nodes_nvlink_test&quot;</span><span class="p">)</span>
+        <span class="n">all_check_result</span><span class="p">[</span><span class="s2">&quot;multi_node_nvlink_test&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Not Checked&quot;</span>
+    <span class="k">elif</span> <span class="n">unique_id</span><span class="o">.</span><span class="n">num_nodes</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Due to nnode is odd, skipping multi_nodes_nvlink_test for now&quot;</span><span class="p">)</span>
+        <span class="n">all_check_result</span><span class="p">[</span><span class="s2">&quot;multi_node_nvlink_test&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Not Checked&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">all_check_result</span><span class="p">[</span><span class="s2">&quot;multi_node_nvlink_test&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">all_check_result</span><span class="p">[</span>
+            <span class="s2">&quot;fetch_instance_info&quot;</span>
+        <span class="p">]</span> <span class="ow">and</span> <span class="n">_run_multi_nodes_nvlink_test</span><span class="p">(</span>
+            <span class="n">job_level_mlflow_run_id</span><span class="o">=</span><span class="n">job_level_mlflow_run_id</span><span class="p">,</span>
+            <span class="n">unique_id</span><span class="o">=</span><span class="n">unique_id</span><span class="p">,</span>
+            <span class="n">test_nodes_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="n">instance_stats</span><span class="o">=</span><span class="n">instance_stats</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;_run_multi_nodes_nvlink_test result is </span><span class="si">{</span><span class="n">all_check_result</span><span class="p">[</span><span class="s1">&#39;multi_node_nvlink_test&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;in local_rank </span><span class="si">{</span><span class="n">unique_id</span><span class="o">.</span><span class="n">local_rank</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># After we add try...except to catch error, we can log if the instance is unhealthy/healthy.</span>
+    <span class="n">instance_stats</span><span class="o">.</span><span class="n">healthy</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span><span class="n">all_check_result</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;After all the tests local rank : </span><span class="si">{</span><span class="n">unique_id</span><span class="o">.</span><span class="n">local_rank</span><span class="si">}</span><span class="s2"> has health status of </span><span class="si">{</span><span class="n">instance_stats</span><span class="o">.</span><span class="n">healthy</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">log_preflight_results</span><span class="p">(</span>
+        <span class="n">all_check_result</span><span class="o">=</span><span class="n">all_check_result</span><span class="p">,</span>
+        <span class="n">unique_id</span><span class="o">=</span><span class="n">unique_id</span><span class="p">,</span>
+        <span class="n">instance_stats</span><span class="o">=</span><span class="n">instance_stats</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">instance_stats</span><span class="o">.</span><span class="n">healthy</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;This instance is not healthy, with test result </span><span class="si">{</span><span class="n">all_check_result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">end_all_mlflow_active_runs</span><span class="p">()</span>
+    <span class="n">destroy_process_group_if_initialized</span><span class="p">()</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Preflight check ends successfully.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="isolate_bad_node"><a class="viewcode-back" href="../../../../../utils/cuda/preflight/run.html#fkat.utils.cuda.preflight.run.isolate_bad_node">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">isolate_bad_node</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks the health status of the current instance from DynamoDB and isolates it if unhealthy.</span>
+
+<span class="sd">    This function:</span>
+<span class="sd">    1. Retrieves GPU hash ID and instance metadata.</span>
+<span class="sd">    2. Queries the health status record from DynamoDB using the GPU hash ID.</span>
+<span class="sd">    3. If the instance was never scanned, raises an error to indicate unexpected behavior.</span>
+<span class="sd">    4. If the instance is unhealthy, the process enters an infinite sleep to prevent further participation.</span>
+<span class="sd">    5. If the instance is healthy, it sleeps for 15 minutes to allow other nodes to complete isolation logic.</span>
+
+<span class="sd">    This function is typically used in orchestration flows to quarantine failed nodes.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        RuntimeError: If the instance health record is missing in the database.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">instance_gpu_hash_id</span> <span class="o">=</span> <span class="n">fetch_gpu_info</span><span class="p">()</span>
+    <span class="n">instance_meta</span> <span class="o">=</span> <span class="n">instance_metadata</span><span class="p">()</span>
+
+    <span class="n">ddb_client</span> <span class="o">=</span> <span class="n">HealthStatusDDBClient</span><span class="p">(</span><span class="n">instance_meta</span><span class="o">.</span><span class="n">region</span><span class="p">)</span>
+
+    <span class="n">instance_stats</span> <span class="o">=</span> <span class="n">ddb_client</span><span class="o">.</span><span class="n">get_item</span><span class="p">(</span><span class="n">partition_key</span><span class="o">=</span><span class="n">instance_gpu_hash_id</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">instance_stats</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Instance with instance_id </span><span class="si">{</span><span class="n">instance_meta</span><span class="o">.</span><span class="n">instance_id</span><span class="si">}</span><span class="s2">, gpu_hash_id </span><span class="si">{</span><span class="n">instance_gpu_hash_id</span><span class="si">}</span><span class="s2">,&quot;</span>
+            <span class="s2">&quot;has not been scaned.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">instance_stats</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">instance_stats</span><span class="p">[</span><span class="s2">&quot;healthy&quot;</span><span class="p">]:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;This node is unhealthy, sleep this node forever.&quot;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;This node is healthy, Sleep for 15 min to wait for other isolation job finish.&quot;</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">15</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="check"><a class="viewcode-back" href="../../../../../utils/cuda/preflight/run.html#fkat.utils.cuda.preflight.run.check">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Executes the current script using the system Python interpreter.</span>
+
+<span class="sd">    Intended as a CLI entry point for basic validation or debugging.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="vm">__file__</span><span class="p">])</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">mp</span><span class="o">.</span><span class="n">set_start_method</span><span class="p">(</span><span class="s2">&quot;spawn&quot;</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">preflight_health_check</span><span class="p">()</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, SFAI Team.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

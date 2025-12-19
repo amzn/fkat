@@ -1,0 +1,679 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fkat.pytorch.callbacks.cuda.nvtx &#8212; FKAT 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../_static/copybutton.js"></script>
+    <script src="../../../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/fkat/pytorch/callbacks/cuda/nvtx';</script>
+    <link rel="shortcut icon" href="../../../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FKAT 0.1.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../development.html">Development</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../entrypoints.html">Entrypoints</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../actions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">actions</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../actions/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../actions/aws/batch.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">batch</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../actions/aws/ec2.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ec2</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../callbacks.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">callbacks</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/debugging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">debugging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/gc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/loggers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">loggers</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../callbacks/monitoring.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">monitoring</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../callbacks/dp.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/profiling.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">data</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../data/datasets.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">datasets</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../data/samplers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">samplers</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../data/samplers/strategies.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">strategies</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../data/shm.html">ShmDataLoader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../data/sharded.html">ShardedDataLoader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../schedule.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">schedule</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../schedule/base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../schedule/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../utils/aws.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aws</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../utils/aws/imds.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imds</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/boto3.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">boto3</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/config.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">config</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../utils/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../utils/cuda/xid.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xid</span></code></a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../utils/cuda/preflight.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">preflight</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../utils/cuda/preflight/run.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">run</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../utils/cuda/preflight/health_check.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">health_check</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pandas.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pdb.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pool.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pool</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/profiler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiler</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/pyarrow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyarrow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/rng.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rng</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../utils/shm.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shm</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for fkat.pytorch.callbacks.cuda.nvtx</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing_extensions</span><span class="w"> </span><span class="kn">import</span> <span class="n">override</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">lightning</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">L</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">lightning.pytorch.utilities.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">STEP_OUTPUT</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">nvtx</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">torch.cuda</span><span class="w"> </span><span class="kn">import</span> <span class="n">nvtx</span>
+
+    <span class="n">_mark</span> <span class="o">=</span> <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_conditional_mark</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="n">sig</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">_mark</span><span class="p">)</span>
+        <span class="n">filtered_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">if</span> <span class="s2">&quot;domain&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">and</span> <span class="s2">&quot;color&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;color&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DOMAIN_COLORS</span><span class="p">[</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;domain&quot;</span><span class="p">]]</span>
+
+        <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="s2">&quot;domain&quot;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">sig</span><span class="o">.</span><span class="n">parameters</span> <span class="ow">and</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="n">filtered_kwargs</span><span class="p">[</span><span class="n">param</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">param</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">_mark</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="o">**</span><span class="n">filtered_kwargs</span><span class="p">)</span>
+
+    <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span> <span class="o">=</span> <span class="n">_conditional_mark</span>  <span class="c1"># type: ignore[invalid-assignment]</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Domain</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+    <span class="n">INIT</span> <span class="o">=</span> <span class="s2">&quot;init&quot;</span>
+    <span class="n">TRAIN</span> <span class="o">=</span> <span class="s2">&quot;train&quot;</span>
+    <span class="n">VALIDATION</span> <span class="o">=</span> <span class="s2">&quot;validation&quot;</span>
+    <span class="n">TEST</span> <span class="o">=</span> <span class="s2">&quot;test&quot;</span>
+    <span class="n">PREDICT</span> <span class="o">=</span> <span class="s2">&quot;predict&quot;</span>
+    <span class="n">TUNE</span> <span class="o">=</span> <span class="s2">&quot;tune&quot;</span>
+    <span class="n">ERROR</span> <span class="o">=</span> <span class="s2">&quot;error&quot;</span>
+    <span class="n">CHECKPOINT</span> <span class="o">=</span> <span class="s2">&quot;checkpoint&quot;</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_stage</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Domain&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;fit&quot;</span> <span class="ow">or</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;train&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Domain</span><span class="o">.</span><span class="n">TRAIN</span>
+        <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;validation&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Domain</span><span class="o">.</span><span class="n">VALIDATION</span>
+        <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;test&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Domain</span><span class="o">.</span><span class="n">TEST</span>
+        <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;predict&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Domain</span><span class="o">.</span><span class="n">PREDICT</span>
+        <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;tune&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Domain</span><span class="o">.</span><span class="n">TUNE</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported stage: </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="n">DOMAIN_COLORS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">Domain</span><span class="o">.</span><span class="n">INIT</span><span class="p">:</span> <span class="s2">&quot;white&quot;</span><span class="p">,</span>
+    <span class="n">Domain</span><span class="o">.</span><span class="n">TUNE</span><span class="p">:</span> <span class="s2">&quot;pink&quot;</span><span class="p">,</span>
+    <span class="n">Domain</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">:</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span>
+    <span class="n">Domain</span><span class="o">.</span><span class="n">VALIDATION</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+    <span class="n">Domain</span><span class="o">.</span><span class="n">TEST</span><span class="p">:</span> <span class="s2">&quot;purple&quot;</span><span class="p">,</span>
+    <span class="n">Domain</span><span class="o">.</span><span class="n">PREDICT</span><span class="p">:</span> <span class="s2">&quot;yellow&quot;</span><span class="p">,</span>
+    <span class="n">Domain</span><span class="o">.</span><span class="n">ERROR</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span>
+    <span class="n">Domain</span><span class="o">.</span><span class="n">CHECKPOINT</span><span class="p">:</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="Nvtx"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Nvtx</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">Callback</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;__init__()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">INIT</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span>
+
+<div class="viewcode-block" id="Nvtx.setup"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.setup">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">domain</span> <span class="o">=</span> <span class="n">Domain</span><span class="o">.</span><span class="n">from_stage</span><span class="p">(</span><span class="n">stage</span><span class="p">)</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;setup(stage=</span><span class="si">{</span><span class="n">stage</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.teardown"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.teardown">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">teardown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">domain</span> <span class="o">=</span> <span class="n">Domain</span><span class="o">.</span><span class="n">from_stage</span><span class="p">(</span><span class="n">stage</span><span class="p">)</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;teardown(stage=</span><span class="si">{</span><span class="n">stage</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_train_start"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_train_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_train_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_train_start()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_train_epoch_start"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_train_epoch_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_train_epoch_start()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_train_batch_start"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_train_batch_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_train_batch_start</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;on_train_batch_start(batch_idx=</span><span class="si">{</span><span class="n">batch_idx</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+            <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">,</span>  <span class="c1"># type: ignore[unknown-argument]</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_before_zero_grad"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_before_zero_grad">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_before_zero_grad</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">:</span> <span class="s2">&quot;torch.optim.Optimizer&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_before_zero_grad()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_before_backward"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_before_backward">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_before_backward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">loss</span><span class="p">:</span> <span class="s2">&quot;torch.Tensor&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_before_backward()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_after_backward"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_after_backward">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_after_backward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_after_backward()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_before_optimizer_step"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_before_optimizer_step">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_before_optimizer_step</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">:</span> <span class="s2">&quot;torch.optim.Optimizer&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_before_optimizer_step()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_train_batch_end"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_train_batch_end">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_train_batch_end</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span>
+        <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span>
+        <span class="n">outputs</span><span class="p">:</span> <span class="s2">&quot;STEP_OUTPUT&quot;</span><span class="p">,</span>
+        <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+        <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">dataloader_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;on_train_batch_end(batch_idx=</span><span class="si">{</span><span class="n">batch_idx</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_train_epoch_end"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_train_epoch_end">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_train_epoch_end()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_train_end"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_train_end">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_train_end()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_sanity_check_start"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_sanity_check_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_sanity_check_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_validation_start()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">VALIDATION</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_sanity_check_end"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_sanity_check_end">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">on_sanity_check_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_sanity_check_start()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">VALIDATION</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_validation_start"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_validation_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_sanity_check_end()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">VALIDATION</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_validation_epoch_start"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_epoch_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_validation_epoch_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_validation_epoch_start()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">VALIDATION</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_validation_batch_start"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_batch_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_validation_batch_start</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dataloader_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;on_validation_batch_start(batch_idx=</span><span class="si">{</span><span class="n">batch_idx</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+            <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">VALIDATION</span><span class="p">,</span>  <span class="c1"># type: ignore[unknown-argument]</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_validation_batch_end"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_batch_end">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_validation_batch_end</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span>
+        <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span>
+        <span class="n">outputs</span><span class="p">:</span> <span class="s2">&quot;STEP_OUTPUT&quot;</span><span class="p">,</span>
+        <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+        <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">dataloader_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;on_validation_batch_end(batch_idx=</span><span class="si">{</span><span class="n">batch_idx</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+            <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">VALIDATION</span><span class="p">,</span>  <span class="c1"># type: ignore[unknown-argument]</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_validation_epoch_end"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_epoch_end">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_validation_epoch_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_validation_epoch_end()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">VALIDATION</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_validation_end"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_validation_end">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_validation_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_validation_end()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">VALIDATION</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_test_start"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_test_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_test_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_test_start()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">TEST</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_test_epoch_start"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_test_epoch_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_test_epoch_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_test_epoch_start()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">TEST</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_test_batch_start"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_test_batch_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_test_batch_start</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dataloader_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;on_test_batch_start(batch_idx=</span><span class="si">{</span><span class="n">batch_idx</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">TEST</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_test_batch_end"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_test_batch_end">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_test_batch_end</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span>
+        <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span>
+        <span class="n">outputs</span><span class="p">:</span> <span class="s2">&quot;STEP_OUTPUT&quot;</span><span class="p">,</span>
+        <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+        <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">dataloader_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;on_test_batch_end(batch_idx=</span><span class="si">{</span><span class="n">batch_idx</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">TEST</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_test_epoch_end"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_test_epoch_end">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_test_epoch_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_test_epoch_end()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">TEST</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_test_end"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_test_end">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_test_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_test_end()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">TEST</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_predict_start"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_predict_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_predict_start()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">PREDICT</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_predict_epoch_start"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_epoch_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_predict_epoch_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_predict_epoch_start()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">PREDICT</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_predict_batch_start"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_batch_start">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_predict_batch_start</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dataloader_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;on_predict_batch_start(batch_idx=</span><span class="si">{</span><span class="n">batch_idx</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+            <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">PREDICT</span><span class="p">,</span>  <span class="c1"># type: ignore[unknown-argument]</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_predict_batch_end"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_batch_end">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_predict_batch_end</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span>
+        <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span>
+        <span class="n">outputs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+        <span class="n">batch</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+        <span class="n">batch_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">dataloader_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;on_predict_batch_end(batch_idx=</span><span class="si">{</span><span class="n">batch_idx</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+            <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">PREDICT</span><span class="p">,</span>  <span class="c1"># type: ignore[unknown-argument]</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_predict_epoch_end"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_epoch_end">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_predict_epoch_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_predict_epoch_end()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">PREDICT</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_predict_end"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_predict_end">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_predict_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_predict_end()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">PREDICT</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.state_dict"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.state_dict">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">state_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;state_dict()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">CHECKPOINT</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span>
+        <span class="k">return</span> <span class="p">{}</span></div>
+
+<div class="viewcode-block" id="Nvtx.load_state_dict"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.load_state_dict">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_state_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;load_state_dict()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">CHECKPOINT</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_save_checkpoint"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_save_checkpoint">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_save_checkpoint</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">checkpoint</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_save_checkpoint()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">CHECKPOINT</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_load_checkpoint"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_load_checkpoint">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_load_checkpoint</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">checkpoint</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="s2">&quot;on_load_checkpoint()&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">CHECKPOINT</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div>
+
+<div class="viewcode-block" id="Nvtx.on_exception"><a class="viewcode-back" href="../../../../../callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Nvtx.on_exception">[docs]</a>    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_exception</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="p">:</span> <span class="s2">&quot;L.Trainer&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="p">:</span> <span class="s2">&quot;L.LightningModule&quot;</span><span class="p">,</span> <span class="n">exception</span><span class="p">:</span> <span class="ne">BaseException</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nvtx</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;on_exception(</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">exception</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">Domain</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>  <span class="c1"># type: ignore[unknown-argument]</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, SFAI Team.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

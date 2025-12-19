@@ -1,0 +1,26 @@
+<!--
+  AUTO-GENERATED from webpack.config.js, do **NOT** edit by hand.
+  These are re-used in layout.html
+-->
+{# Load FontAwesome icons #}
+{% macro head_pre_icons() %}
+  {% endmacro %}
+
+{% macro head_pre_assets() %}
+  <!-- Loaded before other Sphinx assets -->
+  <link href="{{ pathto('_static/styles/theme.css', 1) }}?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="{{ pathto('_static/styles/bootstrap.css', 1) }}?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="{{ pathto('_static/styles/pydata-sphinx-theme.css', 1) }}?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+{% endmacro %}
+
+{% macro head_js_preload() %}
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="{{ pathto('_static/scripts/bootstrap.js', 1) }}?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="{{ pathto('_static/scripts/pydata-sphinx-theme.js', 1) }}?digest=dfe6caa3a7d634c4db9b" />
+  {% endmacro %}
+
+{% macro body_post() %}
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="{{ pathto('_static/scripts/bootstrap.js', 1) }}?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="{{ pathto('_static/scripts/pydata-sphinx-theme.js', 1) }}?digest=dfe6caa3a7d634c4db9b"></script>
+{% endmacro %}
