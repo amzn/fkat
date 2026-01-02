@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>fkat.utils.cuda.preflight.run &#8212; FKAT 0.1.0 documentation</title>
+    <title>fkat.utils.cuda.preflight.run &#8212; FKAT 0.1.1 documentation</title>
   
   
   
@@ -133,7 +133,7 @@
   
   
   
-    <p class="title logo__title">FKAT 0.1.0 documentation</p>
+    <p class="title logo__title">FKAT 0.1.1 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -173,6 +173,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/loggers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">loggers</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../callbacks/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../callbacks/monitoring.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">monitoring</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../callbacks/crash.html">Crash Detector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../callbacks/dp.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></a></li>
 </ul>
 </details></li>
@@ -445,7 +446,8 @@ document.write(`
         <span class="k">if</span> <span class="s2">&quot;error&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Update instance stats to include test result&quot;</span><span class="p">)</span>
             <span class="n">instance_stats</span><span class="o">.</span><span class="n">gpu_info</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="nb">str</span><span class="p">(</span><span class="n">instance_stats</span><span class="o">.</span><span class="n">gpu_info</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;uuid&quot;</span><span class="p">]):</span> <span class="n">result</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">instance_stats</span><span class="o">.</span><span class="n">gpu_info</span>  <span class="c1"># type: ignore[index]</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">instance_stats</span><span class="o">.</span><span class="n">gpu_info</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;uuid&quot;</span><span class="p">]):</span> <span class="n">result</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)]</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">instance_stats</span><span class="o">.</span><span class="n">gpu_info</span>  <span class="c1"># type: ignore[index]</span>
             <span class="p">}</span>
 
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">************** Finish run_gpu_stress_test() ***********&quot;</span><span class="p">)</span>
@@ -917,7 +919,7 @@ document.write(`
 
   <p class="copyright">
     
-      © Copyright 2025, Amazon.com, Inc. or its affiliates. All Rights Reserved..
+      © Copyright 2026, Amazon.com, Inc. or its affiliates. All Rights Reserved..
       <br/>
     
   </p>

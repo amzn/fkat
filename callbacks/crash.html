@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>mlflow &#8212; FKAT 0.1.1 documentation</title>
+    <title>Crash Detector &#8212; FKAT 0.1.1 documentation</title>
   
   
   
@@ -41,12 +41,12 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'schedule/mlflow';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'callbacks/crash';</script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="utils" href="../utils.html" />
-    <link rel="prev" title="base" href="base.html" />
+    <link rel="next" title="dp" href="dp.html" />
+    <link rel="prev" title="monitoring" href="monitoring.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,18 +167,18 @@
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../callbacks.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">callbacks</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../callbacks/cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../callbacks/debugging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">debugging</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../callbacks/gc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gc</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../callbacks/loggers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">loggers</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../callbacks/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../callbacks/monitoring.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">monitoring</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../callbacks/crash.html">Crash Detector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../callbacks/dp.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../callbacks.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">callbacks</span></code></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cuda.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">debugging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="loggers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">loggers</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="monitoring.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">monitoring</span></code></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Crash Detector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dp.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../callbacks/profiling.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiling.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling</span></code></a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">data</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -191,9 +191,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../data/sharded.html">ShardedDataLoader</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../schedule.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">schedule</span></code></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../schedule.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">schedule</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../schedule/base.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../schedule/mlflow.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code></a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -277,7 +277,7 @@
       
       
       
-      <li><a href="../_sources/schedule/mlflow.rst" target="_blank"
+      <li><a href="../_sources/callbacks/crash.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -361,7 +361,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>mlflow</h1>
+    <h1>Crash Detector</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -371,10 +371,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.schedule.mlflow.HasTag"><code class="docutils literal notranslate"><span class="pre">HasTag</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.schedule.mlflow.HasTag.check"><code class="docutils literal notranslate"><span class="pre">HasTag.check()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector"><code class="docutils literal notranslate"><span class="pre">CrashDetector</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.on_exception"><code class="docutils literal notranslate"><span class="pre">CrashDetector.on_exception()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.setup"><code class="docutils literal notranslate"><span class="pre">CrashDetector.setup()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.teardown"><code class="docutils literal notranslate"><span class="pre">CrashDetector.teardown()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crash-information">Crash Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlflow-integration">MLflow Integration</a></li>
 </ul>
             </nav>
         </div>
@@ -386,119 +393,100 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="module-fkat.pytorch.schedule.mlflow">
-<span id="mlflow"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">mlflow</span></code><a class="headerlink" href="#module-fkat.pytorch.schedule.mlflow" title="Permalink to this heading">#</a></h1>
+  <section id="crash-detector">
+<h1>Crash Detector<a class="headerlink" href="#crash-detector" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="fkat.pytorch.schedule.mlflow.HasTag">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fkat.pytorch.schedule.mlflow.</span></span><span class="sig-name descname"><span class="pre">HasTag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="base.html#fkat.pytorch.schedule.base.Schedule" title="fkat.pytorch.schedule.base.Schedule"><span class="pre">Schedule</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fkat/pytorch/schedule/mlflow.html#HasTag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.schedule.mlflow.HasTag" title="Permalink to this definition">#</a></dt>
-<dd><p>A schedule that activates only when a specific MLflow tag is present AND the trigger schedule is satisfied.</p>
-<p>This schedule combines another schedule (the trigger schedule) with MLflow tag validation.
-It allows callbacks to be dynamically enabled or disabled through experiment configuration rather than
-code changes, which is particularly useful for performance-intensive callbacks like FLOP measurement
-or detailed logging that should only run conditionally.</p>
-<p>The schedule checks two conditions:
-1. If the trigger schedule is satisfied
-2. If the specified MLflow tag exists in the current MLflow run</p>
-<p>Both conditions must be true for the schedule to activate. If the trigger schedule doesn’t activate or
-the trainer is not provided, the schedule will never activate.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ul class="simple">
-<li><p>The trainer can be optionally provided to the <code class="docutils literal notranslate"><span class="pre">check</span></code> method for MLflow tag validation. If trainer is None,
-the schedule will never activate.</p></li>
-<li><p>Tag checking occurs only when the trigger schedule condition is already satisfied,
-minimizing MLflow API calls.</p></li>
-<li><p>If an exception occurs during tag checking, it will be logged and the schedule will not activate.</p></li>
-</ul>
-</div>
-<p class="rubric">Example</p>
-<p>Python code example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a schedule that checks every 5 batches if the &#39;enable_flops&#39; tag exists</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.pytorch.schedule</span><span class="w"> </span><span class="kn">import</span> <span class="n">Every</span>
-
-<span class="n">trigger</span> <span class="o">=</span> <span class="n">Every</span><span class="p">(</span><span class="n">n_batches</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">flops_schedule</span> <span class="o">=</span> <span class="n">HasTag</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;enable_flops&quot;</span><span class="p">,</span> <span class="n">schedule</span><span class="o">=</span><span class="n">trigger</span><span class="p">)</span>
-<span class="n">flops_callback</span> <span class="o">=</span> <span class="n">Flops</span><span class="p">(</span><span class="n">schedule</span><span class="o">=</span><span class="n">flops_schedule</span><span class="p">)</span>
-<span class="n">trainer</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">Trainer</span><span class="p">(</span><span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">flops_callback</span><span class="p">])</span>
-</pre></div>
-</div>
-<p>Hydra configuration example:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># In your config.yaml file</span>
-<span class="nt">callbacks</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">_target_</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fkat.pytorch.callbacks.profiling.Flops</span>
-<span class="w">    </span><span class="nt">schedule</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">_target_</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fkat.pytorch.schedule.mlflow.HasTag</span>
-<span class="w">      </span><span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ENABLE_FLOPS</span>
-<span class="w">      </span><span class="nt">schedule</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">_target_</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fkat.pytorch.schedule.Every</span>
-<span class="w">        </span><span class="nt">n_steps</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
-
-<span class="c1"># Another example using Fixed schedule</span>
-<span class="nt">callbacks</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">_target_</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fkat.pytorch.callbacks.heartbeat.Heartbeat</span>
-<span class="w">    </span><span class="nt">schedule</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">_target_</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fkat.pytorch.schedule.mlflow.HasTag</span>
-<span class="w">      </span><span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ENABLE_HEARTBEAT</span>
-<span class="w">      </span><span class="nt">schedule</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">_target_</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fkat.pytorch.schedule.Fixed</span>
-<span class="w">        </span><span class="nt">warmup_steps</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
-<span class="w">        </span><span class="nt">active_steps</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-
-<span class="c1"># Example with Elapsed time-based schedule</span>
-<span class="nt">callbacks</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">_target_</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fkat.pytorch.callbacks.custom_logging.DetailedMetrics</span>
-<span class="w">    </span><span class="nt">schedule</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">_target_</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fkat.pytorch.schedule.mlflow.HasTag</span>
-<span class="w">      </span><span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DETAILED_LOGGING</span>
-<span class="w">      </span><span class="nt">schedule</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">_target_</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fkat.pytorch.schedule.Elapsed</span>
-<span class="w">        </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${timedelta:minutes=15}</span>
-</pre></div>
-</div>
-<dl class="py method">
-<dt class="sig sig-object py" id="fkat.pytorch.schedule.mlflow.HasTag.check">
-<span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Trainer</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/schedule/mlflow.html#HasTag.check"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.schedule.mlflow.HasTag.check" title="Permalink to this definition">#</a></dt>
-<dd><p>Check if the schedule should activate based on the trigger schedule and MLflow tag presence.</p>
-<p>This method first checks if the trigger schedule is satisfied.
-If this condition is met, it then checks if the specified MLflow tag exists in the current run.
-Both conditions must be true for the method to return True.</p>
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.monitoring.CrashDetector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fkat.pytorch.callbacks.monitoring.</span></span><span class="sig-name descname"><span class="pre">CrashDetector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_tag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'error'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crash_info_tag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'crash_info'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/monitoring/crash.html#CrashDetector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.monitoring.CrashDetector" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Callback</span></code></p>
+<p>Detects process crashes and logs detailed error information.</p>
+<p>Monitors the training process and any spawned subprocesses for crashes.
+Captures PID, rank, error details, and stack traces, logging them to
+the configured Lightning logger.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>stage</strong> (<em>str</em><em>, </em><em>optional</em>) – Current training stage (e.g., “train”, “validate”, “test”).
-Passed to the trigger schedule.</p></li>
-<li><p><strong>batch_idx</strong> (<em>int</em><em>, </em><em>optional</em>) – Current batch index within the epoch.
-Passed to the trigger schedule.</p></li>
-<li><p><strong>step</strong> (<em>int</em><em>, </em><em>optional</em>) – Current global step (cumulative across epochs).
-Passed to the trigger schedule.</p></li>
-<li><p><strong>trainer</strong> (<em>L.Trainer</em><em>, </em><em>optional</em>) – The Lightning Trainer instance.
-Required for MLflow tag validation.</p></li>
+<li><p><strong>error_tag</strong> – Tag for error messages (default: “error”)</p></li>
+<li><p><strong>crash_info_tag</strong> – Tag for crash details (default: “crash_info”)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>True if both the trigger schedule is satisfied AND the specified tag is present,</dt><dd><p>False otherwise.</p>
-</dd>
 </dl>
-</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ul class="simple">
-<li><p>The trainer must be provided for MLflow tag validation.</p></li>
-<li><p>Tag checking occurs only when the trigger schedule is already satisfied.</p></li>
-<li><p>If an exception occurs during tag checking, it will be logged as a warning
-and the method will return False.</p></li>
-</ul>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">fkat.pytorch.callbacks.monitoring</span><span class="w"> </span><span class="kn">import</span> <span class="n">CrashDetector</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">callback</span> <span class="o">=</span> <span class="n">CrashDetector</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">trainer</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">Trainer</span><span class="p">(</span><span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">callback</span><span class="p">])</span>
+</pre></div>
 </div>
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.monitoring.CrashDetector.on_exception">
+<span class="sig-name descname"><span class="pre">on_exception</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exception</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BaseException</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/monitoring/crash.html#CrashDetector.on_exception"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.on_exception" title="Permalink to this definition">#</a></dt>
+<dd><p>Log exception details.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.monitoring.CrashDetector.setup">
+<span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/monitoring/crash.html#CrashDetector.setup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.setup" title="Permalink to this definition">#</a></dt>
+<dd><p>Initialize crash detection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.monitoring.CrashDetector.teardown">
+<span class="sig-name descname"><span class="pre">teardown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/monitoring/crash.html#CrashDetector.teardown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.teardown" title="Permalink to this definition">#</a></dt>
+<dd><p>Check for crashes and cleanup.</p>
 </dd></dl>
 
 </dd></dl>
 
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">CrashDetector</span></code> callback monitors for process crashes during training and logs detailed error information including PID, rank, error messages, and stack traces.</p>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">#</a></h2>
+<p>Basic usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">fkat.pytorch.callbacks.monitoring</span><span class="w"> </span><span class="kn">import</span> <span class="n">CrashDetector</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">lightning</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">L</span>
+
+<span class="n">callback</span> <span class="o">=</span> <span class="n">CrashDetector</span><span class="p">()</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">Trainer</span><span class="p">(</span><span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">callback</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Custom tags:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">callback</span> <span class="o">=</span> <span class="n">CrashDetector</span><span class="p">(</span>
+    <span class="n">error_tag</span><span class="o">=</span><span class="s2">&quot;training_error&quot;</span><span class="p">,</span>
+    <span class="n">crash_info_tag</span><span class="o">=</span><span class="s2">&quot;crash_details&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Process monitoring</strong>: Monitors main training process for crashes</p></li>
+<li><p><strong>Detailed crash info</strong>: Captures PID, rank, exit code, signal, and timestamp</p></li>
+<li><p><strong>Exception handling</strong>: Logs full stack traces for exceptions</p></li>
+<li><p><strong>MLflow artifacts</strong>: Automatically logs crash info to MLflow artifacts (if MLflow logger is configured)</p></li>
+<li><p><strong>Rank-aware</strong>: Only runs on local rank 0</p></li>
+<li><p><strong>Queue-based</strong>: Uses multiprocessing queue for crash reporting</p></li>
+</ul>
+</section>
+<section id="crash-information">
+<h2>Crash Information<a class="headerlink" href="#crash-information" title="Permalink to this heading">#</a></h2>
+<p>When a crash is detected, the following information is logged:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pid</span></code>: Process ID of the crashed process</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rank</span></code>: Global rank of the process</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exit_code</span></code>: Exit code of the process</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">signal</span></code>: Signal that terminated the process (if any)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">error</span></code>: Error message (for exceptions)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stacktrace</span></code>: Full stack trace (for exceptions)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timestamp</span></code>: UTC timestamp of the crash</p></li>
+</ul>
+</section>
+<section id="mlflow-integration">
+<h2>MLflow Integration<a class="headerlink" href="#mlflow-integration" title="Permalink to this heading">#</a></h2>
+<p>If an MLflow logger is configured, crash information is automatically logged as an artifact in the <code class="docutils literal notranslate"><span class="pre">crashes/</span></code> directory. This allows you to review crash details in the MLflow UI alongside other training metrics and artifacts.</p>
+</section>
 </section>
 
 
@@ -513,20 +501,20 @@ and the method will return False.</p></li>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="base.html"
+       href="monitoring.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></p>
+        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">monitoring</span></code></p>
       </div>
     </a>
     <a class="right-next"
-       href="../utils.html"
+       href="dp.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></p>
+        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -546,10 +534,17 @@ and the method will return False.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.schedule.mlflow.HasTag"><code class="docutils literal notranslate"><span class="pre">HasTag</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.schedule.mlflow.HasTag.check"><code class="docutils literal notranslate"><span class="pre">HasTag.check()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector"><code class="docutils literal notranslate"><span class="pre">CrashDetector</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.on_exception"><code class="docutils literal notranslate"><span class="pre">CrashDetector.on_exception()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.setup"><code class="docutils literal notranslate"><span class="pre">CrashDetector.setup()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.teardown"><code class="docutils literal notranslate"><span class="pre">CrashDetector.teardown()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crash-information">Crash Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlflow-integration">MLflow Integration</a></li>
 </ul>
   </nav></div>
 

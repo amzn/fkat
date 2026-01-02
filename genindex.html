@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; FKAT 0.1.0 documentation</title>
+    <title>Index &#8212; FKAT 0.1.1 documentation</title>
   
   
   
@@ -133,7 +133,7 @@
   
   
   
-    <p class="title logo__title">FKAT 0.1.0 documentation</p>
+    <p class="title logo__title">FKAT 0.1.1 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -173,6 +173,7 @@
 <li class="toctree-l2"><a class="reference internal" href="callbacks/loggers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">loggers</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="callbacks/logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="callbacks/monitoring.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">monitoring</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="callbacks/crash.html">Crash Detector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="callbacks/dp.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></a></li>
 </ul>
 </details></li>
@@ -450,6 +451,8 @@ document.write(`
         <li><a href="schedule/base.html#fkat.pytorch.schedule.base.CombinedSchedule">(class in fkat.pytorch.schedule.base)</a>
 </li>
       </ul></li>
+      <li><a href="callbacks/crash.html#fkat.pytorch.callbacks.monitoring.CrashDetector">CrashDetector (class in fkat.pytorch.callbacks.monitoring)</a>, <a href="callbacks/monitoring.html#fkat.pytorch.callbacks.monitoring.CrashDetector">[1]</a>
+</li>
       <li><a href="utils/cuda/preflight/health_check/logger.html#fkat.utils.cuda.preflight.health_check.logger.create_instance_level_mlflow_run">create_instance_level_mlflow_run() (in module fkat.utils.cuda.preflight.health_check.logger)</a>
 </li>
       <li><a href="utils/cuda/preflight/health_check/logger.html#fkat.utils.cuda.preflight.health_check.logger.create_job_level_mlflow_run">create_job_level_mlflow_run() (in module fkat.utils.cuda.preflight.health_check.logger)</a>
@@ -1236,6 +1239,8 @@ document.write(`
 </li>
         <li><a href="callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Xid.on_exception">(fkat.pytorch.callbacks.cuda.Xid method)</a>
 </li>
+        <li><a href="callbacks/crash.html#fkat.pytorch.callbacks.monitoring.CrashDetector.on_exception">(fkat.pytorch.callbacks.monitoring.CrashDetector method)</a>, <a href="callbacks/monitoring.html#fkat.pytorch.callbacks.monitoring.CrashDetector.on_exception">[1]</a>
+</li>
         <li><a href="callbacks/monitoring.html#fkat.pytorch.callbacks.monitoring.GracefulShutdown.on_exception">(fkat.pytorch.callbacks.monitoring.GracefulShutdown method)</a>
 </li>
         <li><a href="callbacks/profiling.html#fkat.pytorch.callbacks.profiling.Memray.on_exception">(fkat.pytorch.callbacks.profiling.Memray method)</a>
@@ -1678,6 +1683,8 @@ document.write(`
 </li>
         <li><a href="callbacks/logging.html#fkat.pytorch.callbacks.logging.Throughput.setup">(fkat.pytorch.callbacks.logging.Throughput method)</a>
 </li>
+        <li><a href="callbacks/crash.html#fkat.pytorch.callbacks.monitoring.CrashDetector.setup">(fkat.pytorch.callbacks.monitoring.CrashDetector method)</a>, <a href="callbacks/monitoring.html#fkat.pytorch.callbacks.monitoring.CrashDetector.setup">[1]</a>
+</li>
         <li><a href="callbacks/dp.html#fkat.pytorch.callbacks.monitoring.dp.DpSyncMonitor.setup">(fkat.pytorch.callbacks.monitoring.dp.DpSyncMonitor method)</a>
 </li>
         <li><a href="callbacks/monitoring.html#fkat.pytorch.callbacks.monitoring.DpSyncMonitor.setup">(fkat.pytorch.callbacks.monitoring.DpSyncMonitor method)</a>
@@ -1744,6 +1751,8 @@ document.write(`
 </li>
         <li><a href="callbacks/cuda.html#fkat.pytorch.callbacks.cuda.Xid.teardown">(fkat.pytorch.callbacks.cuda.Xid method)</a>
 </li>
+        <li><a href="callbacks/crash.html#fkat.pytorch.callbacks.monitoring.CrashDetector.teardown">(fkat.pytorch.callbacks.monitoring.CrashDetector method)</a>, <a href="callbacks/monitoring.html#fkat.pytorch.callbacks.monitoring.CrashDetector.teardown">[1]</a>
+</li>
         <li><a href="callbacks/monitoring.html#fkat.pytorch.callbacks.monitoring.GracefulShutdown.teardown">(fkat.pytorch.callbacks.monitoring.GracefulShutdown method)</a>
 </li>
         <li><a href="callbacks/profiling.html#fkat.pytorch.callbacks.profiling.Memray.teardown">(fkat.pytorch.callbacks.profiling.Memray method)</a>
@@ -1755,10 +1764,10 @@ document.write(`
       </ul></li>
       <li><a href="actions/aws/ec2.html#fkat.pytorch.actions.aws.ec2.TerminateInstances">TerminateInstances (class in fkat.pytorch.actions.aws.ec2)</a>
 </li>
-      <li><a href="actions/aws/batch.html#fkat.pytorch.actions.aws.batch.TerminateJob">TerminateJob (class in fkat.pytorch.actions.aws.batch)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="actions/aws/batch.html#fkat.pytorch.actions.aws.batch.TerminateJob">TerminateJob (class in fkat.pytorch.actions.aws.batch)</a>
+</li>
       <li><a href="utils/config.html#fkat.utils.config.Trainer.test">test() (fkat.utils.config.Trainer method)</a>
 </li>
       <li><a href="data.html#fkat.data.DataModule.test_dataloader">test_dataloader() (fkat.data.DataModule method)</a>
@@ -1874,7 +1883,7 @@ document.write(`
 
   <p class="copyright">
     
-      © Copyright 2025, Amazon.com, Inc. or its affiliates. All Rights Reserved..
+      © Copyright 2026, Amazon.com, Inc. or its affiliates. All Rights Reserved..
       <br/>
     
   </p>

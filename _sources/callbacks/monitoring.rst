@@ -4,6 +4,7 @@
 .. toctree::
    :maxdepth: 1
 
+   crash
    dp
 
 .. currentmodule:: fkat.pytorch.callbacks.monitoring

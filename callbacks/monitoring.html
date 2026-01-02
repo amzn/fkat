@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>monitoring &#8212; FKAT 0.1.0 documentation</title>
+    <title>monitoring &#8212; FKAT 0.1.1 documentation</title>
   
   
   
@@ -45,7 +45,7 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="dp" href="dp.html" />
+    <link rel="next" title="Crash Detector" href="crash.html" />
     <link rel="prev" title="logging" href="logging.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -134,7 +134,7 @@
   
   
   
-    <p class="title logo__title">FKAT 0.1.0 documentation</p>
+    <p class="title logo__title">FKAT 0.1.1 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -174,6 +174,7 @@
 <li class="toctree-l2"><a class="reference internal" href="loggers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">loggers</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="logging.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
 <li class="toctree-l2 current active has-children"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">monitoring</span></code></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="crash.html">Crash Detector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dp.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></a></li>
 </ul>
 </details></li>
@@ -370,6 +371,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector"><code class="docutils literal notranslate"><span class="pre">CrashDetector</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.on_exception"><code class="docutils literal notranslate"><span class="pre">CrashDetector.on_exception()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.setup"><code class="docutils literal notranslate"><span class="pre">CrashDetector.setup()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.teardown"><code class="docutils literal notranslate"><span class="pre">CrashDetector.teardown()</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.DpSyncMonitor"><code class="docutils literal notranslate"><span class="pre">DpSyncMonitor</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.DpSyncMonitor.on_before_optimizer_step"><code class="docutils literal notranslate"><span class="pre">DpSyncMonitor.on_before_optimizer_step()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.DpSyncMonitor.on_train_batch_start"><code class="docutils literal notranslate"><span class="pre">DpSyncMonitor.on_train_batch_start()</span></code></a></li>
@@ -401,10 +408,52 @@ document.write(`
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">monitoring</span></code><a class="headerlink" href="#monitoring" title="Permalink to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="crash.html">Crash Detector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dp.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></a></li>
 </ul>
 </div>
 <span class="target" id="module-fkat.pytorch.callbacks.monitoring"></span><dl class="py class">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.monitoring.CrashDetector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fkat.pytorch.callbacks.monitoring.</span></span><span class="sig-name descname"><span class="pre">CrashDetector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_tag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'error'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crash_info_tag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'crash_info'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/monitoring/crash.html#CrashDetector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.monitoring.CrashDetector" title="Permalink to this definition">#</a></dt>
+<dd><p>Detects process crashes and logs detailed error information.</p>
+<p>Monitors the training process and any spawned subprocesses for crashes.
+Captures PID, rank, error details, and stack traces, logging them to
+the configured Lightning logger.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>error_tag</strong> – Tag for error messages (default: “error”)</p></li>
+<li><p><strong>crash_info_tag</strong> – Tag for crash details (default: “crash_info”)</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">fkat.pytorch.callbacks.monitoring</span><span class="w"> </span><span class="kn">import</span> <span class="n">CrashDetector</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">callback</span> <span class="o">=</span> <span class="n">CrashDetector</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">trainer</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">Trainer</span><span class="p">(</span><span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">callback</span><span class="p">])</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.monitoring.CrashDetector.on_exception">
+<span class="sig-name descname"><span class="pre">on_exception</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exception</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BaseException</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/monitoring/crash.html#CrashDetector.on_exception"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.on_exception" title="Permalink to this definition">#</a></dt>
+<dd><p>Log exception details.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.monitoring.CrashDetector.setup">
+<span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/monitoring/crash.html#CrashDetector.setup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.setup" title="Permalink to this definition">#</a></dt>
+<dd><p>Initialize crash detection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.monitoring.CrashDetector.teardown">
+<span class="sig-name descname"><span class="pre">teardown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/monitoring/crash.html#CrashDetector.teardown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.teardown" title="Permalink to this definition">#</a></dt>
+<dd><p>Check for crashes and cleanup.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="fkat.pytorch.callbacks.monitoring.DpSyncMonitor">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fkat.pytorch.callbacks.monitoring.</span></span><span class="sig-name descname"><span class="pre">DpSyncMonitor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dp_group</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="dp.html#fkat.pytorch.callbacks.monitoring.dp.DpGroupStrategy" title="fkat.pytorch.callbacks.monitoring.dp.DpGroupStrategy"><span class="pre">DpGroupStrategy</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../schedule/base.html#fkat.pytorch.schedule.base.Schedule" title="fkat.pytorch.schedule.base.Schedule"><span class="pre">Schedule</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/monitoring/dp.html#DpSyncMonitor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.monitoring.DpSyncMonitor" title="Permalink to this definition">#</a></dt>
 <dd><p>Monitors time for each DP group to reach synchronization point.
@@ -499,11 +548,11 @@ Measures from batch start to before optimizer step to identify slow/fast groups.
       </div>
     </a>
     <a class="right-next"
-       href="dp.html"
+       href="crash.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dp</span></code></p>
+        <p class="prev-next-title">Crash Detector</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -523,6 +572,12 @@ Measures from batch start to before optimizer step to identify slow/fast groups.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector"><code class="docutils literal notranslate"><span class="pre">CrashDetector</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.on_exception"><code class="docutils literal notranslate"><span class="pre">CrashDetector.on_exception()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.setup"><code class="docutils literal notranslate"><span class="pre">CrashDetector.setup()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.teardown"><code class="docutils literal notranslate"><span class="pre">CrashDetector.teardown()</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.DpSyncMonitor"><code class="docutils literal notranslate"><span class="pre">DpSyncMonitor</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.DpSyncMonitor.on_before_optimizer_step"><code class="docutils literal notranslate"><span class="pre">DpSyncMonitor.on_before_optimizer_step()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.DpSyncMonitor.on_train_batch_start"><code class="docutils literal notranslate"><span class="pre">DpSyncMonitor.on_train_batch_start()</span></code></a></li>
@@ -559,7 +614,7 @@ Measures from batch start to before optimizer step to identify slow/fast groups.
 
   <p class="copyright">
     
-      © Copyright 2025, Amazon.com, Inc. or its affiliates. All Rights Reserved..
+      © Copyright 2026, Amazon.com, Inc. or its affiliates. All Rights Reserved..
       <br/>
     
   </p>
