@@ -400,6 +400,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.logging.Throughput.setup"><code class="docutils literal notranslate"><span class="pre">Throughput.setup()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.logging.ValidationMetrics"><code class="docutils literal notranslate"><span class="pre">ValidationMetrics</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.logging.ValidationMetrics.on_validation_end"><code class="docutils literal notranslate"><span class="pre">ValidationMetrics.on_validation_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.logging.ValidationMetrics.setup"><code class="docutils literal notranslate"><span class="pre">ValidationMetrics.setup()</span></code></a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -589,6 +594,43 @@ loss returned from <code class="docutils literal notranslate"><span class="pre">
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.logging.ValidationMetrics">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fkat.pytorch.callbacks.logging.</span></span><span class="sig-name descname"><span class="pre">ValidationMetrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/logging/validation_metrics.html#ValidationMetrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.logging.ValidationMetrics" title="Permalink to this definition">#</a></dt>
+<dd><p>Saves validation metrics after each validation epoch.</p>
+<p>This callback persists validation metrics in JSON format, creating both
+a versioned file (with epoch and step) and a “latest” file for easy access.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>output_path</strong> (<em>str</em><em> | </em><em>None</em>) – Directory path where metrics will be saved.
+Supports any fsspec-compatible filesystem (local, s3://, gcs://, etc.).
+If None, logs to MLflow artifacts. Defaults to None.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># MLflow artifacts (default)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">callback</span> <span class="o">=</span> <span class="n">ValidationMetrics</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Local storage</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">callback</span> <span class="o">=</span> <span class="n">ValidationMetrics</span><span class="p">(</span><span class="n">output_path</span><span class="o">=</span><span class="s2">&quot;/tmp/metrics&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># S3 storage</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">callback</span> <span class="o">=</span> <span class="n">ValidationMetrics</span><span class="p">(</span><span class="n">output_path</span><span class="o">=</span><span class="s2">&quot;s3://my-bucket/metrics&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">trainer</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">Trainer</span><span class="p">(</span><span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">callback</span><span class="p">])</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.logging.ValidationMetrics.on_validation_end">
+<span class="sig-name descname"><span class="pre">on_validation_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/logging/validation_metrics.html#ValidationMetrics.on_validation_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.logging.ValidationMetrics.on_validation_end" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when the validation loop ends.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fkat.pytorch.callbacks.logging.ValidationMetrics.setup">
+<span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/logging/validation_metrics.html#ValidationMetrics.setup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.logging.ValidationMetrics.setup" title="Permalink to this definition">#</a></dt>
+<dd><p>Called when fit, validate, test, predict, or tune begins.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 
@@ -663,6 +705,11 @@ loss returned from <code class="docutils literal notranslate"><span class="pre">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.logging.Throughput.on_validation_epoch_end"><code class="docutils literal notranslate"><span class="pre">Throughput.on_validation_epoch_end()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.logging.Throughput.on_validation_epoch_start"><code class="docutils literal notranslate"><span class="pre">Throughput.on_validation_epoch_start()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.logging.Throughput.setup"><code class="docutils literal notranslate"><span class="pre">Throughput.setup()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.logging.ValidationMetrics"><code class="docutils literal notranslate"><span class="pre">ValidationMetrics</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.logging.ValidationMetrics.on_validation_end"><code class="docutils literal notranslate"><span class="pre">ValidationMetrics.on_validation_end()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.logging.ValidationMetrics.setup"><code class="docutils literal notranslate"><span class="pre">ValidationMetrics.setup()</span></code></a></li>
 </ul>
 </li>
 </ul>

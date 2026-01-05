@@ -371,12 +371,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector"><code class="docutils literal notranslate"><span class="pre">CrashDetector</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.on_exception"><code class="docutils literal notranslate"><span class="pre">CrashDetector.on_exception()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.setup"><code class="docutils literal notranslate"><span class="pre">CrashDetector.setup()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.teardown"><code class="docutils literal notranslate"><span class="pre">CrashDetector.teardown()</span></code></a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
@@ -395,48 +389,6 @@ document.write(`
                   
   <section id="crash-detector">
 <h1>Crash Detector<a class="headerlink" href="#crash-detector" title="Permalink to this heading">#</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="fkat.pytorch.callbacks.monitoring.CrashDetector">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fkat.pytorch.callbacks.monitoring.</span></span><span class="sig-name descname"><span class="pre">CrashDetector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_tag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'error'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crash_info_tag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'crash_info'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/monitoring/crash.html#CrashDetector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.monitoring.CrashDetector" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Callback</span></code></p>
-<p>Detects process crashes and logs detailed error information.</p>
-<p>Monitors the training process and any spawned subprocesses for crashes.
-Captures PID, rank, error details, and stack traces, logging them to
-the configured Lightning logger.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>error_tag</strong> – Tag for error messages (default: “error”)</p></li>
-<li><p><strong>crash_info_tag</strong> – Tag for crash details (default: “crash_info”)</p></li>
-</ul>
-</dd>
-</dl>
-<p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">fkat.pytorch.callbacks.monitoring</span><span class="w"> </span><span class="kn">import</span> <span class="n">CrashDetector</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">callback</span> <span class="o">=</span> <span class="n">CrashDetector</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">trainer</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">Trainer</span><span class="p">(</span><span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">callback</span><span class="p">])</span>
-</pre></div>
-</div>
-<dl class="py method">
-<dt class="sig sig-object py" id="fkat.pytorch.callbacks.monitoring.CrashDetector.on_exception">
-<span class="sig-name descname"><span class="pre">on_exception</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exception</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BaseException</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/monitoring/crash.html#CrashDetector.on_exception"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.on_exception" title="Permalink to this definition">#</a></dt>
-<dd><p>Log exception details.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="fkat.pytorch.callbacks.monitoring.CrashDetector.setup">
-<span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/monitoring/crash.html#CrashDetector.setup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.setup" title="Permalink to this definition">#</a></dt>
-<dd><p>Initialize crash detection.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="fkat.pytorch.callbacks.monitoring.CrashDetector.teardown">
-<span class="sig-name descname"><span class="pre">teardown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LightningModule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/fkat/pytorch/callbacks/monitoring/crash.html#CrashDetector.teardown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.teardown" title="Permalink to this definition">#</a></dt>
-<dd><p>Check for crashes and cleanup.</p>
-</dd></dl>
-
-</dd></dl>
-
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">CrashDetector</span></code> callback monitors for process crashes during training and logs detailed error information including PID, rank, error messages, and stack traces.</p>
@@ -534,12 +486,6 @@ the configured Lightning logger.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector"><code class="docutils literal notranslate"><span class="pre">CrashDetector</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.on_exception"><code class="docutils literal notranslate"><span class="pre">CrashDetector.on_exception()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.setup"><code class="docutils literal notranslate"><span class="pre">CrashDetector.setup()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fkat.pytorch.callbacks.monitoring.CrashDetector.teardown"><code class="docutils literal notranslate"><span class="pre">CrashDetector.teardown()</span></code></a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
