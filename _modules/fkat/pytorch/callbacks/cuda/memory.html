@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>fkat.pytorch.callbacks.cuda.memory &#8212; FKAT 0.1.1 documentation</title>
+    <title>fkat.pytorch.callbacks.cuda.memory &#8212; FKAT 0.1.2 documentation</title>
   
   
   
@@ -133,7 +133,7 @@
   
   
   
-    <p class="title logo__title">FKAT 0.1.1 documentation</p>
+    <p class="title logo__title">FKAT 0.1.2 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -345,14 +345,15 @@ document.write(`
 <span class="p">)</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fkat.pytorch.loggers</span><span class="w"> </span><span class="kn">import</span> <span class="n">LightningLogger</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fkat.pytorch.callbacks.loggers</span><span class="w"> </span><span class="kn">import</span> <span class="n">CallbackLogger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fkat.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">safe_timestamp</span>
 
 <span class="n">logger</span><span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_artifact_path</span><span class="p">(</span><span class="n">root_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">rank</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">file_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">ext</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
     <span class="n">base_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root_dir</span><span class="p">,</span> <span class="s2">&quot;torch.cuda.memory&quot;</span><span class="p">)</span>
-    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
-    <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;rank</span><span class="si">{</span><span class="n">rank</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">file_type</span><span class="si">}</span><span class="s2">/rank</span><span class="si">{</span><span class="n">rank</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">now</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">ext</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">safe_timestamp</span><span class="p">()</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;rank</span><span class="si">{</span><span class="n">rank</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">file_type</span><span class="si">}</span><span class="s2">/rank</span><span class="si">{</span><span class="n">rank</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">ext</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">file_path</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">base_dir</span><span class="p">,</span> <span class="n">file_path</span>
 
