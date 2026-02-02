@@ -8,7 +8,7 @@ Installing from PyPI
 
 .. code-block:: shell
 
-   pip install amzn-fkat
+   pip install fkat
 
 Installing Locally for Development
 -----------------------------------

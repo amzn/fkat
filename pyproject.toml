@@ -1,5 +1,5 @@
 [project]
-name = "amzn-fkat"
+name = "fkat"
 authors = [
   { name="FKAT Contributors" },
 ]
